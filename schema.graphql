@@ -1,5 +1,6 @@
 type Access {
   canAccessAdmin: Boolean!
+  headshots: headshotsAccess
   home: homeAccess
   machines: machinesAccess
   user_info: user_infoAccess
@@ -15,6 +16,1650 @@ scalar DateTime
 A field whose value conforms to the standard internet email address format as specified in HTML Spec: https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address.
 """
 scalar EmailAddress
+
+type Headshot {
+  alt: String!
+  createdAt: DateTime
+  filename: String
+  filesize: Float
+  height: Float
+  id: String
+  mimeType: String
+  name: String!
+  sizes: Headshot_Sizes
+  updatedAt: DateTime
+  url: String
+  width: Float
+}
+
+type Headshot_Sizes {
+  mobile: Headshot_Sizes_Mobile
+  thumbnail: Headshot_Sizes_Thumbnail
+}
+
+type Headshot_Sizes_Mobile {
+  filename: String
+  filesize: Float
+  height: Float
+  mimeType: String
+  url: String
+  width: Float
+}
+
+type Headshot_Sizes_Thumbnail {
+  filename: String
+  filesize: Float
+  height: Float
+  mimeType: String
+  url: String
+  width: Float
+}
+
+input Headshot_alt_operator {
+  all: [String]
+  contains: String
+  equals: String
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Headshot_createdAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input Headshot_filename_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Headshot_filesize_operator {
+  equals: Float
+  exists: Boolean
+  greater_than: Float
+  greater_than_equal: Float
+  less_than: Float
+  less_than_equal: Float
+  not_equals: Float
+}
+
+input Headshot_height_operator {
+  equals: Float
+  exists: Boolean
+  greater_than: Float
+  greater_than_equal: Float
+  less_than: Float
+  less_than_equal: Float
+  not_equals: Float
+}
+
+input Headshot_id_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Headshot_mimeType_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Headshot_name_operator {
+  all: [String]
+  contains: String
+  equals: String
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Headshot_sizes__mobile__filename_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Headshot_sizes__mobile__filesize_operator {
+  equals: Float
+  exists: Boolean
+  greater_than: Float
+  greater_than_equal: Float
+  less_than: Float
+  less_than_equal: Float
+  not_equals: Float
+}
+
+input Headshot_sizes__mobile__height_operator {
+  equals: Float
+  exists: Boolean
+  greater_than: Float
+  greater_than_equal: Float
+  less_than: Float
+  less_than_equal: Float
+  not_equals: Float
+}
+
+input Headshot_sizes__mobile__mimeType_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Headshot_sizes__mobile__url_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Headshot_sizes__mobile__width_operator {
+  equals: Float
+  exists: Boolean
+  greater_than: Float
+  greater_than_equal: Float
+  less_than: Float
+  less_than_equal: Float
+  not_equals: Float
+}
+
+input Headshot_sizes__thumbnail__filename_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Headshot_sizes__thumbnail__filesize_operator {
+  equals: Float
+  exists: Boolean
+  greater_than: Float
+  greater_than_equal: Float
+  less_than: Float
+  less_than_equal: Float
+  not_equals: Float
+}
+
+input Headshot_sizes__thumbnail__height_operator {
+  equals: Float
+  exists: Boolean
+  greater_than: Float
+  greater_than_equal: Float
+  less_than: Float
+  less_than_equal: Float
+  not_equals: Float
+}
+
+input Headshot_sizes__thumbnail__mimeType_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Headshot_sizes__thumbnail__url_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Headshot_sizes__thumbnail__width_operator {
+  equals: Float
+  exists: Boolean
+  greater_than: Float
+  greater_than_equal: Float
+  less_than: Float
+  less_than_equal: Float
+  not_equals: Float
+}
+
+input Headshot_updatedAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input Headshot_url_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Headshot_where {
+  AND: [Headshot_where_and]
+  OR: [Headshot_where_or]
+  alt: Headshot_alt_operator
+  createdAt: Headshot_createdAt_operator
+  filename: Headshot_filename_operator
+  filesize: Headshot_filesize_operator
+  height: Headshot_height_operator
+  id: Headshot_id_operator
+  mimeType: Headshot_mimeType_operator
+  name: Headshot_name_operator
+  sizes__mobile__filename: Headshot_sizes__mobile__filename_operator
+  sizes__mobile__filesize: Headshot_sizes__mobile__filesize_operator
+  sizes__mobile__height: Headshot_sizes__mobile__height_operator
+  sizes__mobile__mimeType: Headshot_sizes__mobile__mimeType_operator
+  sizes__mobile__url: Headshot_sizes__mobile__url_operator
+  sizes__mobile__width: Headshot_sizes__mobile__width_operator
+  sizes__thumbnail__filename: Headshot_sizes__thumbnail__filename_operator
+  sizes__thumbnail__filesize: Headshot_sizes__thumbnail__filesize_operator
+  sizes__thumbnail__height: Headshot_sizes__thumbnail__height_operator
+  sizes__thumbnail__mimeType: Headshot_sizes__thumbnail__mimeType_operator
+  sizes__thumbnail__url: Headshot_sizes__thumbnail__url_operator
+  sizes__thumbnail__width: Headshot_sizes__thumbnail__width_operator
+  updatedAt: Headshot_updatedAt_operator
+  url: Headshot_url_operator
+  width: Headshot_width_operator
+}
+
+input Headshot_where_and {
+  alt: Headshot_alt_operator
+  createdAt: Headshot_createdAt_operator
+  filename: Headshot_filename_operator
+  filesize: Headshot_filesize_operator
+  height: Headshot_height_operator
+  id: Headshot_id_operator
+  mimeType: Headshot_mimeType_operator
+  name: Headshot_name_operator
+  sizes__mobile__filename: Headshot_sizes__mobile__filename_operator
+  sizes__mobile__filesize: Headshot_sizes__mobile__filesize_operator
+  sizes__mobile__height: Headshot_sizes__mobile__height_operator
+  sizes__mobile__mimeType: Headshot_sizes__mobile__mimeType_operator
+  sizes__mobile__url: Headshot_sizes__mobile__url_operator
+  sizes__mobile__width: Headshot_sizes__mobile__width_operator
+  sizes__thumbnail__filename: Headshot_sizes__thumbnail__filename_operator
+  sizes__thumbnail__filesize: Headshot_sizes__thumbnail__filesize_operator
+  sizes__thumbnail__height: Headshot_sizes__thumbnail__height_operator
+  sizes__thumbnail__mimeType: Headshot_sizes__thumbnail__mimeType_operator
+  sizes__thumbnail__url: Headshot_sizes__thumbnail__url_operator
+  sizes__thumbnail__width: Headshot_sizes__thumbnail__width_operator
+  updatedAt: Headshot_updatedAt_operator
+  url: Headshot_url_operator
+  width: Headshot_width_operator
+}
+
+input Headshot_where_or {
+  alt: Headshot_alt_operator
+  createdAt: Headshot_createdAt_operator
+  filename: Headshot_filename_operator
+  filesize: Headshot_filesize_operator
+  height: Headshot_height_operator
+  id: Headshot_id_operator
+  mimeType: Headshot_mimeType_operator
+  name: Headshot_name_operator
+  sizes__mobile__filename: Headshot_sizes__mobile__filename_operator
+  sizes__mobile__filesize: Headshot_sizes__mobile__filesize_operator
+  sizes__mobile__height: Headshot_sizes__mobile__height_operator
+  sizes__mobile__mimeType: Headshot_sizes__mobile__mimeType_operator
+  sizes__mobile__url: Headshot_sizes__mobile__url_operator
+  sizes__mobile__width: Headshot_sizes__mobile__width_operator
+  sizes__thumbnail__filename: Headshot_sizes__thumbnail__filename_operator
+  sizes__thumbnail__filesize: Headshot_sizes__thumbnail__filesize_operator
+  sizes__thumbnail__height: Headshot_sizes__thumbnail__height_operator
+  sizes__thumbnail__mimeType: Headshot_sizes__thumbnail__mimeType_operator
+  sizes__thumbnail__url: Headshot_sizes__thumbnail__url_operator
+  sizes__thumbnail__width: Headshot_sizes__thumbnail__width_operator
+  updatedAt: Headshot_updatedAt_operator
+  url: Headshot_url_operator
+  width: Headshot_width_operator
+}
+
+input Headshot_width_operator {
+  equals: Float
+  exists: Boolean
+  greater_than: Float
+  greater_than_equal: Float
+  less_than: Float
+  less_than_equal: Float
+  not_equals: Float
+}
+
+type Headshots {
+  docs: [Headshot]
+  hasNextPage: Boolean
+  hasPrevPage: Boolean
+  limit: Int
+  nextPage: Int
+  offset: Int
+  page: Int
+  pagingCounter: Int
+  prevPage: Int
+  totalDocs: Int
+  totalPages: Int
+}
+
+type HeadshotsCreateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type HeadshotsCreateDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type HeadshotsDeleteAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type HeadshotsDeleteDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type HeadshotsDocAccessFields {
+  alt: HeadshotsDocAccessFields_alt
+  createdAt: HeadshotsDocAccessFields_createdAt
+  filename: HeadshotsDocAccessFields_filename
+  filesize: HeadshotsDocAccessFields_filesize
+  height: HeadshotsDocAccessFields_height
+  mimeType: HeadshotsDocAccessFields_mimeType
+  name: HeadshotsDocAccessFields_name
+  sizes: HeadshotsDocAccessFields_sizes
+  updatedAt: HeadshotsDocAccessFields_updatedAt
+  url: HeadshotsDocAccessFields_url
+  width: HeadshotsDocAccessFields_width
+}
+
+type HeadshotsDocAccessFields_alt {
+  create: HeadshotsDocAccessFields_alt_Create
+  delete: HeadshotsDocAccessFields_alt_Delete
+  read: HeadshotsDocAccessFields_alt_Read
+  update: HeadshotsDocAccessFields_alt_Update
+}
+
+type HeadshotsDocAccessFields_alt_Create {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_alt_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_alt_Read {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_alt_Update {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_createdAt {
+  create: HeadshotsDocAccessFields_createdAt_Create
+  delete: HeadshotsDocAccessFields_createdAt_Delete
+  read: HeadshotsDocAccessFields_createdAt_Read
+  update: HeadshotsDocAccessFields_createdAt_Update
+}
+
+type HeadshotsDocAccessFields_createdAt_Create {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_createdAt_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_createdAt_Read {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_createdAt_Update {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_filename {
+  create: HeadshotsDocAccessFields_filename_Create
+  delete: HeadshotsDocAccessFields_filename_Delete
+  read: HeadshotsDocAccessFields_filename_Read
+  update: HeadshotsDocAccessFields_filename_Update
+}
+
+type HeadshotsDocAccessFields_filename_Create {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_filename_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_filename_Read {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_filename_Update {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_filesize {
+  create: HeadshotsDocAccessFields_filesize_Create
+  delete: HeadshotsDocAccessFields_filesize_Delete
+  read: HeadshotsDocAccessFields_filesize_Read
+  update: HeadshotsDocAccessFields_filesize_Update
+}
+
+type HeadshotsDocAccessFields_filesize_Create {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_filesize_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_filesize_Read {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_filesize_Update {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_height {
+  create: HeadshotsDocAccessFields_height_Create
+  delete: HeadshotsDocAccessFields_height_Delete
+  read: HeadshotsDocAccessFields_height_Read
+  update: HeadshotsDocAccessFields_height_Update
+}
+
+type HeadshotsDocAccessFields_height_Create {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_height_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_height_Read {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_height_Update {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_mimeType {
+  create: HeadshotsDocAccessFields_mimeType_Create
+  delete: HeadshotsDocAccessFields_mimeType_Delete
+  read: HeadshotsDocAccessFields_mimeType_Read
+  update: HeadshotsDocAccessFields_mimeType_Update
+}
+
+type HeadshotsDocAccessFields_mimeType_Create {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_mimeType_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_mimeType_Read {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_mimeType_Update {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_name {
+  create: HeadshotsDocAccessFields_name_Create
+  delete: HeadshotsDocAccessFields_name_Delete
+  read: HeadshotsDocAccessFields_name_Read
+  update: HeadshotsDocAccessFields_name_Update
+}
+
+type HeadshotsDocAccessFields_name_Create {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_name_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_name_Read {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_name_Update {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes {
+  create: HeadshotsDocAccessFields_sizes_Create
+  delete: HeadshotsDocAccessFields_sizes_Delete
+  fields: HeadshotsDocAccessFields_sizes_Fields
+  read: HeadshotsDocAccessFields_sizes_Read
+  update: HeadshotsDocAccessFields_sizes_Update
+}
+
+type HeadshotsDocAccessFields_sizes_Create {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_Fields {
+  mobile: HeadshotsDocAccessFields_sizes_mobile
+  thumbnail: HeadshotsDocAccessFields_sizes_thumbnail
+}
+
+type HeadshotsDocAccessFields_sizes_Read {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_Update {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_mobile {
+  create: HeadshotsDocAccessFields_sizes_mobile_Create
+  delete: HeadshotsDocAccessFields_sizes_mobile_Delete
+  fields: HeadshotsDocAccessFields_sizes_mobile_Fields
+  read: HeadshotsDocAccessFields_sizes_mobile_Read
+  update: HeadshotsDocAccessFields_sizes_mobile_Update
+}
+
+type HeadshotsDocAccessFields_sizes_mobile_Create {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_mobile_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_mobile_Fields {
+  filename: HeadshotsDocAccessFields_sizes_mobile_filename
+  filesize: HeadshotsDocAccessFields_sizes_mobile_filesize
+  height: HeadshotsDocAccessFields_sizes_mobile_height
+  mimeType: HeadshotsDocAccessFields_sizes_mobile_mimeType
+  url: HeadshotsDocAccessFields_sizes_mobile_url
+  width: HeadshotsDocAccessFields_sizes_mobile_width
+}
+
+type HeadshotsDocAccessFields_sizes_mobile_Read {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_mobile_Update {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_mobile_filename {
+  create: HeadshotsDocAccessFields_sizes_mobile_filename_Create
+  delete: HeadshotsDocAccessFields_sizes_mobile_filename_Delete
+  read: HeadshotsDocAccessFields_sizes_mobile_filename_Read
+  update: HeadshotsDocAccessFields_sizes_mobile_filename_Update
+}
+
+type HeadshotsDocAccessFields_sizes_mobile_filename_Create {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_mobile_filename_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_mobile_filename_Read {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_mobile_filename_Update {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_mobile_filesize {
+  create: HeadshotsDocAccessFields_sizes_mobile_filesize_Create
+  delete: HeadshotsDocAccessFields_sizes_mobile_filesize_Delete
+  read: HeadshotsDocAccessFields_sizes_mobile_filesize_Read
+  update: HeadshotsDocAccessFields_sizes_mobile_filesize_Update
+}
+
+type HeadshotsDocAccessFields_sizes_mobile_filesize_Create {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_mobile_filesize_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_mobile_filesize_Read {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_mobile_filesize_Update {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_mobile_height {
+  create: HeadshotsDocAccessFields_sizes_mobile_height_Create
+  delete: HeadshotsDocAccessFields_sizes_mobile_height_Delete
+  read: HeadshotsDocAccessFields_sizes_mobile_height_Read
+  update: HeadshotsDocAccessFields_sizes_mobile_height_Update
+}
+
+type HeadshotsDocAccessFields_sizes_mobile_height_Create {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_mobile_height_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_mobile_height_Read {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_mobile_height_Update {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_mobile_mimeType {
+  create: HeadshotsDocAccessFields_sizes_mobile_mimeType_Create
+  delete: HeadshotsDocAccessFields_sizes_mobile_mimeType_Delete
+  read: HeadshotsDocAccessFields_sizes_mobile_mimeType_Read
+  update: HeadshotsDocAccessFields_sizes_mobile_mimeType_Update
+}
+
+type HeadshotsDocAccessFields_sizes_mobile_mimeType_Create {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_mobile_mimeType_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_mobile_mimeType_Read {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_mobile_mimeType_Update {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_mobile_url {
+  create: HeadshotsDocAccessFields_sizes_mobile_url_Create
+  delete: HeadshotsDocAccessFields_sizes_mobile_url_Delete
+  read: HeadshotsDocAccessFields_sizes_mobile_url_Read
+  update: HeadshotsDocAccessFields_sizes_mobile_url_Update
+}
+
+type HeadshotsDocAccessFields_sizes_mobile_url_Create {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_mobile_url_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_mobile_url_Read {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_mobile_url_Update {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_mobile_width {
+  create: HeadshotsDocAccessFields_sizes_mobile_width_Create
+  delete: HeadshotsDocAccessFields_sizes_mobile_width_Delete
+  read: HeadshotsDocAccessFields_sizes_mobile_width_Read
+  update: HeadshotsDocAccessFields_sizes_mobile_width_Update
+}
+
+type HeadshotsDocAccessFields_sizes_mobile_width_Create {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_mobile_width_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_mobile_width_Read {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_mobile_width_Update {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_thumbnail {
+  create: HeadshotsDocAccessFields_sizes_thumbnail_Create
+  delete: HeadshotsDocAccessFields_sizes_thumbnail_Delete
+  fields: HeadshotsDocAccessFields_sizes_thumbnail_Fields
+  read: HeadshotsDocAccessFields_sizes_thumbnail_Read
+  update: HeadshotsDocAccessFields_sizes_thumbnail_Update
+}
+
+type HeadshotsDocAccessFields_sizes_thumbnail_Create {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_thumbnail_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_thumbnail_Fields {
+  filename: HeadshotsDocAccessFields_sizes_thumbnail_filename
+  filesize: HeadshotsDocAccessFields_sizes_thumbnail_filesize
+  height: HeadshotsDocAccessFields_sizes_thumbnail_height
+  mimeType: HeadshotsDocAccessFields_sizes_thumbnail_mimeType
+  url: HeadshotsDocAccessFields_sizes_thumbnail_url
+  width: HeadshotsDocAccessFields_sizes_thumbnail_width
+}
+
+type HeadshotsDocAccessFields_sizes_thumbnail_Read {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_thumbnail_Update {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_thumbnail_filename {
+  create: HeadshotsDocAccessFields_sizes_thumbnail_filename_Create
+  delete: HeadshotsDocAccessFields_sizes_thumbnail_filename_Delete
+  read: HeadshotsDocAccessFields_sizes_thumbnail_filename_Read
+  update: HeadshotsDocAccessFields_sizes_thumbnail_filename_Update
+}
+
+type HeadshotsDocAccessFields_sizes_thumbnail_filename_Create {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_thumbnail_filename_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_thumbnail_filename_Read {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_thumbnail_filename_Update {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_thumbnail_filesize {
+  create: HeadshotsDocAccessFields_sizes_thumbnail_filesize_Create
+  delete: HeadshotsDocAccessFields_sizes_thumbnail_filesize_Delete
+  read: HeadshotsDocAccessFields_sizes_thumbnail_filesize_Read
+  update: HeadshotsDocAccessFields_sizes_thumbnail_filesize_Update
+}
+
+type HeadshotsDocAccessFields_sizes_thumbnail_filesize_Create {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_thumbnail_filesize_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_thumbnail_filesize_Read {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_thumbnail_filesize_Update {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_thumbnail_height {
+  create: HeadshotsDocAccessFields_sizes_thumbnail_height_Create
+  delete: HeadshotsDocAccessFields_sizes_thumbnail_height_Delete
+  read: HeadshotsDocAccessFields_sizes_thumbnail_height_Read
+  update: HeadshotsDocAccessFields_sizes_thumbnail_height_Update
+}
+
+type HeadshotsDocAccessFields_sizes_thumbnail_height_Create {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_thumbnail_height_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_thumbnail_height_Read {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_thumbnail_height_Update {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_thumbnail_mimeType {
+  create: HeadshotsDocAccessFields_sizes_thumbnail_mimeType_Create
+  delete: HeadshotsDocAccessFields_sizes_thumbnail_mimeType_Delete
+  read: HeadshotsDocAccessFields_sizes_thumbnail_mimeType_Read
+  update: HeadshotsDocAccessFields_sizes_thumbnail_mimeType_Update
+}
+
+type HeadshotsDocAccessFields_sizes_thumbnail_mimeType_Create {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_thumbnail_mimeType_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_thumbnail_mimeType_Read {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_thumbnail_mimeType_Update {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_thumbnail_url {
+  create: HeadshotsDocAccessFields_sizes_thumbnail_url_Create
+  delete: HeadshotsDocAccessFields_sizes_thumbnail_url_Delete
+  read: HeadshotsDocAccessFields_sizes_thumbnail_url_Read
+  update: HeadshotsDocAccessFields_sizes_thumbnail_url_Update
+}
+
+type HeadshotsDocAccessFields_sizes_thumbnail_url_Create {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_thumbnail_url_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_thumbnail_url_Read {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_thumbnail_url_Update {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_thumbnail_width {
+  create: HeadshotsDocAccessFields_sizes_thumbnail_width_Create
+  delete: HeadshotsDocAccessFields_sizes_thumbnail_width_Delete
+  read: HeadshotsDocAccessFields_sizes_thumbnail_width_Read
+  update: HeadshotsDocAccessFields_sizes_thumbnail_width_Update
+}
+
+type HeadshotsDocAccessFields_sizes_thumbnail_width_Create {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_thumbnail_width_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_thumbnail_width_Read {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_sizes_thumbnail_width_Update {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_updatedAt {
+  create: HeadshotsDocAccessFields_updatedAt_Create
+  delete: HeadshotsDocAccessFields_updatedAt_Delete
+  read: HeadshotsDocAccessFields_updatedAt_Read
+  update: HeadshotsDocAccessFields_updatedAt_Update
+}
+
+type HeadshotsDocAccessFields_updatedAt_Create {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_updatedAt_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_updatedAt_Read {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_updatedAt_Update {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_url {
+  create: HeadshotsDocAccessFields_url_Create
+  delete: HeadshotsDocAccessFields_url_Delete
+  read: HeadshotsDocAccessFields_url_Read
+  update: HeadshotsDocAccessFields_url_Update
+}
+
+type HeadshotsDocAccessFields_url_Create {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_url_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_url_Read {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_url_Update {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_width {
+  create: HeadshotsDocAccessFields_width_Create
+  delete: HeadshotsDocAccessFields_width_Delete
+  read: HeadshotsDocAccessFields_width_Read
+  update: HeadshotsDocAccessFields_width_Update
+}
+
+type HeadshotsDocAccessFields_width_Create {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_width_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_width_Read {
+  permission: Boolean!
+}
+
+type HeadshotsDocAccessFields_width_Update {
+  permission: Boolean!
+}
+
+type HeadshotsFields {
+  alt: HeadshotsFields_alt
+  createdAt: HeadshotsFields_createdAt
+  filename: HeadshotsFields_filename
+  filesize: HeadshotsFields_filesize
+  height: HeadshotsFields_height
+  mimeType: HeadshotsFields_mimeType
+  name: HeadshotsFields_name
+  sizes: HeadshotsFields_sizes
+  updatedAt: HeadshotsFields_updatedAt
+  url: HeadshotsFields_url
+  width: HeadshotsFields_width
+}
+
+type HeadshotsFields_alt {
+  create: HeadshotsFields_alt_Create
+  delete: HeadshotsFields_alt_Delete
+  read: HeadshotsFields_alt_Read
+  update: HeadshotsFields_alt_Update
+}
+
+type HeadshotsFields_alt_Create {
+  permission: Boolean!
+}
+
+type HeadshotsFields_alt_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsFields_alt_Read {
+  permission: Boolean!
+}
+
+type HeadshotsFields_alt_Update {
+  permission: Boolean!
+}
+
+type HeadshotsFields_createdAt {
+  create: HeadshotsFields_createdAt_Create
+  delete: HeadshotsFields_createdAt_Delete
+  read: HeadshotsFields_createdAt_Read
+  update: HeadshotsFields_createdAt_Update
+}
+
+type HeadshotsFields_createdAt_Create {
+  permission: Boolean!
+}
+
+type HeadshotsFields_createdAt_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsFields_createdAt_Read {
+  permission: Boolean!
+}
+
+type HeadshotsFields_createdAt_Update {
+  permission: Boolean!
+}
+
+type HeadshotsFields_filename {
+  create: HeadshotsFields_filename_Create
+  delete: HeadshotsFields_filename_Delete
+  read: HeadshotsFields_filename_Read
+  update: HeadshotsFields_filename_Update
+}
+
+type HeadshotsFields_filename_Create {
+  permission: Boolean!
+}
+
+type HeadshotsFields_filename_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsFields_filename_Read {
+  permission: Boolean!
+}
+
+type HeadshotsFields_filename_Update {
+  permission: Boolean!
+}
+
+type HeadshotsFields_filesize {
+  create: HeadshotsFields_filesize_Create
+  delete: HeadshotsFields_filesize_Delete
+  read: HeadshotsFields_filesize_Read
+  update: HeadshotsFields_filesize_Update
+}
+
+type HeadshotsFields_filesize_Create {
+  permission: Boolean!
+}
+
+type HeadshotsFields_filesize_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsFields_filesize_Read {
+  permission: Boolean!
+}
+
+type HeadshotsFields_filesize_Update {
+  permission: Boolean!
+}
+
+type HeadshotsFields_height {
+  create: HeadshotsFields_height_Create
+  delete: HeadshotsFields_height_Delete
+  read: HeadshotsFields_height_Read
+  update: HeadshotsFields_height_Update
+}
+
+type HeadshotsFields_height_Create {
+  permission: Boolean!
+}
+
+type HeadshotsFields_height_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsFields_height_Read {
+  permission: Boolean!
+}
+
+type HeadshotsFields_height_Update {
+  permission: Boolean!
+}
+
+type HeadshotsFields_mimeType {
+  create: HeadshotsFields_mimeType_Create
+  delete: HeadshotsFields_mimeType_Delete
+  read: HeadshotsFields_mimeType_Read
+  update: HeadshotsFields_mimeType_Update
+}
+
+type HeadshotsFields_mimeType_Create {
+  permission: Boolean!
+}
+
+type HeadshotsFields_mimeType_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsFields_mimeType_Read {
+  permission: Boolean!
+}
+
+type HeadshotsFields_mimeType_Update {
+  permission: Boolean!
+}
+
+type HeadshotsFields_name {
+  create: HeadshotsFields_name_Create
+  delete: HeadshotsFields_name_Delete
+  read: HeadshotsFields_name_Read
+  update: HeadshotsFields_name_Update
+}
+
+type HeadshotsFields_name_Create {
+  permission: Boolean!
+}
+
+type HeadshotsFields_name_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsFields_name_Read {
+  permission: Boolean!
+}
+
+type HeadshotsFields_name_Update {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes {
+  create: HeadshotsFields_sizes_Create
+  delete: HeadshotsFields_sizes_Delete
+  fields: HeadshotsFields_sizes_Fields
+  read: HeadshotsFields_sizes_Read
+  update: HeadshotsFields_sizes_Update
+}
+
+type HeadshotsFields_sizes_Create {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_Fields {
+  mobile: HeadshotsFields_sizes_mobile
+  thumbnail: HeadshotsFields_sizes_thumbnail
+}
+
+type HeadshotsFields_sizes_Read {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_Update {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_mobile {
+  create: HeadshotsFields_sizes_mobile_Create
+  delete: HeadshotsFields_sizes_mobile_Delete
+  fields: HeadshotsFields_sizes_mobile_Fields
+  read: HeadshotsFields_sizes_mobile_Read
+  update: HeadshotsFields_sizes_mobile_Update
+}
+
+type HeadshotsFields_sizes_mobile_Create {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_mobile_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_mobile_Fields {
+  filename: HeadshotsFields_sizes_mobile_filename
+  filesize: HeadshotsFields_sizes_mobile_filesize
+  height: HeadshotsFields_sizes_mobile_height
+  mimeType: HeadshotsFields_sizes_mobile_mimeType
+  url: HeadshotsFields_sizes_mobile_url
+  width: HeadshotsFields_sizes_mobile_width
+}
+
+type HeadshotsFields_sizes_mobile_Read {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_mobile_Update {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_mobile_filename {
+  create: HeadshotsFields_sizes_mobile_filename_Create
+  delete: HeadshotsFields_sizes_mobile_filename_Delete
+  read: HeadshotsFields_sizes_mobile_filename_Read
+  update: HeadshotsFields_sizes_mobile_filename_Update
+}
+
+type HeadshotsFields_sizes_mobile_filename_Create {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_mobile_filename_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_mobile_filename_Read {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_mobile_filename_Update {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_mobile_filesize {
+  create: HeadshotsFields_sizes_mobile_filesize_Create
+  delete: HeadshotsFields_sizes_mobile_filesize_Delete
+  read: HeadshotsFields_sizes_mobile_filesize_Read
+  update: HeadshotsFields_sizes_mobile_filesize_Update
+}
+
+type HeadshotsFields_sizes_mobile_filesize_Create {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_mobile_filesize_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_mobile_filesize_Read {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_mobile_filesize_Update {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_mobile_height {
+  create: HeadshotsFields_sizes_mobile_height_Create
+  delete: HeadshotsFields_sizes_mobile_height_Delete
+  read: HeadshotsFields_sizes_mobile_height_Read
+  update: HeadshotsFields_sizes_mobile_height_Update
+}
+
+type HeadshotsFields_sizes_mobile_height_Create {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_mobile_height_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_mobile_height_Read {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_mobile_height_Update {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_mobile_mimeType {
+  create: HeadshotsFields_sizes_mobile_mimeType_Create
+  delete: HeadshotsFields_sizes_mobile_mimeType_Delete
+  read: HeadshotsFields_sizes_mobile_mimeType_Read
+  update: HeadshotsFields_sizes_mobile_mimeType_Update
+}
+
+type HeadshotsFields_sizes_mobile_mimeType_Create {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_mobile_mimeType_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_mobile_mimeType_Read {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_mobile_mimeType_Update {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_mobile_url {
+  create: HeadshotsFields_sizes_mobile_url_Create
+  delete: HeadshotsFields_sizes_mobile_url_Delete
+  read: HeadshotsFields_sizes_mobile_url_Read
+  update: HeadshotsFields_sizes_mobile_url_Update
+}
+
+type HeadshotsFields_sizes_mobile_url_Create {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_mobile_url_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_mobile_url_Read {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_mobile_url_Update {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_mobile_width {
+  create: HeadshotsFields_sizes_mobile_width_Create
+  delete: HeadshotsFields_sizes_mobile_width_Delete
+  read: HeadshotsFields_sizes_mobile_width_Read
+  update: HeadshotsFields_sizes_mobile_width_Update
+}
+
+type HeadshotsFields_sizes_mobile_width_Create {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_mobile_width_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_mobile_width_Read {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_mobile_width_Update {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_thumbnail {
+  create: HeadshotsFields_sizes_thumbnail_Create
+  delete: HeadshotsFields_sizes_thumbnail_Delete
+  fields: HeadshotsFields_sizes_thumbnail_Fields
+  read: HeadshotsFields_sizes_thumbnail_Read
+  update: HeadshotsFields_sizes_thumbnail_Update
+}
+
+type HeadshotsFields_sizes_thumbnail_Create {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_thumbnail_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_thumbnail_Fields {
+  filename: HeadshotsFields_sizes_thumbnail_filename
+  filesize: HeadshotsFields_sizes_thumbnail_filesize
+  height: HeadshotsFields_sizes_thumbnail_height
+  mimeType: HeadshotsFields_sizes_thumbnail_mimeType
+  url: HeadshotsFields_sizes_thumbnail_url
+  width: HeadshotsFields_sizes_thumbnail_width
+}
+
+type HeadshotsFields_sizes_thumbnail_Read {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_thumbnail_Update {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_thumbnail_filename {
+  create: HeadshotsFields_sizes_thumbnail_filename_Create
+  delete: HeadshotsFields_sizes_thumbnail_filename_Delete
+  read: HeadshotsFields_sizes_thumbnail_filename_Read
+  update: HeadshotsFields_sizes_thumbnail_filename_Update
+}
+
+type HeadshotsFields_sizes_thumbnail_filename_Create {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_thumbnail_filename_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_thumbnail_filename_Read {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_thumbnail_filename_Update {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_thumbnail_filesize {
+  create: HeadshotsFields_sizes_thumbnail_filesize_Create
+  delete: HeadshotsFields_sizes_thumbnail_filesize_Delete
+  read: HeadshotsFields_sizes_thumbnail_filesize_Read
+  update: HeadshotsFields_sizes_thumbnail_filesize_Update
+}
+
+type HeadshotsFields_sizes_thumbnail_filesize_Create {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_thumbnail_filesize_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_thumbnail_filesize_Read {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_thumbnail_filesize_Update {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_thumbnail_height {
+  create: HeadshotsFields_sizes_thumbnail_height_Create
+  delete: HeadshotsFields_sizes_thumbnail_height_Delete
+  read: HeadshotsFields_sizes_thumbnail_height_Read
+  update: HeadshotsFields_sizes_thumbnail_height_Update
+}
+
+type HeadshotsFields_sizes_thumbnail_height_Create {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_thumbnail_height_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_thumbnail_height_Read {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_thumbnail_height_Update {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_thumbnail_mimeType {
+  create: HeadshotsFields_sizes_thumbnail_mimeType_Create
+  delete: HeadshotsFields_sizes_thumbnail_mimeType_Delete
+  read: HeadshotsFields_sizes_thumbnail_mimeType_Read
+  update: HeadshotsFields_sizes_thumbnail_mimeType_Update
+}
+
+type HeadshotsFields_sizes_thumbnail_mimeType_Create {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_thumbnail_mimeType_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_thumbnail_mimeType_Read {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_thumbnail_mimeType_Update {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_thumbnail_url {
+  create: HeadshotsFields_sizes_thumbnail_url_Create
+  delete: HeadshotsFields_sizes_thumbnail_url_Delete
+  read: HeadshotsFields_sizes_thumbnail_url_Read
+  update: HeadshotsFields_sizes_thumbnail_url_Update
+}
+
+type HeadshotsFields_sizes_thumbnail_url_Create {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_thumbnail_url_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_thumbnail_url_Read {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_thumbnail_url_Update {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_thumbnail_width {
+  create: HeadshotsFields_sizes_thumbnail_width_Create
+  delete: HeadshotsFields_sizes_thumbnail_width_Delete
+  read: HeadshotsFields_sizes_thumbnail_width_Read
+  update: HeadshotsFields_sizes_thumbnail_width_Update
+}
+
+type HeadshotsFields_sizes_thumbnail_width_Create {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_thumbnail_width_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_thumbnail_width_Read {
+  permission: Boolean!
+}
+
+type HeadshotsFields_sizes_thumbnail_width_Update {
+  permission: Boolean!
+}
+
+type HeadshotsFields_updatedAt {
+  create: HeadshotsFields_updatedAt_Create
+  delete: HeadshotsFields_updatedAt_Delete
+  read: HeadshotsFields_updatedAt_Read
+  update: HeadshotsFields_updatedAt_Update
+}
+
+type HeadshotsFields_updatedAt_Create {
+  permission: Boolean!
+}
+
+type HeadshotsFields_updatedAt_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsFields_updatedAt_Read {
+  permission: Boolean!
+}
+
+type HeadshotsFields_updatedAt_Update {
+  permission: Boolean!
+}
+
+type HeadshotsFields_url {
+  create: HeadshotsFields_url_Create
+  delete: HeadshotsFields_url_Delete
+  read: HeadshotsFields_url_Read
+  update: HeadshotsFields_url_Update
+}
+
+type HeadshotsFields_url_Create {
+  permission: Boolean!
+}
+
+type HeadshotsFields_url_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsFields_url_Read {
+  permission: Boolean!
+}
+
+type HeadshotsFields_url_Update {
+  permission: Boolean!
+}
+
+type HeadshotsFields_width {
+  create: HeadshotsFields_width_Create
+  delete: HeadshotsFields_width_Delete
+  read: HeadshotsFields_width_Read
+  update: HeadshotsFields_width_Update
+}
+
+type HeadshotsFields_width_Create {
+  permission: Boolean!
+}
+
+type HeadshotsFields_width_Delete {
+  permission: Boolean!
+}
+
+type HeadshotsFields_width_Read {
+  permission: Boolean!
+}
+
+type HeadshotsFields_width_Update {
+  permission: Boolean!
+}
+
+type HeadshotsReadAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type HeadshotsReadDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type HeadshotsUpdateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type HeadshotsUpdateDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
 
 type Home {
   createdAt: DateTime
@@ -674,8 +2319,10 @@ type MachinesUpdateDocAccess {
 }
 
 type Mutation {
+  createHeadshot(data: mutationHeadshotInput!, draft: Boolean): Headshot
   createMachine(data: mutationMachineInput!, draft: Boolean): Machine
   createUser(data: mutationUserInput!, draft: Boolean): User
+  deleteHeadshot(id: String!): Headshot
   deleteMachine(id: String!): Machine
   deletePreference(key: String!): Preference
   deleteUser(id: String!): User
@@ -687,6 +2334,7 @@ type Mutation {
   refreshTokenUser(token: String): usersRefreshedUser
   resetPasswordUser(password: String, token: String): usersResetPassword
   unlockUser(email: String!): Boolean!
+  updateHeadshot(autosave: Boolean, data: mutationHeadshotUpdateInput!, draft: Boolean, id: String!): Headshot
   updateHome(data: mutationHomeInput!, draft: Boolean): Home
   updateMachine(autosave: Boolean, data: mutationMachineUpdateInput!, draft: Boolean, id: String!): Machine
   updatePreference(key: String!, value: JSON): Preference
@@ -704,6 +2352,8 @@ type Preference {
 
 type Query {
   Access: Access
+  Headshot(draft: Boolean, id: String!): Headshot
+  Headshots(draft: Boolean, limit: Int, page: Int, sort: String, where: Headshot_where): Headshots
   Home(draft: Boolean): Home
   Machine(draft: Boolean, id: String!): Machine
   Machines(draft: Boolean, limit: Int, page: Int, sort: String, where: Machine_where): Machines
@@ -711,6 +2361,7 @@ type Query {
   User(draft: Boolean, id: String!): User
   UserInfo(draft: Boolean): UserInfo
   Users(draft: Boolean, limit: Int, page: Int, sort: String, where: User_where): Users
+  docAccessHeadshot(id: String!): headshotsDocAccess
   docAccessHome: homeDocAccess
   docAccessMachine(id: String!): machinesDocAccess
   docAccessUser(id: String!): usersDocAccess
@@ -1446,6 +3097,22 @@ type UsersUpdateDocAccess {
   where: JSONObject
 }
 
+type headshotsAccess {
+  create: HeadshotsCreateAccess
+  delete: HeadshotsDeleteAccess
+  fields: HeadshotsFields
+  read: HeadshotsReadAccess
+  update: HeadshotsUpdateAccess
+}
+
+type headshotsDocAccess {
+  create: HeadshotsCreateDocAccess
+  delete: HeadshotsDeleteDocAccess
+  fields: HeadshotsDocAccessFields
+  read: HeadshotsReadDocAccess
+  update: HeadshotsUpdateDocAccess
+}
+
 type homeAccess {
   fields: HomeFields
   read: HomeReadAccess
@@ -1491,6 +3158,80 @@ type machinesRefreshedMachine {
   exp: Int
   refreshedToken: String
   user: machinesJWT
+}
+
+input mutationHeadshotInput {
+  alt: String!
+  createdAt: String
+  filename: String
+  filesize: Float
+  height: Float
+  mimeType: String
+  name: String!
+  sizes: mutationHeadshot_SizesInput
+  updatedAt: String
+  url: String
+  width: Float
+}
+
+input mutationHeadshotUpdateInput {
+  alt: String
+  createdAt: String
+  filename: String
+  filesize: Float
+  height: Float
+  mimeType: String
+  name: String
+  sizes: mutationHeadshotUpdate_SizesInput
+  updatedAt: String
+  url: String
+  width: Float
+}
+
+input mutationHeadshotUpdate_SizesInput {
+  mobile: mutationHeadshotUpdate_Sizes_MobileInput
+  thumbnail: mutationHeadshotUpdate_Sizes_ThumbnailInput
+}
+
+input mutationHeadshotUpdate_Sizes_MobileInput {
+  filename: String
+  filesize: Float
+  height: Float
+  mimeType: String
+  url: String
+  width: Float
+}
+
+input mutationHeadshotUpdate_Sizes_ThumbnailInput {
+  filename: String
+  filesize: Float
+  height: Float
+  mimeType: String
+  url: String
+  width: Float
+}
+
+input mutationHeadshot_SizesInput {
+  mobile: mutationHeadshot_Sizes_MobileInput
+  thumbnail: mutationHeadshot_Sizes_ThumbnailInput
+}
+
+input mutationHeadshot_Sizes_MobileInput {
+  filename: String
+  filesize: Float
+  height: Float
+  mimeType: String
+  url: String
+  width: Float
+}
+
+input mutationHeadshot_Sizes_ThumbnailInput {
+  filename: String
+  filesize: Float
+  height: Float
+  mimeType: String
+  url: String
+  width: Float
 }
 
 input mutationHomeInput {

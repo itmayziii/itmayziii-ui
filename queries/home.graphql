@@ -10,4 +10,15 @@ query Home {
     createdAt
     updatedAt
   }
+  Headshots(where: { name: { equals: "Professional" } }) {
+    docs {
+      alt
+      sizes {
+        mobile {
+          filename
+          url
+        }
+      }
+    }
+  }
 }

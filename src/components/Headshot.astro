@@ -1,0 +1,29 @@
+---
+interface Props {
+  url
+  alt
+}
+
+const { url, alt } = Astro.props
+---
+
+<button type='button' data-js-headshot-btn>
+  <img
+    class='headshot rounded-full h-64 w-64 border-primary border-4'
+    src={url}
+    alt={alt}
+    data-js-headshot-img
+  />
+</button>
+
+<script>
+  const headshotBtnEl = document.querySelector('[data-js-headshot-btn]')
+  const headshotImgEl = document.querySelector('[data-js-headshot-img]')
+
+  let color = false
+  headshotBtnEl.addEventListener('click', (event) => {
+    color = !color
+
+    headshotImgEl.style.filter = `grayscale(${color ? 0 : 1})`
+  })
+</script>

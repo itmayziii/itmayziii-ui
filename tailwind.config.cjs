@@ -8,8 +8,11 @@ module.exports = {
 			transparent: 'transparent',
 			current: 'currentColor',
 			white: '#ffffff',
-			'dark-gray': '#111827',
-			primary: '#2563EB'
+			primary: '#2563EB',
+			background: '#111827',
+
+			// Need better names for these
+			'gray-800': '#1f2937'
 		},
 		extend: {
 			fontFamily: {

@@ -1,23 +1,24 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import graphqlFetch from '../graphql-fetch'
+import Headshot from '../components/Headshot.astro'
 
 const response = await graphqlFetch('home', 'Home')
 const cmsData = (await response.json()).data
-
-const firstCharacter = cmsData.UserInfo.firstName.charAt(0)
+const headshotUrl = cmsData.Headshots.docs[0].sizes.mobile.url
+const headshotAlt = cmsData.Headshots.docs[0].alt
 ---
 
-<Layout title='Tommy May III'>
+<Layout title='Tommy May III' firstName={cmsData.UserInfo.firstName} lastName={cmsData.UserInfo.lastName}>
   <main>
-    <div class='flex items-center'>
-			<span class='uppercase bg-primary text-white w-6 h-6 rounded-full flex items-center justify-center'>
-				{firstCharacter}
-			</span>
-      <h1 class='text-white capitalize ml-2'>{cmsData.UserInfo.firstName}&nbsp;{cmsData.UserInfo.lastName}</h1>
-    </div>
+    <Headshot url={`http://localhost:3000${headshotUrl}`} alt={headshotAlt} />
+    <h1>hello world</h1>
   </main>
 </Layout>
 
 <style>
+  .headshot {
+    filter: grayscale(100%);
+  }
 </style>
+

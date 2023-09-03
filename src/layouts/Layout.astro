@@ -1,18 +1,21 @@
 ---
-import Nav from '../components/Nav.astro'
-import Head from '../components/Head.astro'
+import Header from '../components/Header.astro'
 interface Props {
-	title: string;
+	title: string
+	firstName: string
+	lastName: string
 }
 
-const { title } = Astro.props;
+import Head from '../components/Head.astro'
+
+const { title, firstName, lastName } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
-	<Head />
-	<Nav />
-	<body class='bg-dark-gray font-roboto'>
+<html lang='en'>
+	<Head title={title} />
+	<body class='bg-background font-roboto'>
+		<Header firstName={firstName} lastName={lastName} />
 		<slot />
 	</body>
 </html>

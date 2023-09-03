@@ -17,7 +17,7 @@ export default async function graphqlFetch(query: string, operationName: string)
     throw new Error(`Could not find GraphQL query at ${queryPath}`)
   }
 
-  return fetch(import.meta.env.CMS_API_URL, {
+  return fetch(import.meta.env.CMS_GRAPHQL_API_URL, {
     method: 'POST',
     headers: {
       'content-type': 'application/json',

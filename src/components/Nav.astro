@@ -1,5 +1,12 @@
 ---
+interface Props {
+  firstName: string
+  lastName: string
+}
+
 import HamburgerMenu from './HamburgerMenu.astro'
+
+const { firstName, lastName } = Astro.props;
 ---
 
 <nav>

@@ -1,0 +1,16 @@
+---
+interface Props {
+  firstName: string
+  lastName: string
+}
+
+const {firstName, lastName} = Astro.props
+const firstCharacter = firstName.charAt(0)
+---
+
+<div class='flex items-center'>
+  <span class='uppercase bg-primary text-white w-6 h-6 rounded-full flex items-center justify-center'>
+    {firstCharacter}
+  </span>
+  <div class='text-white capitalize ml-2'>{firstName}&nbsp;{lastName}</div>
+</div>
