@@ -1,0 +1,16 @@
+---
+import HamburgerMenu from './HamburgerMenu.astro'
+---
+
+<nav>
+  <HamburgerMenu />
+</nav>
+
+<script>
+  const hamburgerMenuEls = document.querySelectorAll('[data-js-hamburger-menu]')
+  hamburgerMenuEls.forEach((hamburgerMenuEl) => {
+    hamburgerMenuEl.addEventListener('click', (event) => {
+      event.currentTarget.classList.toggle('open')
+    })
+  })
+</script>

@@ -1,0 +1,1618 @@
+type Access {
+  canAccessAdmin: Boolean!
+  home: homeAccess
+  machines: machinesAccess
+  user_info: user_infoAccess
+  users: usersAccess
+}
+
+"""
+A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+"""
+scalar DateTime
+
+"""
+A field whose value conforms to the standard internet email address format as specified in HTML Spec: https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address.
+"""
+scalar EmailAddress
+
+type Home {
+  createdAt: DateTime
+  description: String!
+  updatedAt: DateTime
+}
+
+type HomeDocAccessFields {
+  createdAt: HomeDocAccessFields_createdAt
+  description: HomeDocAccessFields_description
+  updatedAt: HomeDocAccessFields_updatedAt
+}
+
+type HomeDocAccessFields_createdAt {
+  create: HomeDocAccessFields_createdAt_Create
+  delete: HomeDocAccessFields_createdAt_Delete
+  read: HomeDocAccessFields_createdAt_Read
+  update: HomeDocAccessFields_createdAt_Update
+}
+
+type HomeDocAccessFields_createdAt_Create {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_createdAt_Delete {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_createdAt_Read {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_createdAt_Update {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_description {
+  create: HomeDocAccessFields_description_Create
+  delete: HomeDocAccessFields_description_Delete
+  read: HomeDocAccessFields_description_Read
+  update: HomeDocAccessFields_description_Update
+}
+
+type HomeDocAccessFields_description_Create {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_description_Delete {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_description_Read {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_description_Update {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_updatedAt {
+  create: HomeDocAccessFields_updatedAt_Create
+  delete: HomeDocAccessFields_updatedAt_Delete
+  read: HomeDocAccessFields_updatedAt_Read
+  update: HomeDocAccessFields_updatedAt_Update
+}
+
+type HomeDocAccessFields_updatedAt_Create {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_updatedAt_Delete {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_updatedAt_Read {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_updatedAt_Update {
+  permission: Boolean!
+}
+
+type HomeFields {
+  createdAt: HomeFields_createdAt
+  description: HomeFields_description
+  updatedAt: HomeFields_updatedAt
+}
+
+type HomeFields_createdAt {
+  create: HomeFields_createdAt_Create
+  delete: HomeFields_createdAt_Delete
+  read: HomeFields_createdAt_Read
+  update: HomeFields_createdAt_Update
+}
+
+type HomeFields_createdAt_Create {
+  permission: Boolean!
+}
+
+type HomeFields_createdAt_Delete {
+  permission: Boolean!
+}
+
+type HomeFields_createdAt_Read {
+  permission: Boolean!
+}
+
+type HomeFields_createdAt_Update {
+  permission: Boolean!
+}
+
+type HomeFields_description {
+  create: HomeFields_description_Create
+  delete: HomeFields_description_Delete
+  read: HomeFields_description_Read
+  update: HomeFields_description_Update
+}
+
+type HomeFields_description_Create {
+  permission: Boolean!
+}
+
+type HomeFields_description_Delete {
+  permission: Boolean!
+}
+
+type HomeFields_description_Read {
+  permission: Boolean!
+}
+
+type HomeFields_description_Update {
+  permission: Boolean!
+}
+
+type HomeFields_updatedAt {
+  create: HomeFields_updatedAt_Create
+  delete: HomeFields_updatedAt_Delete
+  read: HomeFields_updatedAt_Read
+  update: HomeFields_updatedAt_Update
+}
+
+type HomeFields_updatedAt_Create {
+  permission: Boolean!
+}
+
+type HomeFields_updatedAt_Delete {
+  permission: Boolean!
+}
+
+type HomeFields_updatedAt_Read {
+  permission: Boolean!
+}
+
+type HomeFields_updatedAt_Update {
+  permission: Boolean!
+}
+
+type HomeReadAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type HomeReadDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type HomeUpdateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type HomeUpdateDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
+"""
+The `JSONObject` scalar type represents JSON objects as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSONObject
+
+type Machine {
+  apiKey: String
+  apiKeyIndex: String
+  createdAt: DateTime
+  description: String!
+  enableAPIKey: Boolean
+  id: String
+  name: String!
+  updatedAt: DateTime
+}
+
+input Machine_apiKey_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Machine_createdAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input Machine_description_operator {
+  all: [String]
+  contains: String
+  equals: String
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Machine_enableAPIKey_operator {
+  equals: Boolean
+  exists: Boolean
+  not_equals: Boolean
+}
+
+input Machine_id_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Machine_name_operator {
+  all: [String]
+  contains: String
+  equals: String
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Machine_updatedAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input Machine_where {
+  AND: [Machine_where_and]
+  OR: [Machine_where_or]
+  apiKey: Machine_apiKey_operator
+  createdAt: Machine_createdAt_operator
+  description: Machine_description_operator
+  enableAPIKey: Machine_enableAPIKey_operator
+  id: Machine_id_operator
+  name: Machine_name_operator
+  updatedAt: Machine_updatedAt_operator
+}
+
+input Machine_where_and {
+  apiKey: Machine_apiKey_operator
+  createdAt: Machine_createdAt_operator
+  description: Machine_description_operator
+  enableAPIKey: Machine_enableAPIKey_operator
+  id: Machine_id_operator
+  name: Machine_name_operator
+  updatedAt: Machine_updatedAt_operator
+}
+
+input Machine_where_or {
+  apiKey: Machine_apiKey_operator
+  createdAt: Machine_createdAt_operator
+  description: Machine_description_operator
+  enableAPIKey: Machine_enableAPIKey_operator
+  id: Machine_id_operator
+  name: Machine_name_operator
+  updatedAt: Machine_updatedAt_operator
+}
+
+type Machines {
+  docs: [Machine]
+  hasNextPage: Boolean
+  hasPrevPage: Boolean
+  limit: Int
+  nextPage: Int
+  offset: Int
+  page: Int
+  pagingCounter: Int
+  prevPage: Int
+  totalDocs: Int
+  totalPages: Int
+}
+
+type MachinesCreateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type MachinesCreateDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type MachinesDeleteAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type MachinesDeleteDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type MachinesDocAccessFields {
+  apiKey: MachinesDocAccessFields_apiKey
+  createdAt: MachinesDocAccessFields_createdAt
+  description: MachinesDocAccessFields_description
+  enableAPIKey: MachinesDocAccessFields_enableAPIKey
+  name: MachinesDocAccessFields_name
+  updatedAt: MachinesDocAccessFields_updatedAt
+}
+
+type MachinesDocAccessFields_apiKey {
+  create: MachinesDocAccessFields_apiKey_Create
+  delete: MachinesDocAccessFields_apiKey_Delete
+  read: MachinesDocAccessFields_apiKey_Read
+  update: MachinesDocAccessFields_apiKey_Update
+}
+
+type MachinesDocAccessFields_apiKey_Create {
+  permission: Boolean!
+}
+
+type MachinesDocAccessFields_apiKey_Delete {
+  permission: Boolean!
+}
+
+type MachinesDocAccessFields_apiKey_Read {
+  permission: Boolean!
+}
+
+type MachinesDocAccessFields_apiKey_Update {
+  permission: Boolean!
+}
+
+type MachinesDocAccessFields_createdAt {
+  create: MachinesDocAccessFields_createdAt_Create
+  delete: MachinesDocAccessFields_createdAt_Delete
+  read: MachinesDocAccessFields_createdAt_Read
+  update: MachinesDocAccessFields_createdAt_Update
+}
+
+type MachinesDocAccessFields_createdAt_Create {
+  permission: Boolean!
+}
+
+type MachinesDocAccessFields_createdAt_Delete {
+  permission: Boolean!
+}
+
+type MachinesDocAccessFields_createdAt_Read {
+  permission: Boolean!
+}
+
+type MachinesDocAccessFields_createdAt_Update {
+  permission: Boolean!
+}
+
+type MachinesDocAccessFields_description {
+  create: MachinesDocAccessFields_description_Create
+  delete: MachinesDocAccessFields_description_Delete
+  read: MachinesDocAccessFields_description_Read
+  update: MachinesDocAccessFields_description_Update
+}
+
+type MachinesDocAccessFields_description_Create {
+  permission: Boolean!
+}
+
+type MachinesDocAccessFields_description_Delete {
+  permission: Boolean!
+}
+
+type MachinesDocAccessFields_description_Read {
+  permission: Boolean!
+}
+
+type MachinesDocAccessFields_description_Update {
+  permission: Boolean!
+}
+
+type MachinesDocAccessFields_enableAPIKey {
+  create: MachinesDocAccessFields_enableAPIKey_Create
+  delete: MachinesDocAccessFields_enableAPIKey_Delete
+  read: MachinesDocAccessFields_enableAPIKey_Read
+  update: MachinesDocAccessFields_enableAPIKey_Update
+}
+
+type MachinesDocAccessFields_enableAPIKey_Create {
+  permission: Boolean!
+}
+
+type MachinesDocAccessFields_enableAPIKey_Delete {
+  permission: Boolean!
+}
+
+type MachinesDocAccessFields_enableAPIKey_Read {
+  permission: Boolean!
+}
+
+type MachinesDocAccessFields_enableAPIKey_Update {
+  permission: Boolean!
+}
+
+type MachinesDocAccessFields_name {
+  create: MachinesDocAccessFields_name_Create
+  delete: MachinesDocAccessFields_name_Delete
+  read: MachinesDocAccessFields_name_Read
+  update: MachinesDocAccessFields_name_Update
+}
+
+type MachinesDocAccessFields_name_Create {
+  permission: Boolean!
+}
+
+type MachinesDocAccessFields_name_Delete {
+  permission: Boolean!
+}
+
+type MachinesDocAccessFields_name_Read {
+  permission: Boolean!
+}
+
+type MachinesDocAccessFields_name_Update {
+  permission: Boolean!
+}
+
+type MachinesDocAccessFields_updatedAt {
+  create: MachinesDocAccessFields_updatedAt_Create
+  delete: MachinesDocAccessFields_updatedAt_Delete
+  read: MachinesDocAccessFields_updatedAt_Read
+  update: MachinesDocAccessFields_updatedAt_Update
+}
+
+type MachinesDocAccessFields_updatedAt_Create {
+  permission: Boolean!
+}
+
+type MachinesDocAccessFields_updatedAt_Delete {
+  permission: Boolean!
+}
+
+type MachinesDocAccessFields_updatedAt_Read {
+  permission: Boolean!
+}
+
+type MachinesDocAccessFields_updatedAt_Update {
+  permission: Boolean!
+}
+
+type MachinesFields {
+  apiKey: MachinesFields_apiKey
+  createdAt: MachinesFields_createdAt
+  description: MachinesFields_description
+  enableAPIKey: MachinesFields_enableAPIKey
+  name: MachinesFields_name
+  updatedAt: MachinesFields_updatedAt
+}
+
+type MachinesFields_apiKey {
+  create: MachinesFields_apiKey_Create
+  delete: MachinesFields_apiKey_Delete
+  read: MachinesFields_apiKey_Read
+  update: MachinesFields_apiKey_Update
+}
+
+type MachinesFields_apiKey_Create {
+  permission: Boolean!
+}
+
+type MachinesFields_apiKey_Delete {
+  permission: Boolean!
+}
+
+type MachinesFields_apiKey_Read {
+  permission: Boolean!
+}
+
+type MachinesFields_apiKey_Update {
+  permission: Boolean!
+}
+
+type MachinesFields_createdAt {
+  create: MachinesFields_createdAt_Create
+  delete: MachinesFields_createdAt_Delete
+  read: MachinesFields_createdAt_Read
+  update: MachinesFields_createdAt_Update
+}
+
+type MachinesFields_createdAt_Create {
+  permission: Boolean!
+}
+
+type MachinesFields_createdAt_Delete {
+  permission: Boolean!
+}
+
+type MachinesFields_createdAt_Read {
+  permission: Boolean!
+}
+
+type MachinesFields_createdAt_Update {
+  permission: Boolean!
+}
+
+type MachinesFields_description {
+  create: MachinesFields_description_Create
+  delete: MachinesFields_description_Delete
+  read: MachinesFields_description_Read
+  update: MachinesFields_description_Update
+}
+
+type MachinesFields_description_Create {
+  permission: Boolean!
+}
+
+type MachinesFields_description_Delete {
+  permission: Boolean!
+}
+
+type MachinesFields_description_Read {
+  permission: Boolean!
+}
+
+type MachinesFields_description_Update {
+  permission: Boolean!
+}
+
+type MachinesFields_enableAPIKey {
+  create: MachinesFields_enableAPIKey_Create
+  delete: MachinesFields_enableAPIKey_Delete
+  read: MachinesFields_enableAPIKey_Read
+  update: MachinesFields_enableAPIKey_Update
+}
+
+type MachinesFields_enableAPIKey_Create {
+  permission: Boolean!
+}
+
+type MachinesFields_enableAPIKey_Delete {
+  permission: Boolean!
+}
+
+type MachinesFields_enableAPIKey_Read {
+  permission: Boolean!
+}
+
+type MachinesFields_enableAPIKey_Update {
+  permission: Boolean!
+}
+
+type MachinesFields_name {
+  create: MachinesFields_name_Create
+  delete: MachinesFields_name_Delete
+  read: MachinesFields_name_Read
+  update: MachinesFields_name_Update
+}
+
+type MachinesFields_name_Create {
+  permission: Boolean!
+}
+
+type MachinesFields_name_Delete {
+  permission: Boolean!
+}
+
+type MachinesFields_name_Read {
+  permission: Boolean!
+}
+
+type MachinesFields_name_Update {
+  permission: Boolean!
+}
+
+type MachinesFields_updatedAt {
+  create: MachinesFields_updatedAt_Create
+  delete: MachinesFields_updatedAt_Delete
+  read: MachinesFields_updatedAt_Read
+  update: MachinesFields_updatedAt_Update
+}
+
+type MachinesFields_updatedAt_Create {
+  permission: Boolean!
+}
+
+type MachinesFields_updatedAt_Delete {
+  permission: Boolean!
+}
+
+type MachinesFields_updatedAt_Read {
+  permission: Boolean!
+}
+
+type MachinesFields_updatedAt_Update {
+  permission: Boolean!
+}
+
+type MachinesReadAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type MachinesReadDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type MachinesUnlockAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type MachinesUnlockDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type MachinesUpdateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type MachinesUpdateDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type Mutation {
+  createMachine(data: mutationMachineInput!, draft: Boolean): Machine
+  createUser(data: mutationUserInput!, draft: Boolean): User
+  deleteMachine(id: String!): Machine
+  deletePreference(key: String!): Preference
+  deleteUser(id: String!): User
+  forgotPasswordUser(disableEmail: Boolean, email: String!, expiration: Int): Boolean!
+  loginUser(email: String, password: String): usersLoginResult
+  logoutMachine: String
+  logoutUser: String
+  refreshTokenMachine(token: String): machinesRefreshedMachine
+  refreshTokenUser(token: String): usersRefreshedUser
+  resetPasswordUser(password: String, token: String): usersResetPassword
+  unlockUser(email: String!): Boolean!
+  updateHome(data: mutationHomeInput!, draft: Boolean): Home
+  updateMachine(autosave: Boolean, data: mutationMachineUpdateInput!, draft: Boolean, id: String!): Machine
+  updatePreference(key: String!, value: JSON): Preference
+  updateUser(autosave: Boolean, data: mutationUserUpdateInput!, draft: Boolean, id: String!): User
+  updateUserInfo(data: mutationUserInfoInput!, draft: Boolean): UserInfo
+  verifyEmailUser(token: String): Boolean
+}
+
+type Preference {
+  createdAt: DateTime!
+  key: String!
+  updatedAt: DateTime!
+  value: JSON
+}
+
+type Query {
+  Access: Access
+  Home(draft: Boolean): Home
+  Machine(draft: Boolean, id: String!): Machine
+  Machines(draft: Boolean, limit: Int, page: Int, sort: String, where: Machine_where): Machines
+  Preference(key: String): Preference
+  User(draft: Boolean, id: String!): User
+  UserInfo(draft: Boolean): UserInfo
+  Users(draft: Boolean, limit: Int, page: Int, sort: String, where: User_where): Users
+  docAccessHome: homeDocAccess
+  docAccessMachine(id: String!): machinesDocAccess
+  docAccessUser(id: String!): usersDocAccess
+  docAccessUserInfo: user_infoDocAccess
+  initializedMachine: Boolean
+  initializedUser: Boolean
+  meMachine: machinesMe
+  meUser: usersMe
+}
+
+type User {
+  createdAt: DateTime
+  email: EmailAddress!
+  hash: String
+  id: String
+  lockUntil: DateTime
+  loginAttempts: Float
+  password: String!
+  resetPasswordExpiration: DateTime
+  resetPasswordToken: String
+  salt: String
+  updatedAt: DateTime
+}
+
+type UserInfo {
+  createdAt: DateTime
+  firstName: String!
+  lastName: String!
+  titles: [UserInfo_Titles!]!
+  updatedAt: DateTime
+}
+
+type UserInfoDocAccessFields {
+  createdAt: UserInfoDocAccessFields_createdAt
+  firstName: UserInfoDocAccessFields_firstName
+  lastName: UserInfoDocAccessFields_lastName
+  titles: UserInfoDocAccessFields_titles
+  updatedAt: UserInfoDocAccessFields_updatedAt
+}
+
+type UserInfoDocAccessFields_createdAt {
+  create: UserInfoDocAccessFields_createdAt_Create
+  delete: UserInfoDocAccessFields_createdAt_Delete
+  read: UserInfoDocAccessFields_createdAt_Read
+  update: UserInfoDocAccessFields_createdAt_Update
+}
+
+type UserInfoDocAccessFields_createdAt_Create {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_createdAt_Delete {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_createdAt_Read {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_createdAt_Update {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_firstName {
+  create: UserInfoDocAccessFields_firstName_Create
+  delete: UserInfoDocAccessFields_firstName_Delete
+  read: UserInfoDocAccessFields_firstName_Read
+  update: UserInfoDocAccessFields_firstName_Update
+}
+
+type UserInfoDocAccessFields_firstName_Create {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_firstName_Delete {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_firstName_Read {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_firstName_Update {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_lastName {
+  create: UserInfoDocAccessFields_lastName_Create
+  delete: UserInfoDocAccessFields_lastName_Delete
+  read: UserInfoDocAccessFields_lastName_Read
+  update: UserInfoDocAccessFields_lastName_Update
+}
+
+type UserInfoDocAccessFields_lastName_Create {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_lastName_Delete {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_lastName_Read {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_lastName_Update {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_titles {
+  create: UserInfoDocAccessFields_titles_Create
+  delete: UserInfoDocAccessFields_titles_Delete
+  fields: UserInfoDocAccessFields_titles_Fields
+  read: UserInfoDocAccessFields_titles_Read
+  update: UserInfoDocAccessFields_titles_Update
+}
+
+type UserInfoDocAccessFields_titles_Create {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_titles_Delete {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_titles_Fields {
+  id: UserInfoDocAccessFields_titles_id
+  title: UserInfoDocAccessFields_titles_title
+}
+
+type UserInfoDocAccessFields_titles_Read {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_titles_Update {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_titles_id {
+  create: UserInfoDocAccessFields_titles_id_Create
+  delete: UserInfoDocAccessFields_titles_id_Delete
+  read: UserInfoDocAccessFields_titles_id_Read
+  update: UserInfoDocAccessFields_titles_id_Update
+}
+
+type UserInfoDocAccessFields_titles_id_Create {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_titles_id_Delete {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_titles_id_Read {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_titles_id_Update {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_titles_title {
+  create: UserInfoDocAccessFields_titles_title_Create
+  delete: UserInfoDocAccessFields_titles_title_Delete
+  read: UserInfoDocAccessFields_titles_title_Read
+  update: UserInfoDocAccessFields_titles_title_Update
+}
+
+type UserInfoDocAccessFields_titles_title_Create {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_titles_title_Delete {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_titles_title_Read {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_titles_title_Update {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_updatedAt {
+  create: UserInfoDocAccessFields_updatedAt_Create
+  delete: UserInfoDocAccessFields_updatedAt_Delete
+  read: UserInfoDocAccessFields_updatedAt_Read
+  update: UserInfoDocAccessFields_updatedAt_Update
+}
+
+type UserInfoDocAccessFields_updatedAt_Create {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_updatedAt_Delete {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_updatedAt_Read {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_updatedAt_Update {
+  permission: Boolean!
+}
+
+type UserInfoFields {
+  createdAt: UserInfoFields_createdAt
+  firstName: UserInfoFields_firstName
+  lastName: UserInfoFields_lastName
+  titles: UserInfoFields_titles
+  updatedAt: UserInfoFields_updatedAt
+}
+
+type UserInfoFields_createdAt {
+  create: UserInfoFields_createdAt_Create
+  delete: UserInfoFields_createdAt_Delete
+  read: UserInfoFields_createdAt_Read
+  update: UserInfoFields_createdAt_Update
+}
+
+type UserInfoFields_createdAt_Create {
+  permission: Boolean!
+}
+
+type UserInfoFields_createdAt_Delete {
+  permission: Boolean!
+}
+
+type UserInfoFields_createdAt_Read {
+  permission: Boolean!
+}
+
+type UserInfoFields_createdAt_Update {
+  permission: Boolean!
+}
+
+type UserInfoFields_firstName {
+  create: UserInfoFields_firstName_Create
+  delete: UserInfoFields_firstName_Delete
+  read: UserInfoFields_firstName_Read
+  update: UserInfoFields_firstName_Update
+}
+
+type UserInfoFields_firstName_Create {
+  permission: Boolean!
+}
+
+type UserInfoFields_firstName_Delete {
+  permission: Boolean!
+}
+
+type UserInfoFields_firstName_Read {
+  permission: Boolean!
+}
+
+type UserInfoFields_firstName_Update {
+  permission: Boolean!
+}
+
+type UserInfoFields_lastName {
+  create: UserInfoFields_lastName_Create
+  delete: UserInfoFields_lastName_Delete
+  read: UserInfoFields_lastName_Read
+  update: UserInfoFields_lastName_Update
+}
+
+type UserInfoFields_lastName_Create {
+  permission: Boolean!
+}
+
+type UserInfoFields_lastName_Delete {
+  permission: Boolean!
+}
+
+type UserInfoFields_lastName_Read {
+  permission: Boolean!
+}
+
+type UserInfoFields_lastName_Update {
+  permission: Boolean!
+}
+
+type UserInfoFields_titles {
+  create: UserInfoFields_titles_Create
+  delete: UserInfoFields_titles_Delete
+  fields: UserInfoFields_titles_Fields
+  read: UserInfoFields_titles_Read
+  update: UserInfoFields_titles_Update
+}
+
+type UserInfoFields_titles_Create {
+  permission: Boolean!
+}
+
+type UserInfoFields_titles_Delete {
+  permission: Boolean!
+}
+
+type UserInfoFields_titles_Fields {
+  id: UserInfoFields_titles_id
+  title: UserInfoFields_titles_title
+}
+
+type UserInfoFields_titles_Read {
+  permission: Boolean!
+}
+
+type UserInfoFields_titles_Update {
+  permission: Boolean!
+}
+
+type UserInfoFields_titles_id {
+  create: UserInfoFields_titles_id_Create
+  delete: UserInfoFields_titles_id_Delete
+  read: UserInfoFields_titles_id_Read
+  update: UserInfoFields_titles_id_Update
+}
+
+type UserInfoFields_titles_id_Create {
+  permission: Boolean!
+}
+
+type UserInfoFields_titles_id_Delete {
+  permission: Boolean!
+}
+
+type UserInfoFields_titles_id_Read {
+  permission: Boolean!
+}
+
+type UserInfoFields_titles_id_Update {
+  permission: Boolean!
+}
+
+type UserInfoFields_titles_title {
+  create: UserInfoFields_titles_title_Create
+  delete: UserInfoFields_titles_title_Delete
+  read: UserInfoFields_titles_title_Read
+  update: UserInfoFields_titles_title_Update
+}
+
+type UserInfoFields_titles_title_Create {
+  permission: Boolean!
+}
+
+type UserInfoFields_titles_title_Delete {
+  permission: Boolean!
+}
+
+type UserInfoFields_titles_title_Read {
+  permission: Boolean!
+}
+
+type UserInfoFields_titles_title_Update {
+  permission: Boolean!
+}
+
+type UserInfoFields_updatedAt {
+  create: UserInfoFields_updatedAt_Create
+  delete: UserInfoFields_updatedAt_Delete
+  read: UserInfoFields_updatedAt_Read
+  update: UserInfoFields_updatedAt_Update
+}
+
+type UserInfoFields_updatedAt_Create {
+  permission: Boolean!
+}
+
+type UserInfoFields_updatedAt_Delete {
+  permission: Boolean!
+}
+
+type UserInfoFields_updatedAt_Read {
+  permission: Boolean!
+}
+
+type UserInfoFields_updatedAt_Update {
+  permission: Boolean!
+}
+
+type UserInfoReadAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type UserInfoReadDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type UserInfoUpdateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type UserInfoUpdateDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type UserInfo_Titles {
+  id: String
+  title: String
+}
+
+input User_createdAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input User_email_operator {
+  all: [EmailAddress]
+  contains: EmailAddress
+  equals: EmailAddress
+  in: [EmailAddress]
+  like: EmailAddress
+  not_equals: EmailAddress
+  not_in: [EmailAddress]
+}
+
+input User_id_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input User_updatedAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input User_where {
+  AND: [User_where_and]
+  OR: [User_where_or]
+  createdAt: User_createdAt_operator
+  email: User_email_operator
+  id: User_id_operator
+  updatedAt: User_updatedAt_operator
+}
+
+input User_where_and {
+  createdAt: User_createdAt_operator
+  email: User_email_operator
+  id: User_id_operator
+  updatedAt: User_updatedAt_operator
+}
+
+input User_where_or {
+  createdAt: User_createdAt_operator
+  email: User_email_operator
+  id: User_id_operator
+  updatedAt: User_updatedAt_operator
+}
+
+type Users {
+  docs: [User]
+  hasNextPage: Boolean
+  hasPrevPage: Boolean
+  limit: Int
+  nextPage: Int
+  offset: Int
+  page: Int
+  pagingCounter: Int
+  prevPage: Int
+  totalDocs: Int
+  totalPages: Int
+}
+
+type UsersCreateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type UsersCreateDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type UsersDeleteAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type UsersDeleteDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type UsersDocAccessFields {
+  createdAt: UsersDocAccessFields_createdAt
+  email: UsersDocAccessFields_email
+  password: UsersDocAccessFields_password
+  updatedAt: UsersDocAccessFields_updatedAt
+}
+
+type UsersDocAccessFields_createdAt {
+  create: UsersDocAccessFields_createdAt_Create
+  delete: UsersDocAccessFields_createdAt_Delete
+  read: UsersDocAccessFields_createdAt_Read
+  update: UsersDocAccessFields_createdAt_Update
+}
+
+type UsersDocAccessFields_createdAt_Create {
+  permission: Boolean!
+}
+
+type UsersDocAccessFields_createdAt_Delete {
+  permission: Boolean!
+}
+
+type UsersDocAccessFields_createdAt_Read {
+  permission: Boolean!
+}
+
+type UsersDocAccessFields_createdAt_Update {
+  permission: Boolean!
+}
+
+type UsersDocAccessFields_email {
+  create: UsersDocAccessFields_email_Create
+  delete: UsersDocAccessFields_email_Delete
+  read: UsersDocAccessFields_email_Read
+  update: UsersDocAccessFields_email_Update
+}
+
+type UsersDocAccessFields_email_Create {
+  permission: Boolean!
+}
+
+type UsersDocAccessFields_email_Delete {
+  permission: Boolean!
+}
+
+type UsersDocAccessFields_email_Read {
+  permission: Boolean!
+}
+
+type UsersDocAccessFields_email_Update {
+  permission: Boolean!
+}
+
+type UsersDocAccessFields_password {
+  create: UsersDocAccessFields_password_Create
+  delete: UsersDocAccessFields_password_Delete
+  read: UsersDocAccessFields_password_Read
+  update: UsersDocAccessFields_password_Update
+}
+
+type UsersDocAccessFields_password_Create {
+  permission: Boolean!
+}
+
+type UsersDocAccessFields_password_Delete {
+  permission: Boolean!
+}
+
+type UsersDocAccessFields_password_Read {
+  permission: Boolean!
+}
+
+type UsersDocAccessFields_password_Update {
+  permission: Boolean!
+}
+
+type UsersDocAccessFields_updatedAt {
+  create: UsersDocAccessFields_updatedAt_Create
+  delete: UsersDocAccessFields_updatedAt_Delete
+  read: UsersDocAccessFields_updatedAt_Read
+  update: UsersDocAccessFields_updatedAt_Update
+}
+
+type UsersDocAccessFields_updatedAt_Create {
+  permission: Boolean!
+}
+
+type UsersDocAccessFields_updatedAt_Delete {
+  permission: Boolean!
+}
+
+type UsersDocAccessFields_updatedAt_Read {
+  permission: Boolean!
+}
+
+type UsersDocAccessFields_updatedAt_Update {
+  permission: Boolean!
+}
+
+type UsersFields {
+  createdAt: UsersFields_createdAt
+  email: UsersFields_email
+  password: UsersFields_password
+  updatedAt: UsersFields_updatedAt
+}
+
+type UsersFields_createdAt {
+  create: UsersFields_createdAt_Create
+  delete: UsersFields_createdAt_Delete
+  read: UsersFields_createdAt_Read
+  update: UsersFields_createdAt_Update
+}
+
+type UsersFields_createdAt_Create {
+  permission: Boolean!
+}
+
+type UsersFields_createdAt_Delete {
+  permission: Boolean!
+}
+
+type UsersFields_createdAt_Read {
+  permission: Boolean!
+}
+
+type UsersFields_createdAt_Update {
+  permission: Boolean!
+}
+
+type UsersFields_email {
+  create: UsersFields_email_Create
+  delete: UsersFields_email_Delete
+  read: UsersFields_email_Read
+  update: UsersFields_email_Update
+}
+
+type UsersFields_email_Create {
+  permission: Boolean!
+}
+
+type UsersFields_email_Delete {
+  permission: Boolean!
+}
+
+type UsersFields_email_Read {
+  permission: Boolean!
+}
+
+type UsersFields_email_Update {
+  permission: Boolean!
+}
+
+type UsersFields_password {
+  create: UsersFields_password_Create
+  delete: UsersFields_password_Delete
+  read: UsersFields_password_Read
+  update: UsersFields_password_Update
+}
+
+type UsersFields_password_Create {
+  permission: Boolean!
+}
+
+type UsersFields_password_Delete {
+  permission: Boolean!
+}
+
+type UsersFields_password_Read {
+  permission: Boolean!
+}
+
+type UsersFields_password_Update {
+  permission: Boolean!
+}
+
+type UsersFields_updatedAt {
+  create: UsersFields_updatedAt_Create
+  delete: UsersFields_updatedAt_Delete
+  read: UsersFields_updatedAt_Read
+  update: UsersFields_updatedAt_Update
+}
+
+type UsersFields_updatedAt_Create {
+  permission: Boolean!
+}
+
+type UsersFields_updatedAt_Delete {
+  permission: Boolean!
+}
+
+type UsersFields_updatedAt_Read {
+  permission: Boolean!
+}
+
+type UsersFields_updatedAt_Update {
+  permission: Boolean!
+}
+
+type UsersReadAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type UsersReadDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type UsersUnlockAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type UsersUnlockDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type UsersUpdateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type UsersUpdateDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type homeAccess {
+  fields: HomeFields
+  read: HomeReadAccess
+  update: HomeUpdateAccess
+}
+
+type homeDocAccess {
+  fields: HomeDocAccessFields
+  read: HomeReadDocAccess
+  update: HomeUpdateDocAccess
+}
+
+type machinesAccess {
+  create: MachinesCreateAccess
+  delete: MachinesDeleteAccess
+  fields: MachinesFields
+  read: MachinesReadAccess
+  unlock: MachinesUnlockAccess
+  update: MachinesUpdateAccess
+}
+
+type machinesDocAccess {
+  create: MachinesCreateDocAccess
+  delete: MachinesDeleteDocAccess
+  fields: MachinesDocAccessFields
+  read: MachinesReadDocAccess
+  unlock: MachinesUnlockDocAccess
+  update: MachinesUpdateDocAccess
+}
+
+type machinesJWT {
+  collection: String!
+}
+
+type machinesMe {
+  collection: String
+  exp: Int
+  token: String
+  user: Machine
+}
+
+type machinesRefreshedMachine {
+  exp: Int
+  refreshedToken: String
+  user: machinesJWT
+}
+
+input mutationHomeInput {
+  createdAt: String
+  description: String!
+  updatedAt: String
+}
+
+input mutationMachineInput {
+  apiKey: String
+  apiKeyIndex: String
+  createdAt: String
+  description: String!
+  enableAPIKey: Boolean
+  name: String!
+  updatedAt: String
+}
+
+input mutationMachineUpdateInput {
+  apiKey: String
+  apiKeyIndex: String
+  createdAt: String
+  description: String
+  enableAPIKey: Boolean
+  name: String
+  updatedAt: String
+}
+
+input mutationUserInfoInput {
+  createdAt: String
+  firstName: String!
+  lastName: String!
+  titles: [mutationUserInfo_TitlesInput!]
+  updatedAt: String
+}
+
+input mutationUserInfo_TitlesInput {
+  id: String
+  title: String!
+}
+
+input mutationUserInput {
+  createdAt: String
+  email: String!
+  hash: String
+  lockUntil: String
+  loginAttempts: Float
+  password: String!
+  resetPasswordExpiration: String
+  resetPasswordToken: String
+  salt: String
+  updatedAt: String
+}
+
+input mutationUserUpdateInput {
+  createdAt: String
+  email: String
+  hash: String
+  lockUntil: String
+  loginAttempts: Float
+  password: String
+  resetPasswordExpiration: String
+  resetPasswordToken: String
+  salt: String
+  updatedAt: String
+}
+
+type user_infoAccess {
+  fields: UserInfoFields
+  read: UserInfoReadAccess
+  update: UserInfoUpdateAccess
+}
+
+type user_infoDocAccess {
+  fields: UserInfoDocAccessFields
+  read: UserInfoReadDocAccess
+  update: UserInfoUpdateDocAccess
+}
+
+type usersAccess {
+  create: UsersCreateAccess
+  delete: UsersDeleteAccess
+  fields: UsersFields
+  read: UsersReadAccess
+  unlock: UsersUnlockAccess
+  update: UsersUpdateAccess
+}
+
+type usersDocAccess {
+  create: UsersCreateDocAccess
+  delete: UsersDeleteDocAccess
+  fields: UsersDocAccessFields
+  read: UsersReadDocAccess
+  unlock: UsersUnlockDocAccess
+  update: UsersUpdateDocAccess
+}
+
+type usersJWT {
+  collection: String!
+  email: EmailAddress!
+}
+
+type usersLoginResult {
+  exp: Int
+  token: String
+  user: User
+}
+
+type usersMe {
+  collection: String
+  exp: Int
+  token: String
+  user: User
+}
+
+type usersRefreshedUser {
+  exp: Int
+  refreshedToken: String
+  user: usersJWT
+}
+
+type usersResetPassword {
+  token: String
+  user: User
+}

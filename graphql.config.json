@@ -1,0 +1,7 @@
+{
+  "schema": "./schema.graphql",
+  "endpoint": {
+    "url": "http://localhost:3000/api/graphql",
+    "method": "POST"
+  }
+}

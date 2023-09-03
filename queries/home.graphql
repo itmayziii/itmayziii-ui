@@ -1,0 +1,13 @@
+query Home {
+  UserInfo {
+    firstName
+    lastName
+    titles {
+      title
+    }
+  }
+  Home {
+    createdAt
+    updatedAt
+  }
+}
