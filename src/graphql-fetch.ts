@@ -1,22 +1,7 @@
-import {loadDocuments} from '@graphql-tools/load'
-import {GraphQLFileLoader} from '@graphql-tools/graphql-file-loader'
-import path from 'path'
-import { fileURLToPath } from 'url'
+import type {DocumentNode} from 'graphql'
+import { print } from 'graphql/language/printer'
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-export default async function graphqlFetch(query: string, operationName: string) {
-  const queryPath = path.resolve(__dirname, `../queries/${query}.graphql`)
-  const documents = await loadDocuments(queryPath, {
-    loaders: [new GraphQLFileLoader()]
-  })
-
-  const document = documents[0]
-  if (document === undefined) {
-    throw new Error(`Could not find GraphQL query at ${queryPath}`)
-  }
-
+export default async function graphqlFetch(doc: DocumentNode, operationName: string) {
   return fetch(import.meta.env.CMS_GRAPHQL_API_URL, {
     method: 'POST',
     headers: {
@@ -25,7 +10,7 @@ export default async function graphqlFetch(query: string, operationName: string)
       authorization: `machines API-Key ${import.meta.env.CMS_API_TOKEN}`
     },
     body: JSON.stringify({
-      query: document.rawSDL,
+      query: print(doc),
       operationName
     })
   })

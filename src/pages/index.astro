@@ -2,17 +2,46 @@
 import Layout from '../layouts/Layout.astro'
 import graphqlFetch from '../graphql-fetch'
 import Headshot from '../components/Headshot.astro'
+import TransitionWords from '../components/TransitionWords.astro'
+import homeQuery from '../queries/homeQuery'
+import {absoluteUrl} from '../utilities'
+import WhatIDoSection from '../components/WhatIDoSection.astro'
+import UnderlineHeading from '../components/UnderlineHeading.astro'
 
-const response = await graphqlFetch('home', 'Home')
-const cmsData = (await response.json()).data
-const headshotUrl = cmsData.Headshots.docs[0].sizes.mobile.url
-const headshotAlt = cmsData.Headshots.docs[0].alt
+const response = await graphqlFetch(homeQuery, 'Home')
+const {Headshots: headshots, UserInfo: userInfo, Home: home} = (await response.json()).data
+const headshotUrl = headshots.docs[0].sizes.mobile.url
+const headshotAlt = headshots.docs[0].alt
+const titles = userInfo.titles.map(({title}) => title)
 ---
 
-<Layout title='Tommy May III' firstName={cmsData.UserInfo.firstName} lastName={cmsData.UserInfo.lastName}>
-  <main>
-    <Headshot url={`http://localhost:3000${headshotUrl}`} alt={headshotAlt} />
-    <h1>hello world</h1>
+<Layout title={`Home | ${userInfo.fullName}`} fullName={userInfo.fullName}>
+  <main class='mx-6'>
+    <section class='text-white text-center'>
+      <div class='flex justify-center'>
+        <Headshot class='mt-8' url={`http://localhost:3000${headshotUrl}`} alt={headshotAlt}/>
+      </div>
+      <TransitionWords class='mt-4 text-sm text-gray-300' as='h4' words={titles}/>
+      <h1 class='font-bold text-4xl mt-1'>
+        {userInfo.fullName}
+      </h1>
+      <p class='text-left mt-6 mx-4 hyphens-auto break-words'>{userInfo.description}</p>
+      <div class='flex flex-col items-center mt-6'>
+        <button type='button' class='rounded-full border border-primary px-6 py-2 bg-gray-800'>
+          Download Resume
+        </button>
+        <a href={absoluteUrl('/contact', Astro.site)}
+           class='mt-2 rounded-full border border-white px-6 py-2 bg-gray-800'>
+          Contact
+        </a>
+      </div>
+    </section>
+    <section class='text-white mt-16'>
+      <UnderlineHeading as='h2' class='capitalize text-2xl'>
+        {home.whatIDo.title}
+      </UnderlineHeading>
+      {home.whatIDo.sections.map((section, i) => <WhatIDoSection section={section} class={i === 0 ? 'mt-4' : 'mt-6'} />)}
+    </section>
   </main>
 </Layout>
 
@@ -21,4 +50,3 @@ const headshotAlt = cmsData.Headshots.docs[0].alt
     filter: grayscale(100%);
   }
 </style>
-

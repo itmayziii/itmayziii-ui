@@ -1663,14 +1663,14 @@ type HeadshotsUpdateDocAccess {
 
 type Home {
   createdAt: DateTime
-  description: String!
   updatedAt: DateTime
+  whatIDo: Home_WhatIDo
 }
 
 type HomeDocAccessFields {
   createdAt: HomeDocAccessFields_createdAt
-  description: HomeDocAccessFields_description
   updatedAt: HomeDocAccessFields_updatedAt
+  whatIDo: HomeDocAccessFields_whatIDo
 }
 
 type HomeDocAccessFields_createdAt {
@@ -1693,29 +1693,6 @@ type HomeDocAccessFields_createdAt_Read {
 }
 
 type HomeDocAccessFields_createdAt_Update {
-  permission: Boolean!
-}
-
-type HomeDocAccessFields_description {
-  create: HomeDocAccessFields_description_Create
-  delete: HomeDocAccessFields_description_Delete
-  read: HomeDocAccessFields_description_Read
-  update: HomeDocAccessFields_description_Update
-}
-
-type HomeDocAccessFields_description_Create {
-  permission: Boolean!
-}
-
-type HomeDocAccessFields_description_Delete {
-  permission: Boolean!
-}
-
-type HomeDocAccessFields_description_Read {
-  permission: Boolean!
-}
-
-type HomeDocAccessFields_description_Update {
   permission: Boolean!
 }
 
@@ -1742,10 +1719,185 @@ type HomeDocAccessFields_updatedAt_Update {
   permission: Boolean!
 }
 
+type HomeDocAccessFields_whatIDo {
+  create: HomeDocAccessFields_whatIDo_Create
+  delete: HomeDocAccessFields_whatIDo_Delete
+  fields: HomeDocAccessFields_whatIDo_Fields
+  read: HomeDocAccessFields_whatIDo_Read
+  update: HomeDocAccessFields_whatIDo_Update
+}
+
+type HomeDocAccessFields_whatIDo_Create {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_whatIDo_Delete {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_whatIDo_Fields {
+  sections: HomeDocAccessFields_whatIDo_sections
+  title: HomeDocAccessFields_whatIDo_title
+}
+
+type HomeDocAccessFields_whatIDo_Read {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_whatIDo_Update {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_whatIDo_sections {
+  create: HomeDocAccessFields_whatIDo_sections_Create
+  delete: HomeDocAccessFields_whatIDo_sections_Delete
+  fields: HomeDocAccessFields_whatIDo_sections_Fields
+  read: HomeDocAccessFields_whatIDo_sections_Read
+  update: HomeDocAccessFields_whatIDo_sections_Update
+}
+
+type HomeDocAccessFields_whatIDo_sections_Create {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_whatIDo_sections_Delete {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_whatIDo_sections_Fields {
+  description: HomeDocAccessFields_whatIDo_sections_description
+  icon: HomeDocAccessFields_whatIDo_sections_icon
+  id: HomeDocAccessFields_whatIDo_sections_id
+  title: HomeDocAccessFields_whatIDo_sections_title
+}
+
+type HomeDocAccessFields_whatIDo_sections_Read {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_whatIDo_sections_Update {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_whatIDo_sections_description {
+  create: HomeDocAccessFields_whatIDo_sections_description_Create
+  delete: HomeDocAccessFields_whatIDo_sections_description_Delete
+  read: HomeDocAccessFields_whatIDo_sections_description_Read
+  update: HomeDocAccessFields_whatIDo_sections_description_Update
+}
+
+type HomeDocAccessFields_whatIDo_sections_description_Create {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_whatIDo_sections_description_Delete {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_whatIDo_sections_description_Read {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_whatIDo_sections_description_Update {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_whatIDo_sections_icon {
+  create: HomeDocAccessFields_whatIDo_sections_icon_Create
+  delete: HomeDocAccessFields_whatIDo_sections_icon_Delete
+  read: HomeDocAccessFields_whatIDo_sections_icon_Read
+  update: HomeDocAccessFields_whatIDo_sections_icon_Update
+}
+
+type HomeDocAccessFields_whatIDo_sections_icon_Create {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_whatIDo_sections_icon_Delete {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_whatIDo_sections_icon_Read {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_whatIDo_sections_icon_Update {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_whatIDo_sections_id {
+  create: HomeDocAccessFields_whatIDo_sections_id_Create
+  delete: HomeDocAccessFields_whatIDo_sections_id_Delete
+  read: HomeDocAccessFields_whatIDo_sections_id_Read
+  update: HomeDocAccessFields_whatIDo_sections_id_Update
+}
+
+type HomeDocAccessFields_whatIDo_sections_id_Create {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_whatIDo_sections_id_Delete {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_whatIDo_sections_id_Read {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_whatIDo_sections_id_Update {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_whatIDo_sections_title {
+  create: HomeDocAccessFields_whatIDo_sections_title_Create
+  delete: HomeDocAccessFields_whatIDo_sections_title_Delete
+  read: HomeDocAccessFields_whatIDo_sections_title_Read
+  update: HomeDocAccessFields_whatIDo_sections_title_Update
+}
+
+type HomeDocAccessFields_whatIDo_sections_title_Create {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_whatIDo_sections_title_Delete {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_whatIDo_sections_title_Read {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_whatIDo_sections_title_Update {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_whatIDo_title {
+  create: HomeDocAccessFields_whatIDo_title_Create
+  delete: HomeDocAccessFields_whatIDo_title_Delete
+  read: HomeDocAccessFields_whatIDo_title_Read
+  update: HomeDocAccessFields_whatIDo_title_Update
+}
+
+type HomeDocAccessFields_whatIDo_title_Create {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_whatIDo_title_Delete {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_whatIDo_title_Read {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_whatIDo_title_Update {
+  permission: Boolean!
+}
+
 type HomeFields {
   createdAt: HomeFields_createdAt
-  description: HomeFields_description
   updatedAt: HomeFields_updatedAt
+  whatIDo: HomeFields_whatIDo
 }
 
 type HomeFields_createdAt {
@@ -1768,29 +1920,6 @@ type HomeFields_createdAt_Read {
 }
 
 type HomeFields_createdAt_Update {
-  permission: Boolean!
-}
-
-type HomeFields_description {
-  create: HomeFields_description_Create
-  delete: HomeFields_description_Delete
-  read: HomeFields_description_Read
-  update: HomeFields_description_Update
-}
-
-type HomeFields_description_Create {
-  permission: Boolean!
-}
-
-type HomeFields_description_Delete {
-  permission: Boolean!
-}
-
-type HomeFields_description_Read {
-  permission: Boolean!
-}
-
-type HomeFields_description_Update {
   permission: Boolean!
 }
 
@@ -1817,6 +1946,181 @@ type HomeFields_updatedAt_Update {
   permission: Boolean!
 }
 
+type HomeFields_whatIDo {
+  create: HomeFields_whatIDo_Create
+  delete: HomeFields_whatIDo_Delete
+  fields: HomeFields_whatIDo_Fields
+  read: HomeFields_whatIDo_Read
+  update: HomeFields_whatIDo_Update
+}
+
+type HomeFields_whatIDo_Create {
+  permission: Boolean!
+}
+
+type HomeFields_whatIDo_Delete {
+  permission: Boolean!
+}
+
+type HomeFields_whatIDo_Fields {
+  sections: HomeFields_whatIDo_sections
+  title: HomeFields_whatIDo_title
+}
+
+type HomeFields_whatIDo_Read {
+  permission: Boolean!
+}
+
+type HomeFields_whatIDo_Update {
+  permission: Boolean!
+}
+
+type HomeFields_whatIDo_sections {
+  create: HomeFields_whatIDo_sections_Create
+  delete: HomeFields_whatIDo_sections_Delete
+  fields: HomeFields_whatIDo_sections_Fields
+  read: HomeFields_whatIDo_sections_Read
+  update: HomeFields_whatIDo_sections_Update
+}
+
+type HomeFields_whatIDo_sections_Create {
+  permission: Boolean!
+}
+
+type HomeFields_whatIDo_sections_Delete {
+  permission: Boolean!
+}
+
+type HomeFields_whatIDo_sections_Fields {
+  description: HomeFields_whatIDo_sections_description
+  icon: HomeFields_whatIDo_sections_icon
+  id: HomeFields_whatIDo_sections_id
+  title: HomeFields_whatIDo_sections_title
+}
+
+type HomeFields_whatIDo_sections_Read {
+  permission: Boolean!
+}
+
+type HomeFields_whatIDo_sections_Update {
+  permission: Boolean!
+}
+
+type HomeFields_whatIDo_sections_description {
+  create: HomeFields_whatIDo_sections_description_Create
+  delete: HomeFields_whatIDo_sections_description_Delete
+  read: HomeFields_whatIDo_sections_description_Read
+  update: HomeFields_whatIDo_sections_description_Update
+}
+
+type HomeFields_whatIDo_sections_description_Create {
+  permission: Boolean!
+}
+
+type HomeFields_whatIDo_sections_description_Delete {
+  permission: Boolean!
+}
+
+type HomeFields_whatIDo_sections_description_Read {
+  permission: Boolean!
+}
+
+type HomeFields_whatIDo_sections_description_Update {
+  permission: Boolean!
+}
+
+type HomeFields_whatIDo_sections_icon {
+  create: HomeFields_whatIDo_sections_icon_Create
+  delete: HomeFields_whatIDo_sections_icon_Delete
+  read: HomeFields_whatIDo_sections_icon_Read
+  update: HomeFields_whatIDo_sections_icon_Update
+}
+
+type HomeFields_whatIDo_sections_icon_Create {
+  permission: Boolean!
+}
+
+type HomeFields_whatIDo_sections_icon_Delete {
+  permission: Boolean!
+}
+
+type HomeFields_whatIDo_sections_icon_Read {
+  permission: Boolean!
+}
+
+type HomeFields_whatIDo_sections_icon_Update {
+  permission: Boolean!
+}
+
+type HomeFields_whatIDo_sections_id {
+  create: HomeFields_whatIDo_sections_id_Create
+  delete: HomeFields_whatIDo_sections_id_Delete
+  read: HomeFields_whatIDo_sections_id_Read
+  update: HomeFields_whatIDo_sections_id_Update
+}
+
+type HomeFields_whatIDo_sections_id_Create {
+  permission: Boolean!
+}
+
+type HomeFields_whatIDo_sections_id_Delete {
+  permission: Boolean!
+}
+
+type HomeFields_whatIDo_sections_id_Read {
+  permission: Boolean!
+}
+
+type HomeFields_whatIDo_sections_id_Update {
+  permission: Boolean!
+}
+
+type HomeFields_whatIDo_sections_title {
+  create: HomeFields_whatIDo_sections_title_Create
+  delete: HomeFields_whatIDo_sections_title_Delete
+  read: HomeFields_whatIDo_sections_title_Read
+  update: HomeFields_whatIDo_sections_title_Update
+}
+
+type HomeFields_whatIDo_sections_title_Create {
+  permission: Boolean!
+}
+
+type HomeFields_whatIDo_sections_title_Delete {
+  permission: Boolean!
+}
+
+type HomeFields_whatIDo_sections_title_Read {
+  permission: Boolean!
+}
+
+type HomeFields_whatIDo_sections_title_Update {
+  permission: Boolean!
+}
+
+type HomeFields_whatIDo_title {
+  create: HomeFields_whatIDo_title_Create
+  delete: HomeFields_whatIDo_title_Delete
+  read: HomeFields_whatIDo_title_Read
+  update: HomeFields_whatIDo_title_Update
+}
+
+type HomeFields_whatIDo_title_Create {
+  permission: Boolean!
+}
+
+type HomeFields_whatIDo_title_Delete {
+  permission: Boolean!
+}
+
+type HomeFields_whatIDo_title_Read {
+  permission: Boolean!
+}
+
+type HomeFields_whatIDo_title_Update {
+  permission: Boolean!
+}
+
 type HomeReadAccess {
   permission: Boolean!
   where: JSONObject
@@ -1835,6 +2139,26 @@ type HomeUpdateAccess {
 type HomeUpdateDocAccess {
   permission: Boolean!
   where: JSONObject
+}
+
+type Home_WhatIDo {
+  sections: [Home_WhatIDo_Sections!]!
+  title: String
+}
+
+type Home_WhatIDo_Sections {
+  description: String!
+  icon: Home_WhatIDo_Sections_icon
+  id: String
+  title: String!
+}
+
+enum Home_WhatIDo_Sections_icon {
+  filledApi
+}
+
+enum Home_WhatIDo_Sections_icon_MutationInput {
+  filledApi
 }
 
 """
@@ -2388,16 +2712,22 @@ type User {
 
 type UserInfo {
   createdAt: DateTime
+  description: String!
   firstName: String!
+  fullName: String
   lastName: String!
+  suffix: UserInfo_suffix
   titles: [UserInfo_Titles!]!
   updatedAt: DateTime
 }
 
 type UserInfoDocAccessFields {
   createdAt: UserInfoDocAccessFields_createdAt
+  description: UserInfoDocAccessFields_description
   firstName: UserInfoDocAccessFields_firstName
+  fullName: UserInfoDocAccessFields_fullName
   lastName: UserInfoDocAccessFields_lastName
+  suffix: UserInfoDocAccessFields_suffix
   titles: UserInfoDocAccessFields_titles
   updatedAt: UserInfoDocAccessFields_updatedAt
 }
@@ -2425,6 +2755,29 @@ type UserInfoDocAccessFields_createdAt_Update {
   permission: Boolean!
 }
 
+type UserInfoDocAccessFields_description {
+  create: UserInfoDocAccessFields_description_Create
+  delete: UserInfoDocAccessFields_description_Delete
+  read: UserInfoDocAccessFields_description_Read
+  update: UserInfoDocAccessFields_description_Update
+}
+
+type UserInfoDocAccessFields_description_Create {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_description_Delete {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_description_Read {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_description_Update {
+  permission: Boolean!
+}
+
 type UserInfoDocAccessFields_firstName {
   create: UserInfoDocAccessFields_firstName_Create
   delete: UserInfoDocAccessFields_firstName_Delete
@@ -2448,6 +2801,29 @@ type UserInfoDocAccessFields_firstName_Update {
   permission: Boolean!
 }
 
+type UserInfoDocAccessFields_fullName {
+  create: UserInfoDocAccessFields_fullName_Create
+  delete: UserInfoDocAccessFields_fullName_Delete
+  read: UserInfoDocAccessFields_fullName_Read
+  update: UserInfoDocAccessFields_fullName_Update
+}
+
+type UserInfoDocAccessFields_fullName_Create {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_fullName_Delete {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_fullName_Read {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_fullName_Update {
+  permission: Boolean!
+}
+
 type UserInfoDocAccessFields_lastName {
   create: UserInfoDocAccessFields_lastName_Create
   delete: UserInfoDocAccessFields_lastName_Delete
@@ -2468,6 +2844,29 @@ type UserInfoDocAccessFields_lastName_Read {
 }
 
 type UserInfoDocAccessFields_lastName_Update {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_suffix {
+  create: UserInfoDocAccessFields_suffix_Create
+  delete: UserInfoDocAccessFields_suffix_Delete
+  read: UserInfoDocAccessFields_suffix_Read
+  update: UserInfoDocAccessFields_suffix_Update
+}
+
+type UserInfoDocAccessFields_suffix_Create {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_suffix_Delete {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_suffix_Read {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_suffix_Update {
   permission: Boolean!
 }
 
@@ -2571,8 +2970,11 @@ type UserInfoDocAccessFields_updatedAt_Update {
 
 type UserInfoFields {
   createdAt: UserInfoFields_createdAt
+  description: UserInfoFields_description
   firstName: UserInfoFields_firstName
+  fullName: UserInfoFields_fullName
   lastName: UserInfoFields_lastName
+  suffix: UserInfoFields_suffix
   titles: UserInfoFields_titles
   updatedAt: UserInfoFields_updatedAt
 }
@@ -2600,6 +3002,29 @@ type UserInfoFields_createdAt_Update {
   permission: Boolean!
 }
 
+type UserInfoFields_description {
+  create: UserInfoFields_description_Create
+  delete: UserInfoFields_description_Delete
+  read: UserInfoFields_description_Read
+  update: UserInfoFields_description_Update
+}
+
+type UserInfoFields_description_Create {
+  permission: Boolean!
+}
+
+type UserInfoFields_description_Delete {
+  permission: Boolean!
+}
+
+type UserInfoFields_description_Read {
+  permission: Boolean!
+}
+
+type UserInfoFields_description_Update {
+  permission: Boolean!
+}
+
 type UserInfoFields_firstName {
   create: UserInfoFields_firstName_Create
   delete: UserInfoFields_firstName_Delete
@@ -2623,6 +3048,29 @@ type UserInfoFields_firstName_Update {
   permission: Boolean!
 }
 
+type UserInfoFields_fullName {
+  create: UserInfoFields_fullName_Create
+  delete: UserInfoFields_fullName_Delete
+  read: UserInfoFields_fullName_Read
+  update: UserInfoFields_fullName_Update
+}
+
+type UserInfoFields_fullName_Create {
+  permission: Boolean!
+}
+
+type UserInfoFields_fullName_Delete {
+  permission: Boolean!
+}
+
+type UserInfoFields_fullName_Read {
+  permission: Boolean!
+}
+
+type UserInfoFields_fullName_Update {
+  permission: Boolean!
+}
+
 type UserInfoFields_lastName {
   create: UserInfoFields_lastName_Create
   delete: UserInfoFields_lastName_Delete
@@ -2643,6 +3091,29 @@ type UserInfoFields_lastName_Read {
 }
 
 type UserInfoFields_lastName_Update {
+  permission: Boolean!
+}
+
+type UserInfoFields_suffix {
+  create: UserInfoFields_suffix_Create
+  delete: UserInfoFields_suffix_Delete
+  read: UserInfoFields_suffix_Read
+  update: UserInfoFields_suffix_Update
+}
+
+type UserInfoFields_suffix_Create {
+  permission: Boolean!
+}
+
+type UserInfoFields_suffix_Delete {
+  permission: Boolean!
+}
+
+type UserInfoFields_suffix_Read {
+  permission: Boolean!
+}
+
+type UserInfoFields_suffix_Update {
   permission: Boolean!
 }
 
@@ -2767,6 +3238,22 @@ type UserInfoUpdateDocAccess {
 type UserInfo_Titles {
   id: String
   title: String
+}
+
+enum UserInfo_suffix {
+  III
+  IV
+  Jr_
+  Sr_
+  V
+}
+
+enum UserInfo_suffix_MutationInput {
+  III
+  IV
+  Jr_
+  Sr_
+  V
 }
 
 input User_createdAt_operator {
@@ -3236,8 +3723,20 @@ input mutationHeadshot_Sizes_ThumbnailInput {
 
 input mutationHomeInput {
   createdAt: String
-  description: String!
   updatedAt: String
+  whatIDo: mutationHome_WhatIDoInput!
+}
+
+input mutationHome_WhatIDoInput {
+  sections: [mutationHome_WhatIDo_SectionsInput!]
+  title: String!
+}
+
+input mutationHome_WhatIDo_SectionsInput {
+  description: String!
+  icon: Home_WhatIDo_Sections_icon_MutationInput
+  id: String
+  title: String!
 }
 
 input mutationMachineInput {
@@ -3262,8 +3761,11 @@ input mutationMachineUpdateInput {
 
 input mutationUserInfoInput {
   createdAt: String
+  description: String!
   firstName: String!
+  fullName: String
   lastName: String!
+  suffix: UserInfo_suffix_MutationInput
   titles: [mutationUserInfo_TitlesInput!]
   updatedAt: String
 }

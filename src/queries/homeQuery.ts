@@ -1,7 +1,10 @@
+import gql from 'graphql-tag'
+
+export default gql`
 query Home {
   UserInfo {
-    firstName
-    lastName
+    fullName
+    description
     titles {
       title
     }
@@ -9,6 +12,14 @@ query Home {
   Home {
     createdAt
     updatedAt
+    whatIDo {
+      title
+      sections {
+        icon
+        title
+        description
+      }
+    }
   }
   Headshots(where: { name: { equals: "Professional" } }) {
     docs {
@@ -22,3 +33,4 @@ query Home {
     }
   }
 }
+`

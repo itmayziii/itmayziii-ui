@@ -1,0 +1,26 @@
+---
+interface Props {
+  as: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+  class: string[]
+}
+const { as: Element, class: className } = Astro.props<Props>
+---
+
+<Element class:list={[
+  'relative inline-block pb-1',
+  'before:absolute before:bottom-0 before:block before:bg-gray-700 before:h-0.5 before:w-full',
+  'after:absolute after:bottom-0 after:block after:bg-primary after:h-0.5 after:w-8',
+  className
+]}>
+  <slot />
+</Element>
+
+<style>
+  .heading::before {
+    display: block;
+  }
+
+  .heading::after {
+    display: block;
+  }
+</style>

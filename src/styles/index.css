@@ -1,0 +1,23 @@
+/**
+Prefixing global classes with "iii" is my way of not stepping on any other global styles.
+*/
+
+.iii-heading-underline::before {
+  display: block;
+  position: absolute;
+  content: '';
+  width: 100%;
+  background-color: #353535;
+  height: 2px;
+  bottom: 0;
+}
+
+.iii-heading-underline::after {
+  display: block;
+  position: absolute;
+  content: '';
+  width: 30px;
+  background-color: #007ced;
+  height: 2px;
+  bottom: 0;
+}

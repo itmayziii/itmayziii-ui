@@ -2,14 +2,14 @@
 interface Props {
   url
   alt
+  className
 }
-
-const { url, alt } = Astro.props
+const { url, alt, class: className } = Astro.props
 ---
 
-<button type='button' data-js-headshot-btn>
+<button class={className} type='button' data-js-headshot-btn>
   <img
-    class='headshot rounded-full h-64 w-64 border-primary border-4'
+    class='headshot rounded-full h-64 w-64 border-primary border-8 grayscale'
     src={url}
     alt={alt}
     data-js-headshot-img

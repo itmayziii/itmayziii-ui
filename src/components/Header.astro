@@ -1,17 +1,14 @@
 ---
-import NameBadge from './NameBadge.astro'
 interface Props {
-  firstName: string
-  lastName: string
+  fullName: string
 }
+const { fullName } = Astro.props<Props>;
 
+import NameBadge from './NameBadge.astro'
 import Nav from './Nav.astro'
-
-
-const { firstName, lastName } = Astro.props;
 ---
 
-<header class='sticky top-0 bg-background flex justify-between py-2 px-4 border-b-gray-800 border-b-2 z-50'>
-  <NameBadge firstName={firstName} lastName={lastName} />
+<header class='sticky top-0 bg-background flex justify-between py-2 px-4 z-50'>
+  <NameBadge fullName={fullName} />
   <Nav />
 </header>

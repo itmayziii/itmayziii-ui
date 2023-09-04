@@ -1,0 +1,20 @@
+---
+interface Props {
+  name: string,
+  class: string
+}
+const { name, class: className } = Astro.props<Props>
+
+import ApiIcon from './icons/ApiIcon.astro'
+import CodeIcon from './icons/CodeIcon.astro'
+import ComputerIcon from './icons/ComputerIcon.astro'
+
+const icons = {
+  api: ApiIcon,
+  code: CodeIcon,
+  computer: ComputerIcon
+}
+const Icon = icons[name]
+---
+
+{Icon && <Icon class={className} />}
