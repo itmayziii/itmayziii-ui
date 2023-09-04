@@ -20,6 +20,13 @@ query Home {
         description
       }
     }
+    skills {
+      title
+      skills {
+        name
+        proficiency
+      }
+    }
   }
   Headshots(where: { name: { equals: "Professional" } }) {
     docs {

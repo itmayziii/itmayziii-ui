@@ -1663,12 +1663,14 @@ type HeadshotsUpdateDocAccess {
 
 type Home {
   createdAt: DateTime
+  skills: Home_Skills
   updatedAt: DateTime
   whatIDo: Home_WhatIDo
 }
 
 type HomeDocAccessFields {
   createdAt: HomeDocAccessFields_createdAt
+  skills: HomeDocAccessFields_skills
   updatedAt: HomeDocAccessFields_updatedAt
   whatIDo: HomeDocAccessFields_whatIDo
 }
@@ -1693,6 +1695,157 @@ type HomeDocAccessFields_createdAt_Read {
 }
 
 type HomeDocAccessFields_createdAt_Update {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_skills {
+  create: HomeDocAccessFields_skills_Create
+  delete: HomeDocAccessFields_skills_Delete
+  fields: HomeDocAccessFields_skills_Fields
+  read: HomeDocAccessFields_skills_Read
+  update: HomeDocAccessFields_skills_Update
+}
+
+type HomeDocAccessFields_skills_Create {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_skills_Delete {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_skills_Fields {
+  skills: HomeDocAccessFields_skills_skills
+  title: HomeDocAccessFields_skills_title
+}
+
+type HomeDocAccessFields_skills_Read {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_skills_Update {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_skills_skills {
+  create: HomeDocAccessFields_skills_skills_Create
+  delete: HomeDocAccessFields_skills_skills_Delete
+  fields: HomeDocAccessFields_skills_skills_Fields
+  read: HomeDocAccessFields_skills_skills_Read
+  update: HomeDocAccessFields_skills_skills_Update
+}
+
+type HomeDocAccessFields_skills_skills_Create {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_skills_skills_Delete {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_skills_skills_Fields {
+  id: HomeDocAccessFields_skills_skills_id
+  name: HomeDocAccessFields_skills_skills_name
+  proficiency: HomeDocAccessFields_skills_skills_proficiency
+}
+
+type HomeDocAccessFields_skills_skills_Read {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_skills_skills_Update {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_skills_skills_id {
+  create: HomeDocAccessFields_skills_skills_id_Create
+  delete: HomeDocAccessFields_skills_skills_id_Delete
+  read: HomeDocAccessFields_skills_skills_id_Read
+  update: HomeDocAccessFields_skills_skills_id_Update
+}
+
+type HomeDocAccessFields_skills_skills_id_Create {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_skills_skills_id_Delete {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_skills_skills_id_Read {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_skills_skills_id_Update {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_skills_skills_name {
+  create: HomeDocAccessFields_skills_skills_name_Create
+  delete: HomeDocAccessFields_skills_skills_name_Delete
+  read: HomeDocAccessFields_skills_skills_name_Read
+  update: HomeDocAccessFields_skills_skills_name_Update
+}
+
+type HomeDocAccessFields_skills_skills_name_Create {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_skills_skills_name_Delete {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_skills_skills_name_Read {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_skills_skills_name_Update {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_skills_skills_proficiency {
+  create: HomeDocAccessFields_skills_skills_proficiency_Create
+  delete: HomeDocAccessFields_skills_skills_proficiency_Delete
+  read: HomeDocAccessFields_skills_skills_proficiency_Read
+  update: HomeDocAccessFields_skills_skills_proficiency_Update
+}
+
+type HomeDocAccessFields_skills_skills_proficiency_Create {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_skills_skills_proficiency_Delete {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_skills_skills_proficiency_Read {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_skills_skills_proficiency_Update {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_skills_title {
+  create: HomeDocAccessFields_skills_title_Create
+  delete: HomeDocAccessFields_skills_title_Delete
+  read: HomeDocAccessFields_skills_title_Read
+  update: HomeDocAccessFields_skills_title_Update
+}
+
+type HomeDocAccessFields_skills_title_Create {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_skills_title_Delete {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_skills_title_Read {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_skills_title_Update {
   permission: Boolean!
 }
 
@@ -1896,6 +2049,7 @@ type HomeDocAccessFields_whatIDo_title_Update {
 
 type HomeFields {
   createdAt: HomeFields_createdAt
+  skills: HomeFields_skills
   updatedAt: HomeFields_updatedAt
   whatIDo: HomeFields_whatIDo
 }
@@ -1920,6 +2074,157 @@ type HomeFields_createdAt_Read {
 }
 
 type HomeFields_createdAt_Update {
+  permission: Boolean!
+}
+
+type HomeFields_skills {
+  create: HomeFields_skills_Create
+  delete: HomeFields_skills_Delete
+  fields: HomeFields_skills_Fields
+  read: HomeFields_skills_Read
+  update: HomeFields_skills_Update
+}
+
+type HomeFields_skills_Create {
+  permission: Boolean!
+}
+
+type HomeFields_skills_Delete {
+  permission: Boolean!
+}
+
+type HomeFields_skills_Fields {
+  skills: HomeFields_skills_skills
+  title: HomeFields_skills_title
+}
+
+type HomeFields_skills_Read {
+  permission: Boolean!
+}
+
+type HomeFields_skills_Update {
+  permission: Boolean!
+}
+
+type HomeFields_skills_skills {
+  create: HomeFields_skills_skills_Create
+  delete: HomeFields_skills_skills_Delete
+  fields: HomeFields_skills_skills_Fields
+  read: HomeFields_skills_skills_Read
+  update: HomeFields_skills_skills_Update
+}
+
+type HomeFields_skills_skills_Create {
+  permission: Boolean!
+}
+
+type HomeFields_skills_skills_Delete {
+  permission: Boolean!
+}
+
+type HomeFields_skills_skills_Fields {
+  id: HomeFields_skills_skills_id
+  name: HomeFields_skills_skills_name
+  proficiency: HomeFields_skills_skills_proficiency
+}
+
+type HomeFields_skills_skills_Read {
+  permission: Boolean!
+}
+
+type HomeFields_skills_skills_Update {
+  permission: Boolean!
+}
+
+type HomeFields_skills_skills_id {
+  create: HomeFields_skills_skills_id_Create
+  delete: HomeFields_skills_skills_id_Delete
+  read: HomeFields_skills_skills_id_Read
+  update: HomeFields_skills_skills_id_Update
+}
+
+type HomeFields_skills_skills_id_Create {
+  permission: Boolean!
+}
+
+type HomeFields_skills_skills_id_Delete {
+  permission: Boolean!
+}
+
+type HomeFields_skills_skills_id_Read {
+  permission: Boolean!
+}
+
+type HomeFields_skills_skills_id_Update {
+  permission: Boolean!
+}
+
+type HomeFields_skills_skills_name {
+  create: HomeFields_skills_skills_name_Create
+  delete: HomeFields_skills_skills_name_Delete
+  read: HomeFields_skills_skills_name_Read
+  update: HomeFields_skills_skills_name_Update
+}
+
+type HomeFields_skills_skills_name_Create {
+  permission: Boolean!
+}
+
+type HomeFields_skills_skills_name_Delete {
+  permission: Boolean!
+}
+
+type HomeFields_skills_skills_name_Read {
+  permission: Boolean!
+}
+
+type HomeFields_skills_skills_name_Update {
+  permission: Boolean!
+}
+
+type HomeFields_skills_skills_proficiency {
+  create: HomeFields_skills_skills_proficiency_Create
+  delete: HomeFields_skills_skills_proficiency_Delete
+  read: HomeFields_skills_skills_proficiency_Read
+  update: HomeFields_skills_skills_proficiency_Update
+}
+
+type HomeFields_skills_skills_proficiency_Create {
+  permission: Boolean!
+}
+
+type HomeFields_skills_skills_proficiency_Delete {
+  permission: Boolean!
+}
+
+type HomeFields_skills_skills_proficiency_Read {
+  permission: Boolean!
+}
+
+type HomeFields_skills_skills_proficiency_Update {
+  permission: Boolean!
+}
+
+type HomeFields_skills_title {
+  create: HomeFields_skills_title_Create
+  delete: HomeFields_skills_title_Delete
+  read: HomeFields_skills_title_Read
+  update: HomeFields_skills_title_Update
+}
+
+type HomeFields_skills_title_Create {
+  permission: Boolean!
+}
+
+type HomeFields_skills_title_Delete {
+  permission: Boolean!
+}
+
+type HomeFields_skills_title_Read {
+  permission: Boolean!
+}
+
+type HomeFields_skills_title_Update {
   permission: Boolean!
 }
 
@@ -2141,6 +2446,17 @@ type HomeUpdateDocAccess {
   where: JSONObject
 }
 
+type Home_Skills {
+  skills: [Home_Skills_Skills!]!
+  title: String
+}
+
+type Home_Skills_Skills {
+  id: String
+  name: String!
+  proficiency: Float!
+}
+
 type Home_WhatIDo {
   sections: [Home_WhatIDo_Sections!]!
   title: String
@@ -2148,17 +2464,21 @@ type Home_WhatIDo {
 
 type Home_WhatIDo_Sections {
   description: String!
-  icon: Home_WhatIDo_Sections_icon
+  icon: Home_WhatIDo_Sections_icon!
   id: String
   title: String!
 }
 
 enum Home_WhatIDo_Sections_icon {
-  filledApi
+  api
+  code
+  computer
 }
 
 enum Home_WhatIDo_Sections_icon_MutationInput {
-  filledApi
+  api
+  code
+  computer
 }
 
 """
@@ -3723,8 +4043,20 @@ input mutationHeadshot_Sizes_ThumbnailInput {
 
 input mutationHomeInput {
   createdAt: String
+  skills: mutationHome_SkillsInput!
   updatedAt: String
   whatIDo: mutationHome_WhatIDoInput!
+}
+
+input mutationHome_SkillsInput {
+  skills: [mutationHome_Skills_SkillsInput!]
+  title: String!
+}
+
+input mutationHome_Skills_SkillsInput {
+  id: String
+  name: String!
+  proficiency: Float!
 }
 
 input mutationHome_WhatIDoInput {
@@ -3734,7 +4066,7 @@ input mutationHome_WhatIDoInput {
 
 input mutationHome_WhatIDo_SectionsInput {
   description: String!
-  icon: Home_WhatIDo_Sections_icon_MutationInput
+  icon: Home_WhatIDo_Sections_icon_MutationInput!
   id: String
   title: String!
 }

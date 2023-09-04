@@ -1,0 +1,48 @@
+{
+  "root": true,
+  "extends": ["plugin:astro/recommended", "standard"],
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": "latest"
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "extends": "standard-with-typescript",
+      "parserOptions": {
+        "project": "./tsconfig.json"
+      },
+      "plugins": ["tsdoc"],
+      "rules": {
+        "tsdoc/syntax": "warn"
+      }
+    },
+    {
+      "files": ["*.astro"],
+      "parser": "astro-eslint-parser",
+      "parserOptions": {
+        "parser": "@typescript-eslint/parser",
+        "project": "./tsconfig.json",
+        "extraFileExtensions": [".astro"]
+      }
+    },
+    {
+      "files": ["./src/components/icons/**/*"],
+      "rules": {
+        "max-len": "off"
+      }
+    }
+  ],
+  "rules": {
+    "max-len": [
+      "error",
+      {
+        "code": 120
+      }
+    ]
+  }
+}

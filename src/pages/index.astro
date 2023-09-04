@@ -1,18 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import graphqlFetch from '../graphql-fetch'
-import Headshot from '../components/Headshot.astro'
-import TransitionWords from '../components/TransitionWords.astro'
+import Headshot from '../components/headshot/Headshot.astro'
+import TransitionWords from '../components/transition-words/TransitionWords.astro'
 import homeQuery from '../queries/homeQuery'
-import {absoluteUrl} from '../utilities'
+import { absoluteUrl } from '../utilities'
 import WhatIDoSection from '../components/WhatIDoSection.astro'
 import UnderlineHeading from '../components/UnderlineHeading.astro'
 
 const response = await graphqlFetch(homeQuery, 'Home')
-const {Headshots: headshots, UserInfo: userInfo, Home: home} = (await response.json()).data
+const { Headshots: headshots, UserInfo: userInfo, Home: home } = (await response.json()).data
 const headshotUrl = headshots.docs[0].sizes.mobile.url
 const headshotAlt = headshots.docs[0].alt
-const titles = userInfo.titles.map(({title}) => title)
+const titles = userInfo.titles.map(({ title }) => title)
 ---
 
 <Layout title={`Home | ${userInfo.fullName}`} fullName={userInfo.fullName}>
@@ -40,7 +40,9 @@ const titles = userInfo.titles.map(({title}) => title)
       <UnderlineHeading as='h2' class='capitalize text-2xl'>
         {home.whatIDo.title}
       </UnderlineHeading>
-      {home.whatIDo.sections.map((section, i) => <WhatIDoSection section={section} class={i === 0 ? 'mt-4' : 'mt-6'} />)}
+      {home.whatIDo.sections.map((section, i) => (
+        <WhatIDoSection section={section} class={i === 0 ? 'mt-4' : 'mt-6'} />
+      ))}
     </section>
   </main>
 </Layout>

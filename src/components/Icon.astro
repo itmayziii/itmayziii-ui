@@ -1,13 +1,13 @@
 ---
-interface Props {
-  name: string,
-  class: string
-}
-const { name, class: className } = Astro.props<Props>
-
 import ApiIcon from './icons/ApiIcon.astro'
 import CodeIcon from './icons/CodeIcon.astro'
 import ComputerIcon from './icons/ComputerIcon.astro'
+
+interface Props {
+  name: string
+  class: string
+}
+const { name, class: className } = Astro.props<Props>
 
 const icons = {
   api: ApiIcon,
@@ -17,4 +17,4 @@ const icons = {
 const Icon = icons[name]
 ---
 
-{Icon && <Icon class={className} />}
+{Icon !== undefined && <Icon class={className} />}
