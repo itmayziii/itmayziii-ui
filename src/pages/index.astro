@@ -8,6 +8,7 @@ import { absoluteUrl } from '../utilities'
 import WhatIDoSection from '../components/WhatIDoSection.astro'
 import UnderlineHeading from '../components/UnderlineHeading.astro'
 import Skill from '../components/Skill.astro'
+import Icon from '../components/Icon.astro'
 
 const response = await graphqlFetch(homeQuery, 'Home')
 const { Headshots: headshots, UserInfo: userInfo, Home: home } = (await response.json()).data

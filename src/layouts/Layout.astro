@@ -2,6 +2,7 @@
 import '../styles/index.css'
 import Header from '../components/Header.astro'
 import Head from '../components/Head.astro'
+import Footer from '../components/Footer.astro'
 
 interface Props {
   title: string
@@ -16,6 +17,7 @@ const { title, fullName } = Astro.props<Props>
   <body class='bg-background font-roboto'>
     <Header fullName={fullName}/>
     <slot/>
+    <Footer class='mt-8' />
   </body>
 </html>
 <style>

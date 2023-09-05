@@ -2,6 +2,9 @@
 import ApiIcon from './icons/ApiIcon.astro'
 import CodeIcon from './icons/CodeIcon.astro'
 import ComputerIcon from './icons/ComputerIcon.astro'
+import GithubIcon from './icons/GithubIcon.astro'
+import TwitterIcon from './icons/TwitterIcon.astro'
+import LinkedInIcon from './icons/LinkedInIcon.astro'
 
 interface Props {
   name: string
@@ -12,7 +15,10 @@ const { name, class: className } = Astro.props<Props>
 const icons = {
   api: ApiIcon,
   code: CodeIcon,
-  computer: ComputerIcon
+  computer: ComputerIcon,
+  github: GithubIcon,
+  twitter: TwitterIcon,
+  linkedIn: LinkedInIcon
 }
 const Icon = icons[name]
 ---

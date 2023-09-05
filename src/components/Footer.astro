@@ -1,0 +1,28 @@
+---
+import Icon from './Icon.astro'
+
+interface Props {
+  class: string
+}
+const { class: className } = Astro.props
+---
+
+<footer class:list={['py-4 px-6', className]}>
+  <ul class='flex justify-center'>
+    <li>
+      <a href='https://github.com/itmayziii'>
+        <Icon name='github' class='w-10 h-10' />
+      </a>
+    </li>
+    <li class='ml-8'>
+      <a href='https://x.com/itmayziii'>
+        <Icon name='twitter' class='w-10 h-10' />
+      </a>
+    </li>
+    <li class='ml-8'>
+      <a href='https://www.linkedin.com/in/tommy-may-07223979/'>
+        <Icon name='linkedIn' class='w-10 h-10' />
+      </a>
+    </li>
+  </ul>
+</footer>
