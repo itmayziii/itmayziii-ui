@@ -18,23 +18,27 @@ const titles = userInfo.titles.map(({ title }) => title)
 
 <Layout title={`Home | ${userInfo.fullName}`} fullName={userInfo.fullName} socials={userInfo.socials}>
   <main class='mx-6'>
-    <section class='text-white text-center'>
-      <div class='flex justify-center'>
+    <section class='text-white text-center md:flex md:text-left'>
+      <div class='flex justify-center md:ml-8'>
         <Headshot class='mt-8' url={`http://localhost:3000${headshotUrl}`} alt={headshotAlt}/>
       </div>
-      <TransitionWords class='mt-4 text-sm text-gray-300' as='h4' words={titles}/>
-      <h1 class='font-bold text-4xl mt-1'>
-        {userInfo.fullName}
-      </h1>
-      <p class='text-left mt-6 mx-4 hyphens-auto break-words'>{userInfo.description}</p>
-      <div class='flex flex-col items-center mt-6'>
-        <button type='button' class='rounded-full border border-primary px-6 py-2 bg-gray-800'>
-          Download Resume
-        </button>
-        <a href={absoluteUrl('/contact', Astro.site)}
-           class='mt-2 rounded-full border border-white px-6 py-2 bg-gray-800'>
-          Contact
-        </a>
+      <div class='mx-4 md:ml-16'>
+        <TransitionWords class='mt-4 text-sm text-gray-300' as='h4' words={titles}/>
+        <h1 class='font-bold text-4xl mt-1'>
+          {userInfo.fullName}
+        </h1>
+        <p class='text-left mt-6 hyphens-auto break-words max-w-xl mx-auto'>
+          {userInfo.description}
+        </p>
+        <div class='flex flex-col items-center mt-6 md:flex-row'>
+          <button type='button' class='rounded-full border border-primary px-6 py-2 bg-gray-800'>
+            Download Resume
+          </button>
+          <a href={absoluteUrl('/contact', Astro.site)}
+             class='mt-2 rounded-full border border-white px-6 py-2 bg-gray-800 md:ml-2 md:mt-0'>
+            Contact
+          </a>
+        </div>
       </div>
     </section>
     <section class='text-white mt-16'>
@@ -42,7 +46,7 @@ const titles = userInfo.titles.map(({ title }) => title)
         {home.whatIDo.title}
       </UnderlineHeading>
       {home.whatIDo.sections.map((section, i) => (
-        <WhatIDoSection section={section} class={i === 0 ? 'mt-4' : 'mt-6'} />
+        <WhatIDoSection section={section} class={i === 0 ? 'mt-4' : 'mt-6'}/>
       ))}
     </section>
     <section class='text-white mt-16'>
@@ -50,7 +54,7 @@ const titles = userInfo.titles.map(({ title }) => title)
         {home.skills.title}
       </UnderlineHeading>
       {home.skills.skills.map((skill) => (
-        <Skill skill={skill} class='mt-4' />
+        <Skill skill={skill} class='mt-4'/>
       ))}
     </section>
   </main>
