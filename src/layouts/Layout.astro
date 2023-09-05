@@ -16,12 +16,18 @@ const { title, fullName, socials } = Astro.props<Props>
 ---
 
 <!DOCTYPE html>
-<html lang='en'>
+<html lang='en' class='bg-background lg:bg-primary min-h-full'>
   <Head title={title}/>
-  <body class='bg-background font-roboto'>
-    <Header fullName={fullName}/>
-    <slot/>
-    <Footer class='mt-8' socials={socials} />
+  <body class='bg-background lg:bg-primary font-roboto md:bg-white h-full m-0'>
+    <div class='lg:m-8'>
+      <Header fullName={fullName}/>
+      <main class='bg-primary'>
+        <div class='bg-background px-6 max-w-screen-xl lg:mx-auto lg:px-16'>
+          <slot/>
+        </div>
+      </main>
+      <Footer socials={socials}/>
+    </div>
   </body>
 </html>
 <style>

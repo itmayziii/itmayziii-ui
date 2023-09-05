@@ -8,7 +8,10 @@ const firstCharacter = fullName.charAt(0)
 ---
 
 <div class='flex items-center text-xl'>
-  <span class='uppercase bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center font-bold'>
+  <span class:list={[
+    'uppercase bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center font-bold',
+    'lg:w-10 lg:h-10 lg:text-2xl'
+  ]}>
     {firstCharacter}
   </span>
   <div class='text-white capitalize ml-2'>{fullName}</div>

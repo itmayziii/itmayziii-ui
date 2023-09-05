@@ -11,7 +11,11 @@ interface Props {
 const { class: className, socials } = Astro.props
 ---
 
-<footer class:list={['py-4 px-6', className]}>
+<footer class:list={[
+  'py-4 px-6 mt-8 bg-background max-w-screen-xl',
+  'lg:mt-0 lg:rounded-b-3xl lg:mx-auto',
+  className
+]}>
   <ul class='flex justify-center'>
     {socials.map((social, i) => (
       <li class:list={{ 'ml-8': i !== 0 }}>

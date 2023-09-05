@@ -4,11 +4,16 @@ import Nav from './Nav.astro'
 
 interface Props {
   fullName: string
+  class: string
 }
-const { fullName } = Astro.props<Props>;
+const { fullName, class: className } = Astro.props<Props>;
 ---
 
-<header class='sticky top-0 bg-background flex justify-between py-2 px-4 z-50'>
+<header class:list={[
+  'sticky top-0 bg-background flex justify-between py-2 px-4 z-50 max-w-screen-xl',
+  'lg:static lg:rounded-t-3xl lg:mx-auto lg:pt-10 lg:px-16',
+  className
+]}>
   <NameBadge fullName={fullName} />
   <Nav />
 </header>
