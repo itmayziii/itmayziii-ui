@@ -3194,6 +3194,7 @@ type UserInfoDocAccessFields_socials_Delete {
 type UserInfoDocAccessFields_socials_Fields {
   icon: UserInfoDocAccessFields_socials_icon
   id: UserInfoDocAccessFields_socials_id
+  label: UserInfoDocAccessFields_socials_label
   link: UserInfoDocAccessFields_socials_link
 }
 
@@ -3248,6 +3249,29 @@ type UserInfoDocAccessFields_socials_id_Read {
 }
 
 type UserInfoDocAccessFields_socials_id_Update {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_socials_label {
+  create: UserInfoDocAccessFields_socials_label_Create
+  delete: UserInfoDocAccessFields_socials_label_Delete
+  read: UserInfoDocAccessFields_socials_label_Read
+  update: UserInfoDocAccessFields_socials_label_Update
+}
+
+type UserInfoDocAccessFields_socials_label_Create {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_socials_label_Delete {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_socials_label_Read {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_socials_label_Update {
   permission: Boolean!
 }
 
@@ -3541,6 +3565,7 @@ type UserInfoFields_socials_Delete {
 type UserInfoFields_socials_Fields {
   icon: UserInfoFields_socials_icon
   id: UserInfoFields_socials_id
+  label: UserInfoFields_socials_label
   link: UserInfoFields_socials_link
 }
 
@@ -3595,6 +3620,29 @@ type UserInfoFields_socials_id_Read {
 }
 
 type UserInfoFields_socials_id_Update {
+  permission: Boolean!
+}
+
+type UserInfoFields_socials_label {
+  create: UserInfoFields_socials_label_Create
+  delete: UserInfoFields_socials_label_Delete
+  read: UserInfoFields_socials_label_Read
+  update: UserInfoFields_socials_label_Update
+}
+
+type UserInfoFields_socials_label_Create {
+  permission: Boolean!
+}
+
+type UserInfoFields_socials_label_Delete {
+  permission: Boolean!
+}
+
+type UserInfoFields_socials_label_Read {
+  permission: Boolean!
+}
+
+type UserInfoFields_socials_label_Update {
   permission: Boolean!
 }
 
@@ -3765,6 +3813,7 @@ type UserInfoUpdateDocAccess {
 type UserInfo_Socials {
   icon: UserInfo_Socials_icon
   id: String
+  label: String
   link: String
 }
 
@@ -4337,6 +4386,7 @@ input mutationUserInfoInput {
 input mutationUserInfo_SocialsInput {
   icon: UserInfo_Socials_icon_MutationInput!
   id: String
+  label: String!
   link: String!
 }
 

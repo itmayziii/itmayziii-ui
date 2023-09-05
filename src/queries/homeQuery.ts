@@ -11,6 +11,7 @@ query Home {
     socials {
       icon
       link
+      label
     }
   }
   Home {

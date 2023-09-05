@@ -6,6 +6,7 @@ interface Props {
   socials: {
     icon: string
     link: string
+    label: string
   }[]
 }
 const { class: className, socials } = Astro.props
@@ -19,7 +20,7 @@ const { class: className, socials } = Astro.props
   <ul class='flex justify-center'>
     {socials.map((social, i) => (
       <li class:list={{ 'ml-8': i !== 0 }}>
-        <a href={social.link}>
+        <a href={social.link} aria-label={social.label}>
           <Icon name={social.icon} class='w-10 h-10' />
         </a>
       </li>
