@@ -3,26 +3,22 @@ import Icon from './Icon.astro'
 
 interface Props {
   class: string
+  socials: {
+    icon: string
+    link: string
+  }[]
 }
-const { class: className } = Astro.props
+const { class: className, socials } = Astro.props
 ---
 
 <footer class:list={['py-4 px-6', className]}>
   <ul class='flex justify-center'>
-    <li>
-      <a href='https://github.com/itmayziii'>
-        <Icon name='github' class='w-10 h-10' />
-      </a>
-    </li>
-    <li class='ml-8'>
-      <a href='https://x.com/itmayziii'>
-        <Icon name='twitter' class='w-10 h-10' />
-      </a>
-    </li>
-    <li class='ml-8'>
-      <a href='https://www.linkedin.com/in/tommy-may-07223979/'>
-        <Icon name='linkedIn' class='w-10 h-10' />
-      </a>
-    </li>
+    {socials.map((social, i) => (
+      <li class:list={{ 'ml-8': i !== 0 }}>
+        <a href={social.link}>
+          <Icon name={social.icon} class='w-10 h-10' />
+        </a>
+      </li>
+    ))}
   </ul>
 </footer>

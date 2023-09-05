@@ -2473,12 +2473,18 @@ enum Home_WhatIDo_Sections_icon {
   api
   code
   computer
+  github
+  linkedIn
+  twitter
 }
 
 enum Home_WhatIDo_Sections_icon_MutationInput {
   api
   code
   computer
+  github
+  linkedIn
+  twitter
 }
 
 """
@@ -3036,6 +3042,7 @@ type UserInfo {
   firstName: String!
   fullName: String
   lastName: String!
+  socials: [UserInfo_Socials!]!
   suffix: UserInfo_suffix
   titles: [UserInfo_Titles!]!
   updatedAt: DateTime
@@ -3047,6 +3054,7 @@ type UserInfoDocAccessFields {
   firstName: UserInfoDocAccessFields_firstName
   fullName: UserInfoDocAccessFields_fullName
   lastName: UserInfoDocAccessFields_lastName
+  socials: UserInfoDocAccessFields_socials
   suffix: UserInfoDocAccessFields_suffix
   titles: UserInfoDocAccessFields_titles
   updatedAt: UserInfoDocAccessFields_updatedAt
@@ -3164,6 +3172,105 @@ type UserInfoDocAccessFields_lastName_Read {
 }
 
 type UserInfoDocAccessFields_lastName_Update {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_socials {
+  create: UserInfoDocAccessFields_socials_Create
+  delete: UserInfoDocAccessFields_socials_Delete
+  fields: UserInfoDocAccessFields_socials_Fields
+  read: UserInfoDocAccessFields_socials_Read
+  update: UserInfoDocAccessFields_socials_Update
+}
+
+type UserInfoDocAccessFields_socials_Create {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_socials_Delete {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_socials_Fields {
+  icon: UserInfoDocAccessFields_socials_icon
+  id: UserInfoDocAccessFields_socials_id
+  link: UserInfoDocAccessFields_socials_link
+}
+
+type UserInfoDocAccessFields_socials_Read {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_socials_Update {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_socials_icon {
+  create: UserInfoDocAccessFields_socials_icon_Create
+  delete: UserInfoDocAccessFields_socials_icon_Delete
+  read: UserInfoDocAccessFields_socials_icon_Read
+  update: UserInfoDocAccessFields_socials_icon_Update
+}
+
+type UserInfoDocAccessFields_socials_icon_Create {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_socials_icon_Delete {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_socials_icon_Read {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_socials_icon_Update {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_socials_id {
+  create: UserInfoDocAccessFields_socials_id_Create
+  delete: UserInfoDocAccessFields_socials_id_Delete
+  read: UserInfoDocAccessFields_socials_id_Read
+  update: UserInfoDocAccessFields_socials_id_Update
+}
+
+type UserInfoDocAccessFields_socials_id_Create {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_socials_id_Delete {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_socials_id_Read {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_socials_id_Update {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_socials_link {
+  create: UserInfoDocAccessFields_socials_link_Create
+  delete: UserInfoDocAccessFields_socials_link_Delete
+  read: UserInfoDocAccessFields_socials_link_Read
+  update: UserInfoDocAccessFields_socials_link_Update
+}
+
+type UserInfoDocAccessFields_socials_link_Create {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_socials_link_Delete {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_socials_link_Read {
+  permission: Boolean!
+}
+
+type UserInfoDocAccessFields_socials_link_Update {
   permission: Boolean!
 }
 
@@ -3294,6 +3401,7 @@ type UserInfoFields {
   firstName: UserInfoFields_firstName
   fullName: UserInfoFields_fullName
   lastName: UserInfoFields_lastName
+  socials: UserInfoFields_socials
   suffix: UserInfoFields_suffix
   titles: UserInfoFields_titles
   updatedAt: UserInfoFields_updatedAt
@@ -3411,6 +3519,105 @@ type UserInfoFields_lastName_Read {
 }
 
 type UserInfoFields_lastName_Update {
+  permission: Boolean!
+}
+
+type UserInfoFields_socials {
+  create: UserInfoFields_socials_Create
+  delete: UserInfoFields_socials_Delete
+  fields: UserInfoFields_socials_Fields
+  read: UserInfoFields_socials_Read
+  update: UserInfoFields_socials_Update
+}
+
+type UserInfoFields_socials_Create {
+  permission: Boolean!
+}
+
+type UserInfoFields_socials_Delete {
+  permission: Boolean!
+}
+
+type UserInfoFields_socials_Fields {
+  icon: UserInfoFields_socials_icon
+  id: UserInfoFields_socials_id
+  link: UserInfoFields_socials_link
+}
+
+type UserInfoFields_socials_Read {
+  permission: Boolean!
+}
+
+type UserInfoFields_socials_Update {
+  permission: Boolean!
+}
+
+type UserInfoFields_socials_icon {
+  create: UserInfoFields_socials_icon_Create
+  delete: UserInfoFields_socials_icon_Delete
+  read: UserInfoFields_socials_icon_Read
+  update: UserInfoFields_socials_icon_Update
+}
+
+type UserInfoFields_socials_icon_Create {
+  permission: Boolean!
+}
+
+type UserInfoFields_socials_icon_Delete {
+  permission: Boolean!
+}
+
+type UserInfoFields_socials_icon_Read {
+  permission: Boolean!
+}
+
+type UserInfoFields_socials_icon_Update {
+  permission: Boolean!
+}
+
+type UserInfoFields_socials_id {
+  create: UserInfoFields_socials_id_Create
+  delete: UserInfoFields_socials_id_Delete
+  read: UserInfoFields_socials_id_Read
+  update: UserInfoFields_socials_id_Update
+}
+
+type UserInfoFields_socials_id_Create {
+  permission: Boolean!
+}
+
+type UserInfoFields_socials_id_Delete {
+  permission: Boolean!
+}
+
+type UserInfoFields_socials_id_Read {
+  permission: Boolean!
+}
+
+type UserInfoFields_socials_id_Update {
+  permission: Boolean!
+}
+
+type UserInfoFields_socials_link {
+  create: UserInfoFields_socials_link_Create
+  delete: UserInfoFields_socials_link_Delete
+  read: UserInfoFields_socials_link_Read
+  update: UserInfoFields_socials_link_Update
+}
+
+type UserInfoFields_socials_link_Create {
+  permission: Boolean!
+}
+
+type UserInfoFields_socials_link_Delete {
+  permission: Boolean!
+}
+
+type UserInfoFields_socials_link_Read {
+  permission: Boolean!
+}
+
+type UserInfoFields_socials_link_Update {
   permission: Boolean!
 }
 
@@ -3553,6 +3760,30 @@ type UserInfoUpdateAccess {
 type UserInfoUpdateDocAccess {
   permission: Boolean!
   where: JSONObject
+}
+
+type UserInfo_Socials {
+  icon: UserInfo_Socials_icon
+  id: String
+  link: String
+}
+
+enum UserInfo_Socials_icon {
+  api
+  code
+  computer
+  github
+  linkedIn
+  twitter
+}
+
+enum UserInfo_Socials_icon_MutationInput {
+  api
+  code
+  computer
+  github
+  linkedIn
+  twitter
 }
 
 type UserInfo_Titles {
@@ -4097,9 +4328,16 @@ input mutationUserInfoInput {
   firstName: String!
   fullName: String
   lastName: String!
+  socials: [mutationUserInfo_SocialsInput!]
   suffix: UserInfo_suffix_MutationInput
   titles: [mutationUserInfo_TitlesInput!]
   updatedAt: String
+}
+
+input mutationUserInfo_SocialsInput {
+  icon: UserInfo_Socials_icon_MutationInput!
+  id: String
+  link: String!
 }
 
 input mutationUserInfo_TitlesInput {

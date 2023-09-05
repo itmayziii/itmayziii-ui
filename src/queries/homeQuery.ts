@@ -8,6 +8,10 @@ query Home {
     titles {
       title
     }
+    socials {
+      icon
+      link
+    }
   }
   Home {
     createdAt
