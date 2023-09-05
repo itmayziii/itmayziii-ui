@@ -1,0 +1,46 @@
+---
+/**
+  Intentionally not using the <progress> element here. While it would be nice and semantic, it's not
+    possible to style the element in a way that is cross browser compatible.
+  */
+
+interface Props {
+  skill: {
+    name: string
+    proficiency: number
+  }
+  class: string
+}
+const { skill, class: className } = Astro.props
+
+function proficiencyLevel (proficiency) {
+  if (proficiency >= 90) {
+    return 'Expert'
+  }
+  if (proficiency >= 70) {
+    return 'Extensive'
+  }
+  if (proficiency >= 50) {
+    return 'Working'
+  }
+
+  return 'Basic'
+}
+---
+
+<div class:list={['flex flex-col flex-', className]}>
+  <div class='w-full flex justify-between'>
+    <span id={`skill-progress-${skill.name}`}>{skill.name}</span>
+    <span class='text-sm'>({proficiencyLevel(skill.proficiency)})</span>
+  </div>
+  <span
+    class='w-full h-1 inline-block bg-gray-300'
+    role='progressbar'
+    aria-labelledby={`skill-progress-${skill.name}`}
+    aria-valuenow={skill.proficiency}
+    aria-valuemax='100'
+    aria-valuemin='1'
+  >
+    <span class='block h-full bg-primary' style={`width: ${skill.proficiency}%;`}></span>
+  </span>
+</div>
