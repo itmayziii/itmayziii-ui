@@ -3,7 +3,7 @@ const barClass = 'bg-white p-0 w-6 h-1 block absolute rounded'
 ---
 
 <input type='checkbox' id='hamburger-menu' class='iii-hamburger-input hidden'>
-<label for='hamburger-menu' class='iii-hamburger-icon cursor-pointer'>
+<label for='hamburger-menu' class='iii-hamburger-icon cursor-pointer lg:hidden'>
   <span class='hamburger block h-6 w-6 relative'>
     <span class:list={['iii-hamburger-bar iii-hamburger-bar1 top-0', barClass]}></span>
     <span class:list={['iii-hamburger-bar iii-hamburger-bar2 top-2.5', barClass]}></span>
@@ -14,7 +14,7 @@ const barClass = 'bg-white p-0 w-6 h-1 block absolute rounded'
 
 <style is:global>
   .iii-hamburger-bar {
-    transition: all 0.4s ease-in-out;
+    transition: all 0.2s ease-in-out;
   }
 
   .iii-hamburger-bar1 {

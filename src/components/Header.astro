@@ -1,12 +1,17 @@
 ---
 import NameBadge from './NameBadge.astro'
 import Nav from './Nav.astro'
+import { absoluteUrl } from '../utilities'
 
 interface Props {
   fullName: string
   class: string
+  navLinks: {
+    label: string
+    link: string
+  }[]
 }
-const { fullName, class: className } = Astro.props<Props>;
+const { fullName, class: className, navLinks } = Astro.props<Props>;
 ---
 
 <header class:list={[
@@ -14,6 +19,6 @@ const { fullName, class: className } = Astro.props<Props>;
   'lg:static lg:rounded-t-3xl lg:mx-auto lg:pt-10 lg:px-16',
   className
 ]}>
-  <NameBadge fullName={fullName} />
-  <Nav />
+  <a href={absoluteUrl('/', Astro.site)}><NameBadge fullName={fullName} /></a>
+  <Nav links={navLinks} />
 </header>

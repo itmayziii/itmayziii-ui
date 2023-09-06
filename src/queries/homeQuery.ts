@@ -33,6 +33,12 @@ query Home {
       }
     }
   }
+  Nav {
+    links {
+      label
+      link
+    }
+  }
   Headshots(where: { name: { equals: "Professional" } }) {
     docs {
       alt

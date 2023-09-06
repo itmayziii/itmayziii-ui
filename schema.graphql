@@ -3,6 +3,7 @@ type Access {
   headshots: headshotsAccess
   home: homeAccess
   machines: machinesAccess
+  nav: navAccess
   user_info: user_infoAccess
   users: usersAccess
 }
@@ -2987,10 +2988,345 @@ type Mutation {
   updateHeadshot(autosave: Boolean, data: mutationHeadshotUpdateInput!, draft: Boolean, id: String!): Headshot
   updateHome(data: mutationHomeInput!, draft: Boolean): Home
   updateMachine(autosave: Boolean, data: mutationMachineUpdateInput!, draft: Boolean, id: String!): Machine
+  updateNav(data: mutationNavInput!, draft: Boolean): Nav
   updatePreference(key: String!, value: JSON): Preference
   updateUser(autosave: Boolean, data: mutationUserUpdateInput!, draft: Boolean, id: String!): User
   updateUserInfo(data: mutationUserInfoInput!, draft: Boolean): UserInfo
   verifyEmailUser(token: String): Boolean
+}
+
+type Nav {
+  createdAt: DateTime
+  links: [Nav_Links!]!
+  updatedAt: DateTime
+}
+
+type NavDocAccessFields {
+  createdAt: NavDocAccessFields_createdAt
+  links: NavDocAccessFields_links
+  updatedAt: NavDocAccessFields_updatedAt
+}
+
+type NavDocAccessFields_createdAt {
+  create: NavDocAccessFields_createdAt_Create
+  delete: NavDocAccessFields_createdAt_Delete
+  read: NavDocAccessFields_createdAt_Read
+  update: NavDocAccessFields_createdAt_Update
+}
+
+type NavDocAccessFields_createdAt_Create {
+  permission: Boolean!
+}
+
+type NavDocAccessFields_createdAt_Delete {
+  permission: Boolean!
+}
+
+type NavDocAccessFields_createdAt_Read {
+  permission: Boolean!
+}
+
+type NavDocAccessFields_createdAt_Update {
+  permission: Boolean!
+}
+
+type NavDocAccessFields_links {
+  create: NavDocAccessFields_links_Create
+  delete: NavDocAccessFields_links_Delete
+  fields: NavDocAccessFields_links_Fields
+  read: NavDocAccessFields_links_Read
+  update: NavDocAccessFields_links_Update
+}
+
+type NavDocAccessFields_links_Create {
+  permission: Boolean!
+}
+
+type NavDocAccessFields_links_Delete {
+  permission: Boolean!
+}
+
+type NavDocAccessFields_links_Fields {
+  id: NavDocAccessFields_links_id
+  label: NavDocAccessFields_links_label
+  link: NavDocAccessFields_links_link
+}
+
+type NavDocAccessFields_links_Read {
+  permission: Boolean!
+}
+
+type NavDocAccessFields_links_Update {
+  permission: Boolean!
+}
+
+type NavDocAccessFields_links_id {
+  create: NavDocAccessFields_links_id_Create
+  delete: NavDocAccessFields_links_id_Delete
+  read: NavDocAccessFields_links_id_Read
+  update: NavDocAccessFields_links_id_Update
+}
+
+type NavDocAccessFields_links_id_Create {
+  permission: Boolean!
+}
+
+type NavDocAccessFields_links_id_Delete {
+  permission: Boolean!
+}
+
+type NavDocAccessFields_links_id_Read {
+  permission: Boolean!
+}
+
+type NavDocAccessFields_links_id_Update {
+  permission: Boolean!
+}
+
+type NavDocAccessFields_links_label {
+  create: NavDocAccessFields_links_label_Create
+  delete: NavDocAccessFields_links_label_Delete
+  read: NavDocAccessFields_links_label_Read
+  update: NavDocAccessFields_links_label_Update
+}
+
+type NavDocAccessFields_links_label_Create {
+  permission: Boolean!
+}
+
+type NavDocAccessFields_links_label_Delete {
+  permission: Boolean!
+}
+
+type NavDocAccessFields_links_label_Read {
+  permission: Boolean!
+}
+
+type NavDocAccessFields_links_label_Update {
+  permission: Boolean!
+}
+
+type NavDocAccessFields_links_link {
+  create: NavDocAccessFields_links_link_Create
+  delete: NavDocAccessFields_links_link_Delete
+  read: NavDocAccessFields_links_link_Read
+  update: NavDocAccessFields_links_link_Update
+}
+
+type NavDocAccessFields_links_link_Create {
+  permission: Boolean!
+}
+
+type NavDocAccessFields_links_link_Delete {
+  permission: Boolean!
+}
+
+type NavDocAccessFields_links_link_Read {
+  permission: Boolean!
+}
+
+type NavDocAccessFields_links_link_Update {
+  permission: Boolean!
+}
+
+type NavDocAccessFields_updatedAt {
+  create: NavDocAccessFields_updatedAt_Create
+  delete: NavDocAccessFields_updatedAt_Delete
+  read: NavDocAccessFields_updatedAt_Read
+  update: NavDocAccessFields_updatedAt_Update
+}
+
+type NavDocAccessFields_updatedAt_Create {
+  permission: Boolean!
+}
+
+type NavDocAccessFields_updatedAt_Delete {
+  permission: Boolean!
+}
+
+type NavDocAccessFields_updatedAt_Read {
+  permission: Boolean!
+}
+
+type NavDocAccessFields_updatedAt_Update {
+  permission: Boolean!
+}
+
+type NavFields {
+  createdAt: NavFields_createdAt
+  links: NavFields_links
+  updatedAt: NavFields_updatedAt
+}
+
+type NavFields_createdAt {
+  create: NavFields_createdAt_Create
+  delete: NavFields_createdAt_Delete
+  read: NavFields_createdAt_Read
+  update: NavFields_createdAt_Update
+}
+
+type NavFields_createdAt_Create {
+  permission: Boolean!
+}
+
+type NavFields_createdAt_Delete {
+  permission: Boolean!
+}
+
+type NavFields_createdAt_Read {
+  permission: Boolean!
+}
+
+type NavFields_createdAt_Update {
+  permission: Boolean!
+}
+
+type NavFields_links {
+  create: NavFields_links_Create
+  delete: NavFields_links_Delete
+  fields: NavFields_links_Fields
+  read: NavFields_links_Read
+  update: NavFields_links_Update
+}
+
+type NavFields_links_Create {
+  permission: Boolean!
+}
+
+type NavFields_links_Delete {
+  permission: Boolean!
+}
+
+type NavFields_links_Fields {
+  id: NavFields_links_id
+  label: NavFields_links_label
+  link: NavFields_links_link
+}
+
+type NavFields_links_Read {
+  permission: Boolean!
+}
+
+type NavFields_links_Update {
+  permission: Boolean!
+}
+
+type NavFields_links_id {
+  create: NavFields_links_id_Create
+  delete: NavFields_links_id_Delete
+  read: NavFields_links_id_Read
+  update: NavFields_links_id_Update
+}
+
+type NavFields_links_id_Create {
+  permission: Boolean!
+}
+
+type NavFields_links_id_Delete {
+  permission: Boolean!
+}
+
+type NavFields_links_id_Read {
+  permission: Boolean!
+}
+
+type NavFields_links_id_Update {
+  permission: Boolean!
+}
+
+type NavFields_links_label {
+  create: NavFields_links_label_Create
+  delete: NavFields_links_label_Delete
+  read: NavFields_links_label_Read
+  update: NavFields_links_label_Update
+}
+
+type NavFields_links_label_Create {
+  permission: Boolean!
+}
+
+type NavFields_links_label_Delete {
+  permission: Boolean!
+}
+
+type NavFields_links_label_Read {
+  permission: Boolean!
+}
+
+type NavFields_links_label_Update {
+  permission: Boolean!
+}
+
+type NavFields_links_link {
+  create: NavFields_links_link_Create
+  delete: NavFields_links_link_Delete
+  read: NavFields_links_link_Read
+  update: NavFields_links_link_Update
+}
+
+type NavFields_links_link_Create {
+  permission: Boolean!
+}
+
+type NavFields_links_link_Delete {
+  permission: Boolean!
+}
+
+type NavFields_links_link_Read {
+  permission: Boolean!
+}
+
+type NavFields_links_link_Update {
+  permission: Boolean!
+}
+
+type NavFields_updatedAt {
+  create: NavFields_updatedAt_Create
+  delete: NavFields_updatedAt_Delete
+  read: NavFields_updatedAt_Read
+  update: NavFields_updatedAt_Update
+}
+
+type NavFields_updatedAt_Create {
+  permission: Boolean!
+}
+
+type NavFields_updatedAt_Delete {
+  permission: Boolean!
+}
+
+type NavFields_updatedAt_Read {
+  permission: Boolean!
+}
+
+type NavFields_updatedAt_Update {
+  permission: Boolean!
+}
+
+type NavReadAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type NavReadDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type NavUpdateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type NavUpdateDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type Nav_Links {
+  id: String
+  label: String
+  link: String
 }
 
 type Preference {
@@ -3007,6 +3343,7 @@ type Query {
   Home(draft: Boolean): Home
   Machine(draft: Boolean, id: String!): Machine
   Machines(draft: Boolean, limit: Int, page: Int, sort: String, where: Machine_where): Machines
+  Nav(draft: Boolean): Nav
   Preference(key: String): Preference
   User(draft: Boolean, id: String!): User
   UserInfo(draft: Boolean): UserInfo
@@ -3014,6 +3351,7 @@ type Query {
   docAccessHeadshot(id: String!): headshotsDocAccess
   docAccessHome: homeDocAccess
   docAccessMachine(id: String!): machinesDocAccess
+  docAccessNav: navDocAccess
   docAccessUser(id: String!): usersDocAccess
   docAccessUserInfo: user_infoDocAccess
   initializedMachine: Boolean
@@ -4371,6 +4709,18 @@ input mutationMachineUpdateInput {
   updatedAt: String
 }
 
+input mutationNavInput {
+  createdAt: String
+  links: [mutationNav_LinksInput!]
+  updatedAt: String
+}
+
+input mutationNav_LinksInput {
+  id: String
+  label: String!
+  link: String!
+}
+
 input mutationUserInfoInput {
   createdAt: String
   description: String!
@@ -4419,6 +4769,18 @@ input mutationUserUpdateInput {
   resetPasswordToken: String
   salt: String
   updatedAt: String
+}
+
+type navAccess {
+  fields: NavFields
+  read: NavReadAccess
+  update: NavUpdateAccess
+}
+
+type navDocAccess {
+  fields: NavDocAccessFields
+  read: NavReadDocAccess
+  update: NavUpdateDocAccess
 }
 
 type user_infoAccess {

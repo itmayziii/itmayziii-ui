@@ -12,16 +12,20 @@ interface Props {
     link: string
     label: string
   }[]
+  navLinks: {
+    label: string
+    link: string
+  }[]
 }
-const { title, fullName, socials } = Astro.props<Props>
+const { title, fullName, socials, navLinks } = Astro.props<Props>
 ---
 
 <!DOCTYPE html>
-<html lang='en' class='bg-background lg:bg-primary min-h-full'>
+<html lang='en' class='bg-background lg:bg-primary min-h-full w-full'>
   <Head title={title}/>
-  <body class='bg-background lg:bg-primary font-roboto md:bg-white h-full m-0'>
+  <body class='bg-background lg:bg-primary font-roboto md:bg-white h-full m-0 w-full overflow-x-hidden overscroll-none'>
     <div class='lg:m-8'>
-      <Header fullName={fullName}/>
+      <Header fullName={fullName} navLinks={navLinks} />
       <main class='bg-primary'>
         <div class='bg-background px-6 max-w-screen-xl lg:mx-auto lg:px-16'>
           <slot/>

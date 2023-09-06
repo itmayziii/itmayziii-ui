@@ -10,13 +10,18 @@ import UnderlineHeading from '../components/UnderlineHeading.astro'
 import Skill from '../components/Skill.astro'
 
 const response = await graphqlFetch(homeQuery, 'Home')
-const { Headshots: headshots, UserInfo: userInfo, Home: home } = (await response.json()).data
+const { Headshots: headshots, UserInfo: userInfo, Home: home, Nav: nav } = (await response.json()).data
 const headshotUrl = headshots.docs[0].sizes.mobile.url
 const headshotAlt = headshots.docs[0].alt
 const titles = userInfo.titles.map(({ title }) => title)
 ---
 
-<Layout title={`Home | ${userInfo.fullName}`} fullName={userInfo.fullName} socials={userInfo.socials}>
+<Layout
+  title={`Home | ${userInfo.fullName}`}
+  fullName={userInfo.fullName}
+  socials={userInfo.socials}
+  navLinks={nav.links}
+>
   <section class='text-white text-center md:flex md:text-left'>
     <div class='flex justify-center md:ml-8'>
       <Headshot class='mt-8 md:mt-12' url={`http://localhost:3000${headshotUrl}`} alt={headshotAlt}/>
