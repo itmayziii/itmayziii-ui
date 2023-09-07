@@ -1,20 +1,72 @@
 ---
+import { densitySrcset, mediaUrl } from '../../utilities'
 interface Props {
-  url
-  alt
-  className
+  sizes: {
+    mobile: {
+      jpgUrl: string
+      webpUrl: string
+      avifUrl: string,
+      jpg1_5xUrl: string
+      webp1_5xUrl: string
+      avif1_5xUrl: string
+      jpg2xUrl: string
+      webp2xUrl: string
+      avif2xUrl: string
+      jpg3xUrl: string
+      webp3xUrl: string
+      avif3xUrl: string
+      jpg4xUrl: string
+      webp4xUrl: string
+      avif4xUrl: string
+    }
+  }
+  alt: string
+  className: string
+  loading?: 'eager',
+  fetchpriority?: 'high'
 }
-const { url, alt, class: className } = Astro.props
+const { sizes, alt, class: className, loading, fetchpriority } = Astro.props
+const avifSrcset = densitySrcset({
+  1: mediaUrl(sizes.mobile.avifUrl),
+  1.5: mediaUrl(sizes.mobile.avif1_5xUrl),
+  2: mediaUrl(sizes.mobile.avif2xUrl),
+  3: mediaUrl(sizes.mobile.avif3xUrl),
+  4: mediaUrl(sizes.mobile.avif4xUrl)
+})
+const webpSrcset = densitySrcset({
+  1: mediaUrl(sizes.mobile.webpUrl),
+  1.5: mediaUrl(sizes.mobile.webp1_5xUrl),
+  2: mediaUrl(sizes.mobile.webp2xUrl),
+  3: mediaUrl(sizes.mobile.webp3xUrl),
+  4: mediaUrl(sizes.mobile.webp4xUrl)
+})
+const jpgSrcset = densitySrcset({
+  1: mediaUrl(sizes.mobile.jpgUrl),
+  1.5: mediaUrl(sizes.mobile.jpg1_5xUrl),
+  2: mediaUrl(sizes.mobile.jpg2xUrl),
+  3: mediaUrl(sizes.mobile.jpg3xUrl),
+  4: mediaUrl(sizes.mobile.jpg4xUrl)
+})
 ---
 
 <itmayziii-headshot>
   <button class={className} type='button' data-js-headshot-btn>
-    <img
-      class='headshot rounded-full w-full max-w-xs h-auto border-primary border-8 grayscale'
-      src={url}
-      alt={alt}
-      data-js-headshot-img
-    />
+    <picture>
+      <source srcset={avifSrcset}
+        type='image/avif'>
+      <source srcset={webpSrcset}
+        type='image/webp'>
+      <img class='aspect-square rounded-full w-full max-w-xs h-auto border-primary border-8 grayscale'
+        src={mediaUrl(sizes.mobile.jpgUrl)}
+        srcset={jpgSrcset}
+        alt={alt}
+        width='256'
+        height='256'
+        loading={loading}
+        fetchpriority={fetchpriority}
+        data-js-headshot-img
+      />
+    </picture>
   </button>
 </itmayziii-headshot>
 

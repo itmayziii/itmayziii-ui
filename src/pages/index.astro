@@ -11,8 +11,26 @@ import Skill from '../components/Skill.astro'
 
 const response = await graphqlFetch(homeQuery, 'Home')
 const { Headshots: headshots, UserInfo: userInfo, Home: home, Nav: nav } = (await response.json()).data
-const headshotUrl = headshots.docs[0].sizes.mobile.url
 const headshotAlt = headshots.docs[0].alt
+const headshotSizes = {
+  mobile: {
+    jpgUrl: headshots.docs[0].sizes.mobile.url,
+    webpUrl: headshots.docs[0].sizes.mobileWebp.url,
+    avifUrl: headshots.docs[0].sizes.mobileAvif.url,
+    jpg1_5xUrl: headshots.docs[0].sizes.mobile1_5x.url,
+    webp1_5xUrl: headshots.docs[0].sizes.mobileWebp1_5x.url,
+    avif1_5xUrl: headshots.docs[0].sizes.mobileAvif1_5x.url,
+    jpg2xUrl: headshots.docs[0].sizes.mobile2x.url,
+    webp2xUrl: headshots.docs[0].sizes.mobileWebp2x.url,
+    avif2xUrl: headshots.docs[0].sizes.mobileAvif2x.url,
+    jpg3xUrl: headshots.docs[0].sizes.mobile3x.url,
+    webp3xUrl: headshots.docs[0].sizes.mobileWebp3x.url,
+    avif3xUrl: headshots.docs[0].sizes.mobileAvif3x.url,
+    jpg4xUrl: headshots.docs[0].sizes.mobile4x.url,
+    webp4xUrl: headshots.docs[0].sizes.mobileWebp4x.url,
+    avif4xUrl: headshots.docs[0].sizes.mobileAvif4x.url
+  }
+}
 const titles = userInfo.titles.map(({ title }) => title)
 ---
 
@@ -24,7 +42,7 @@ const titles = userInfo.titles.map(({ title }) => title)
 >
   <section class='text-white text-center md:flex md:text-left md:items-center md:justify-center'>
     <div class='flex justify-center md:ml-8'>
-      <Headshot class='mt-8 md:mt-12' url={`http://localhost:3000${headshotUrl}`} alt={headshotAlt}/>
+      <Headshot class='mt-8 md:mt-12' sizes={headshotSizes} alt={headshotAlt} loading='eager' fetchpriority='high' />
     </div>
     <div class='mx-4 md:ml-12 md:max-w-md'>
       <TransitionWords class='mt-4 text-sm text-gray-300' as='h4' words={titles}/>
@@ -57,9 +75,12 @@ const titles = userInfo.titles.map(({ title }) => title)
     <UnderlineHeading as='h2' class='capitalize text-2xl'>
       {home.skills.title}
     </UnderlineHeading>
-    {home.skills.skills.map((skill) => (
-      <Skill skill={skill} class='mt-4'/>
-    ))}
+    <div class='flex flex-wrap justify-start'>
+      {home.skills.skills.map((skill) => (
+        <Skill skill={skill} class='mt-4 w-full sm:w-1/2 sm:p-4 lg:w-1/3'/>
+      ))}
+    </div>
+
   </section>
 </Layout>
 

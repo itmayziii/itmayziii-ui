@@ -28,7 +28,7 @@ function proficiencyLevel (proficiency) {
 }
 ---
 
-<div class:list={['flex flex-col flex-', className]}>
+<div class:list={['flex flex-col', className]}>
   <div class='w-full flex justify-between'>
     <span id={`skill-progress-${skill.name}`}>{skill.name}</span>
     <span class='text-sm'>({proficiencyLevel(skill.proficiency)})</span>
