@@ -4,8 +4,10 @@
     possible to style the element in a way that is cross browser compatible.
   */
 
+import Icon from './Icon.astro'
 interface Props {
   skill: {
+    icon: string
     name: string
     proficiency: number
   }
@@ -29,12 +31,15 @@ function proficiencyLevel (proficiency) {
 ---
 
 <div class:list={['flex flex-col', className]}>
-  <div class='w-full flex justify-between'>
-    <span id={`skill-progress-${skill.name}`}>{skill.name}</span>
+  <div class='w-full flex justify-between items-center'>
+    <div class='flex'>
+      <Icon class='w-8 h-8' name={skill.icon} />
+      <span id={`skill-progress-${skill.name}`} class='ml-4 flex items-center'>{skill.name}</span>
+    </div>
     <span class='text-sm'>({proficiencyLevel(skill.proficiency)})</span>
   </div>
   <span
-    class='w-full h-1 inline-block bg-gray-300'
+    class='w-full h-1 inline-block bg-gray-300 mt-2'
     role='progressbar'
     aria-labelledby={`skill-progress-${skill.name}`}
     aria-valuenow={skill.proficiency}

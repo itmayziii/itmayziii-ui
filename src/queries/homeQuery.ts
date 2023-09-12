@@ -28,6 +28,7 @@ export default gql`
       skills {
         title
         skills {
+          icon
           name
           proficiency
         }

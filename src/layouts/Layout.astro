@@ -24,16 +24,20 @@ const { title, fullName, socials, navLinks } = Astro.props<Props>
 <html lang='en' class='bg-background lg:bg-primary min-h-full w-full'>
   <Head title={title}/>
   <body class='bg-background lg:bg-primary font-roboto md:bg-white h-full m-0 w-full overflow-x-hidden overscroll-none'>
-    <div class='lg:m-8'>
+    <div class='lg:p-12'>
       <Header fullName={fullName} navLinks={navLinks} />
-      <main class='bg-primary'>
+      <main>
         <div class='bg-background px-6 max-w-screen-xl lg:mx-auto lg:px-16'>
-          <slot/>
+          <slot />
         </div>
       </main>
       <Footer socials={socials}/>
     </div>
   </body>
 </html>
+
 <style>
+  body {
+    background-repeat: repeat;
+  }
 </style>

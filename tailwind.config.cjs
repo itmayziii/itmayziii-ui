@@ -7,16 +7,19 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
-      white: '#ffffff',
+      white: '#FFFFFF',
       primary: '#2563EB',
+      secondary: '#1E3A8A',
+      'secondary-dark': '#112D7D',
       background: '#262626',
 
       // Need better names for these
-      'gray-200': '#e5e7eb',
-      'gray-300': '#d1d5db',
-      'gray-400': '#9ca3af',
+      'gray-200': '#E5E7Eb',
+      'gray-300': '#D1D5DB',
+      'gray-400': '#9CA3AF',
       'gray-700': '#374151',
-      'gray-800': '#1f2937'
+      'gray-800': '#1F2937',
+      'gray-900': '#111827'
     },
     extend: {
       fontFamily: {

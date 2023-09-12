@@ -22,8 +22,8 @@ interface Props {
   }
   alt: string
   className: string
-  loading?: 'eager',
-  fetchpriority?: 'high'
+  loading?: 'eager' | 'lazy'
+  fetchpriority?: 'high' | 'low' | 'auto'
 }
 const { sizes, alt, class: className, loading, fetchpriority } = Astro.props
 const avifSrcset = densitySrcset({
@@ -52,16 +52,14 @@ const jpgSrcset = densitySrcset({
 <itmayziii-headshot>
   <button class={className} type='button' data-js-headshot-btn>
     <picture>
-      <source srcset={avifSrcset}
-        type='image/avif'>
-      <source srcset={webpSrcset}
-        type='image/webp'>
-      <img class='aspect-square rounded-full w-full max-w-xs h-auto border-primary border-8 grayscale'
+      <source srcset={avifSrcset} type='image/avif' width='380' height='380'>
+      <source srcset={webpSrcset} type='image/webp' width='380' height='380'>
+      <img class='headshot rounded-full w-full h-auto border-primary border-8 grayscale shadow-xl shadow-gray-900'
         src={mediaUrl(sizes.mobile.jpgUrl)}
         srcset={jpgSrcset}
         alt={alt}
-        width='256'
-        height='256'
+        width='380'
+        height='380'
         loading={loading}
         fetchpriority={fetchpriority}
         data-js-headshot-img
@@ -69,6 +67,12 @@ const jpgSrcset = densitySrcset({
     </picture>
   </button>
 </itmayziii-headshot>
+
+<style>
+  .headshot {
+    aspect-ratio: auto 1/1;
+  }
+</style>
 
 <!-- TODO This script can probably be replaced with pure CSS / input checkbox trick -->
 <script src='./headshot.ts'></script>

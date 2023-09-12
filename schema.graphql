@@ -8705,6 +8705,7 @@ type HomeDocAccessFields_skills_skills_Delete {
 }
 
 type HomeDocAccessFields_skills_skills_Fields {
+  icon: HomeDocAccessFields_skills_skills_icon
   id: HomeDocAccessFields_skills_skills_id
   name: HomeDocAccessFields_skills_skills_name
   proficiency: HomeDocAccessFields_skills_skills_proficiency
@@ -8715,6 +8716,29 @@ type HomeDocAccessFields_skills_skills_Read {
 }
 
 type HomeDocAccessFields_skills_skills_Update {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_skills_skills_icon {
+  create: HomeDocAccessFields_skills_skills_icon_Create
+  delete: HomeDocAccessFields_skills_skills_icon_Delete
+  read: HomeDocAccessFields_skills_skills_icon_Read
+  update: HomeDocAccessFields_skills_skills_icon_Update
+}
+
+type HomeDocAccessFields_skills_skills_icon_Create {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_skills_skills_icon_Delete {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_skills_skills_icon_Read {
+  permission: Boolean!
+}
+
+type HomeDocAccessFields_skills_skills_icon_Update {
   permission: Boolean!
 }
 
@@ -9084,6 +9108,7 @@ type HomeFields_skills_skills_Delete {
 }
 
 type HomeFields_skills_skills_Fields {
+  icon: HomeFields_skills_skills_icon
   id: HomeFields_skills_skills_id
   name: HomeFields_skills_skills_name
   proficiency: HomeFields_skills_skills_proficiency
@@ -9094,6 +9119,29 @@ type HomeFields_skills_skills_Read {
 }
 
 type HomeFields_skills_skills_Update {
+  permission: Boolean!
+}
+
+type HomeFields_skills_skills_icon {
+  create: HomeFields_skills_skills_icon_Create
+  delete: HomeFields_skills_skills_icon_Delete
+  read: HomeFields_skills_skills_icon_Read
+  update: HomeFields_skills_skills_icon_Update
+}
+
+type HomeFields_skills_skills_icon_Create {
+  permission: Boolean!
+}
+
+type HomeFields_skills_skills_icon_Delete {
+  permission: Boolean!
+}
+
+type HomeFields_skills_skills_icon_Read {
+  permission: Boolean!
+}
+
+type HomeFields_skills_skills_icon_Update {
   permission: Boolean!
 }
 
@@ -9413,9 +9461,56 @@ type Home_Skills {
 }
 
 type Home_Skills_Skills {
+  icon: Home_Skills_Skills_icon!
   id: String
   name: String!
   proficiency: Float!
+}
+
+enum Home_Skills_Skills_icon {
+  angular
+  api
+  astro
+  code
+  computer
+  docker
+  gcp
+  github
+  go
+  java
+  javascript
+  linkedIn
+  nextjs
+  nodejs
+  php
+  react
+  ruby
+  twitter
+  typescript
+  vue
+}
+
+enum Home_Skills_Skills_icon_MutationInput {
+  angular
+  api
+  astro
+  code
+  computer
+  docker
+  gcp
+  github
+  go
+  java
+  javascript
+  linkedIn
+  nextjs
+  nodejs
+  php
+  react
+  ruby
+  twitter
+  typescript
+  vue
 }
 
 type Home_WhatIDo {
@@ -9431,21 +9526,49 @@ type Home_WhatIDo_Sections {
 }
 
 enum Home_WhatIDo_Sections_icon {
+  angular
   api
+  astro
   code
   computer
+  docker
+  gcp
   github
+  go
+  java
+  javascript
   linkedIn
+  nextjs
+  nodejs
+  php
+  react
+  ruby
   twitter
+  typescript
+  vue
 }
 
 enum Home_WhatIDo_Sections_icon_MutationInput {
+  angular
   api
+  astro
   code
   computer
+  docker
+  gcp
   github
+  go
+  java
+  javascript
   linkedIn
+  nextjs
+  nodejs
+  php
+  react
+  ruby
   twitter
+  typescript
+  vue
 }
 
 """
@@ -11116,21 +11239,49 @@ type UserInfo_Socials {
 }
 
 enum UserInfo_Socials_icon {
+  angular
   api
+  astro
   code
   computer
+  docker
+  gcp
   github
+  go
+  java
+  javascript
   linkedIn
+  nextjs
+  nodejs
+  php
+  react
+  ruby
   twitter
+  typescript
+  vue
 }
 
 enum UserInfo_Socials_icon_MutationInput {
+  angular
   api
+  astro
   code
   computer
+  docker
+  gcp
   github
+  go
+  java
+  javascript
   linkedIn
+  nextjs
+  nodejs
+  php
+  react
+  ruby
   twitter
+  typescript
+  vue
 }
 
 type UserInfo_Titles {
@@ -11952,6 +12103,7 @@ input mutationHome_SkillsInput {
 }
 
 input mutationHome_Skills_SkillsInput {
+  icon: Home_Skills_Skills_icon_MutationInput!
   id: String
   name: String!
   proficiency: Float!
