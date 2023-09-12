@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import graphqlFetch from '../graphql-fetch'
-import Headshot from '../components/headshot/Headshot.astro'
+import Headshot from '../components/Headshot.astro'
 import TransitionWords from '../components/transition-words/TransitionWords.astro'
 import homeQuery from '../queries/homeQuery'
 import { absoluteUrl } from '../utilities'
@@ -42,7 +42,14 @@ const titles = userInfo.titles.map(({ title }) => title)
 >
   <section class='text-white text-center md:flex md:text-left md:items-center md:justify-center'>
     <div class='flex justify-center md:ml-8'>
-      <Headshot class='mt-8 md:mt-12' sizes={headshotSizes} alt={headshotAlt} loading='eager' fetchpriority='high'/>
+      <Headshot
+        id='homepage-headshot'
+        class='mt-8 md:mt-12'
+        sizes={headshotSizes}
+        alt={headshotAlt}
+        loading='eager'
+        fetchpriority='high'
+      />
     </div>
     <div class='mx-4 md:ml-8 lg:ml-12 md:max-w-md'>
       <TransitionWords class='mt-4 text-sm text-gray-300' as='h4' words={titles}/>

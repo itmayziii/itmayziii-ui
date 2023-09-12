@@ -1,6 +1,7 @@
 ---
-import { densitySrcset, mediaUrl } from '../../utilities'
+import { densitySrcset, mediaUrl } from '../utilities'
 interface Props {
+  id: string
   sizes: {
     mobile: {
       jpgUrl: string
@@ -25,7 +26,7 @@ interface Props {
   loading?: 'eager' | 'lazy'
   fetchpriority?: 'high' | 'low' | 'auto'
 }
-const { sizes, alt, class: className, loading, fetchpriority } = Astro.props
+const { id, sizes, alt, class: className, loading, fetchpriority } = Astro.props
 const avifSrcset = densitySrcset({
   1: mediaUrl(sizes.mobile.avifUrl),
   1.5: mediaUrl(sizes.mobile.avif1_5xUrl),
@@ -49,30 +50,32 @@ const jpgSrcset = densitySrcset({
 })
 ---
 
-<itmayziii-headshot>
-  <button class={className} type='button' data-js-headshot-btn>
-    <picture>
-      <source srcset={avifSrcset} type='image/avif' width='380' height='380'>
-      <source srcset={webpSrcset} type='image/webp' width='380' height='380'>
-      <img class='headshot rounded-full w-full h-auto border-primary border-8 grayscale shadow-xl shadow-gray-900'
-        src={mediaUrl(sizes.mobile.jpgUrl)}
-        srcset={jpgSrcset}
-        alt={alt}
-        width='380'
-        height='380'
-        loading={loading}
-        fetchpriority={fetchpriority}
-        data-js-headshot-img
-      />
-    </picture>
-  </button>
-</itmayziii-headshot>
+<input id={id} type='checkbox' class='headshot-input hidden' aria-label='Swap image color'>
+<label for={id} class='headshot-label'>
+  <picture>
+    <source srcset={avifSrcset} type='image/avif' width='380' height='380'>
+    <source srcset={webpSrcset} type='image/webp' width='380' height='380'>
+    <img
+      class='headshot rounded-full w-full h-auto border-primary border-8
+      grayscale shadow-xl shadow-gray-900 cursor-pointer'
+      src={mediaUrl(sizes.mobile.jpgUrl)}
+      srcset={jpgSrcset}
+      alt={alt}
+      width='380'
+      height='380'
+      loading={loading}
+      fetchpriority={fetchpriority}
+      data-js-headshot-img
+    />
+  </picture>
+</label>
 
 <style>
   .headshot {
     aspect-ratio: auto 1/1;
   }
-</style>
 
-<!-- TODO This script can probably be replaced with pure CSS / input checkbox trick -->
-<script src='./headshot.ts'></script>
+  .headshot-input:checked + .headshot-label .headshot {
+    filter: grayscale(0);
+  }
+</style>
