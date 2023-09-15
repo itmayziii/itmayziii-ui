@@ -1,0 +1,63 @@
+---
+import Layout from '../layouts/Layout.astro'
+import graphqlFetch from '../graphql-fetch'
+import homeQuery from '../queries/homeQuery'
+
+const response = await graphqlFetch(homeQuery, 'Home')
+const { UserInfo: userInfo, Nav: nav } = (await response.json()).data
+---
+
+<Layout
+  title={`Contact | ${userInfo.fullName}`}
+  fullName={userInfo.fullName}
+  socials={userInfo.socials}
+  navLinks={nav.links}
+>
+  <h1 class='py-10 text-white text-4xl border-y border-white'>Contact</h1>
+  <h2>blah</h2>
+  <h2>blah</h2>
+  <h2>blah</h2>
+  <h2>blah</h2>
+  <h2>blah</h2>
+  <h2>blah</h2>
+  <h2>blah</h2>
+  <h2>blah</h2>
+  <h2>blah</h2>
+  <h2>blah</h2>
+  <h2>blah</h2>
+  <h2>blah</h2>
+  <h2>blah</h2>
+  <h2>blah</h2>
+  <h2>blah</h2>
+  <h2>blah</h2>
+  <h2>blah</h2>
+  <h2>blah</h2>
+  <h2>blah</h2>
+  <h2>blah</h2>
+  <h2>blah</h2>
+  <h2>blah</h2>
+  <h2>blah</h2>
+  <h2>blah</h2>
+  <h2>blah</h2>
+  <h2>blah</h2>
+  <h2>blah</h2>
+  <h2>blah</h2>
+  <h2>blah</h2>
+  <h2>blah</h2>
+  <h2>blah</h2>
+  <h2>blah</h2>
+  <h2>blah</h2>
+  <h2>blah</h2>
+  <h2>blah</h2>
+  <h2>blah</h2>
+  <h2>blah</h2>
+</Layout>
+
+<style is:global>
+  :root {
+    --md-outlined-button-container-shape: 0px;
+    --md-outlined-button-label-text-font: system-ui;
+    --md-sys-color-primary: #006A6A;
+    --md-sys-color-outline: #6F7979;
+  }
+</style>
