@@ -56,25 +56,21 @@ const jpgSrcset = densitySrcset({
     <source srcset={avifSrcset} type='image/avif' width='380' height='380'>
     <source srcset={webpSrcset} type='image/webp' width='380' height='380'>
     <img
-      class='headshot rounded-full w-full h-auto border-primary border-8
-      grayscale shadow-xl shadow-gray-900 cursor-pointer'
+      class='headshot rounded-full h-auto max-w-full border-primary border-8 grayscale
+       shadow-xl shadow-gray-900 cursor-pointer aspect-auto-square'
       src={mediaUrl(sizes.mobile.jpgUrl)}
       srcset={jpgSrcset}
       alt={alt}
-      width='380'
       height='380'
+      width='380'
       loading={loading}
       fetchpriority={fetchpriority}
       data-js-headshot-img
-    />
+    >
   </picture>
 </label>
 
 <style>
-  .headshot {
-    aspect-ratio: auto 1/1;
-  }
-
   .headshot-input:checked + .headshot-label .headshot {
     filter: grayscale(0);
   }

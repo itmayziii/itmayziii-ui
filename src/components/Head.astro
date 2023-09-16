@@ -5,31 +5,45 @@ interface Props {
   title: string
   fullName: string
 }
-const { title, fullName } = Astro.props<Props>;
+const { title, fullName } = Astro.props<Props>
+const googleAnalyticsId = import.meta.env.GOOGLE_ANALYTICS_MEASUREMENT_ID
 ---
 
 <head>
+  <title>{title}</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BXJ0YDMHGG"></script>
+  <script is:inline define:vars={{ googleAnalyticsId }}>
+window.dataLayer = window.dataLayer || []
+function gtag () { dataLayer.push(arguments) }
+gtag('js', new Date())
+
+gtag('config', googleAnalyticsId)
+</script>
+  <!-- End Google tag (gtag.js) -->
+
   <meta charset='UTF-8' />
   <meta name='description' content={`Personal site for ${fullName}`}>
   <meta name='viewport' content='width=device-width' />
   <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
   <meta name='generator' content={Astro.generator} />
-  <title>{title}</title>
-  <ViewTransitions />
 
   <link rel='preconnect' href='https://fonts.googleapis.com'>
   <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
   <link
     rel="preload"
-    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=optional"
     as="style"
     onload="this.onload=null;this.rel='stylesheet'"
   />
   <noscript>
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=optional"
       type="text/css"
     />
   </noscript>
+
+  <ViewTransitions />
 </head>

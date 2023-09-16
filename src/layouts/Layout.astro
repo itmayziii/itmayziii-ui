@@ -26,7 +26,7 @@ const { title, fullName, socials, navLinks } = Astro.props<Props>
   <body class='bg-background lg:bg-primary font-roboto md:bg-white h-full m-0 w-full overflow-x-hidden overscroll-none'>
     <div class='lg:p-12'>
       <Header fullName={fullName} navLinks={navLinks} />
-      <main transition:animate='fade'>
+      <main transition:animate='initial'>
         <div class='bg-background px-6 max-w-screen-xl lg:mx-auto lg:px-16'>
           <slot />
         </div>

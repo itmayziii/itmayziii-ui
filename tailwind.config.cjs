@@ -27,6 +27,9 @@ module.exports = {
       },
       transitionDuration: {
         3000: '3000ms'
+      },
+      aspectRatio: {
+        'auto-square': 'auto 1/1'
       }
     }
   },
