@@ -1,63 +1,56 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import graphqlFetch from '../graphql-fetch'
-import homeQuery from '../queries/homeQuery'
+import contactQuery from '../queries/contactQuery'
+import Icon from '../components/Icon.astro'
 
-const response = await graphqlFetch(homeQuery, 'Home')
-const { UserInfo: userInfo, Nav: nav } = (await response.json()).data
+const response = await graphqlFetch(contactQuery, 'Contact')
+const { UserInfo: userInfo, Nav: nav, Contact: contact } = (await response.json()).data
+console.log('contact', contact)
 ---
 
 <Layout
-  title={`Contact | ${userInfo.fullName}`}
+  title={`Contact Me | ${userInfo.fullName}`}
   fullName={userInfo.fullName}
   socials={userInfo.socials}
   navLinks={nav.links}
 >
-  <h1 class='py-10 text-white text-4xl border-y border-white'>Contact</h1>
-  <h2>blah</h2>
-  <h2>blah</h2>
-  <h2>blah</h2>
-  <h2>blah</h2>
-  <h2>blah</h2>
-  <h2>blah</h2>
-  <h2>blah</h2>
-  <h2>blah</h2>
-  <h2>blah</h2>
-  <h2>blah</h2>
-  <h2>blah</h2>
-  <h2>blah</h2>
-  <h2>blah</h2>
-  <h2>blah</h2>
-  <h2>blah</h2>
-  <h2>blah</h2>
-  <h2>blah</h2>
-  <h2>blah</h2>
-  <h2>blah</h2>
-  <h2>blah</h2>
-  <h2>blah</h2>
-  <h2>blah</h2>
-  <h2>blah</h2>
-  <h2>blah</h2>
-  <h2>blah</h2>
-  <h2>blah</h2>
-  <h2>blah</h2>
-  <h2>blah</h2>
-  <h2>blah</h2>
-  <h2>blah</h2>
-  <h2>blah</h2>
-  <h2>blah</h2>
-  <h2>blah</h2>
-  <h2>blah</h2>
-  <h2>blah</h2>
-  <h2>blah</h2>
-  <h2>blah</h2>
+  <h1 class='py-6 text-white text-4xl border-y mt-4 border-gray-700 font-bold md:py-10'>
+    {contact.title}
+  </h1>
+  <section class='flex flex-col-reverse items-center md:flex-row md:justify-center text-white mt-4'>
+    <div class='w-full mt-8 md:max-w-xs md:mt-0'>
+      <div>
+        <div class='flex items-center'>
+          <Icon name={contact.details.location.icon} class='text-primary w-8 h-8'/>
+          <h3 class='ml-2 text-xl font-bold'>{contact.details.location.title}</h3>
+        </div>
+        <p class='break-words'>{contact.details.location.description}</p>
+      </div>
+      <div class='mt-6'>
+        <div class='flex items-center'>
+          <Icon name={contact.details.email.icon} class='text-primary w-8 h-8'/>
+          <h3 class='ml-2 text-xl font-bold'>
+            <a href={`mailto:${contact.details.email.email}`}>Email</a>
+          </h3>
+        </div>
+        <p class='break-words'>
+          {contact.details.email.description}&nbsp;
+          <a href={`mailto:${contact.details.email.email}`} class='text-link'>
+            {contact.details.email.email}
+          </a>
+        </p>
+      </div>
+    </div>
+    <img
+      class='md:ml-10 lg:ml-20'
+      src={contact.details.map.link}
+      alt={contact.details.map.alt}
+      width='400'
+      height='400'
+    />
+  </section>
 </Layout>
 
-<style is:global>
-  :root {
-    --md-outlined-button-container-shape: 0px;
-    --md-outlined-button-label-text-font: system-ui;
-    --md-sys-color-primary: #006A6A;
-    --md-sys-color-outline: #6F7979;
-  }
+<style>
 </style>

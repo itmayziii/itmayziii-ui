@@ -1,11 +1,920 @@
 type Access {
   canAccessAdmin: Boolean!
+  contact: contactAccess
   headshots: headshotsAccess
   home: homeAccess
   machines: machinesAccess
   nav: navAccess
   user_info: user_infoAccess
   users: usersAccess
+}
+
+type Contact {
+  createdAt: DateTime
+  details: Contact_Details
+  title: String!
+  updatedAt: DateTime
+}
+
+type ContactDocAccessFields {
+  createdAt: ContactDocAccessFields_createdAt
+  details: ContactDocAccessFields_details
+  title: ContactDocAccessFields_title
+  updatedAt: ContactDocAccessFields_updatedAt
+}
+
+type ContactDocAccessFields_createdAt {
+  create: ContactDocAccessFields_createdAt_Create
+  delete: ContactDocAccessFields_createdAt_Delete
+  read: ContactDocAccessFields_createdAt_Read
+  update: ContactDocAccessFields_createdAt_Update
+}
+
+type ContactDocAccessFields_createdAt_Create {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_createdAt_Delete {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_createdAt_Read {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_createdAt_Update {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details {
+  create: ContactDocAccessFields_details_Create
+  delete: ContactDocAccessFields_details_Delete
+  fields: ContactDocAccessFields_details_Fields
+  read: ContactDocAccessFields_details_Read
+  update: ContactDocAccessFields_details_Update
+}
+
+type ContactDocAccessFields_details_Create {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_Delete {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_Fields {
+  email: ContactDocAccessFields_details_email
+  location: ContactDocAccessFields_details_location
+  map: ContactDocAccessFields_details_map
+}
+
+type ContactDocAccessFields_details_Read {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_Update {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_email {
+  create: ContactDocAccessFields_details_email_Create
+  delete: ContactDocAccessFields_details_email_Delete
+  fields: ContactDocAccessFields_details_email_Fields
+  read: ContactDocAccessFields_details_email_Read
+  update: ContactDocAccessFields_details_email_Update
+}
+
+type ContactDocAccessFields_details_email_Create {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_email_Delete {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_email_Fields {
+  description: ContactDocAccessFields_details_email_description
+  email: ContactDocAccessFields_details_email_email
+  icon: ContactDocAccessFields_details_email_icon
+}
+
+type ContactDocAccessFields_details_email_Read {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_email_Update {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_email_description {
+  create: ContactDocAccessFields_details_email_description_Create
+  delete: ContactDocAccessFields_details_email_description_Delete
+  read: ContactDocAccessFields_details_email_description_Read
+  update: ContactDocAccessFields_details_email_description_Update
+}
+
+type ContactDocAccessFields_details_email_description_Create {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_email_description_Delete {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_email_description_Read {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_email_description_Update {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_email_email {
+  create: ContactDocAccessFields_details_email_email_Create
+  delete: ContactDocAccessFields_details_email_email_Delete
+  read: ContactDocAccessFields_details_email_email_Read
+  update: ContactDocAccessFields_details_email_email_Update
+}
+
+type ContactDocAccessFields_details_email_email_Create {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_email_email_Delete {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_email_email_Read {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_email_email_Update {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_email_icon {
+  create: ContactDocAccessFields_details_email_icon_Create
+  delete: ContactDocAccessFields_details_email_icon_Delete
+  read: ContactDocAccessFields_details_email_icon_Read
+  update: ContactDocAccessFields_details_email_icon_Update
+}
+
+type ContactDocAccessFields_details_email_icon_Create {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_email_icon_Delete {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_email_icon_Read {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_email_icon_Update {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_location {
+  create: ContactDocAccessFields_details_location_Create
+  delete: ContactDocAccessFields_details_location_Delete
+  fields: ContactDocAccessFields_details_location_Fields
+  read: ContactDocAccessFields_details_location_Read
+  update: ContactDocAccessFields_details_location_Update
+}
+
+type ContactDocAccessFields_details_location_Create {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_location_Delete {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_location_Fields {
+  description: ContactDocAccessFields_details_location_description
+  icon: ContactDocAccessFields_details_location_icon
+  title: ContactDocAccessFields_details_location_title
+}
+
+type ContactDocAccessFields_details_location_Read {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_location_Update {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_location_description {
+  create: ContactDocAccessFields_details_location_description_Create
+  delete: ContactDocAccessFields_details_location_description_Delete
+  read: ContactDocAccessFields_details_location_description_Read
+  update: ContactDocAccessFields_details_location_description_Update
+}
+
+type ContactDocAccessFields_details_location_description_Create {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_location_description_Delete {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_location_description_Read {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_location_description_Update {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_location_icon {
+  create: ContactDocAccessFields_details_location_icon_Create
+  delete: ContactDocAccessFields_details_location_icon_Delete
+  read: ContactDocAccessFields_details_location_icon_Read
+  update: ContactDocAccessFields_details_location_icon_Update
+}
+
+type ContactDocAccessFields_details_location_icon_Create {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_location_icon_Delete {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_location_icon_Read {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_location_icon_Update {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_location_title {
+  create: ContactDocAccessFields_details_location_title_Create
+  delete: ContactDocAccessFields_details_location_title_Delete
+  read: ContactDocAccessFields_details_location_title_Read
+  update: ContactDocAccessFields_details_location_title_Update
+}
+
+type ContactDocAccessFields_details_location_title_Create {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_location_title_Delete {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_location_title_Read {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_location_title_Update {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_map {
+  create: ContactDocAccessFields_details_map_Create
+  delete: ContactDocAccessFields_details_map_Delete
+  fields: ContactDocAccessFields_details_map_Fields
+  read: ContactDocAccessFields_details_map_Read
+  update: ContactDocAccessFields_details_map_Update
+}
+
+type ContactDocAccessFields_details_map_Create {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_map_Delete {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_map_Fields {
+  alt: ContactDocAccessFields_details_map_alt
+  link: ContactDocAccessFields_details_map_link
+}
+
+type ContactDocAccessFields_details_map_Read {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_map_Update {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_map_alt {
+  create: ContactDocAccessFields_details_map_alt_Create
+  delete: ContactDocAccessFields_details_map_alt_Delete
+  read: ContactDocAccessFields_details_map_alt_Read
+  update: ContactDocAccessFields_details_map_alt_Update
+}
+
+type ContactDocAccessFields_details_map_alt_Create {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_map_alt_Delete {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_map_alt_Read {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_map_alt_Update {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_map_link {
+  create: ContactDocAccessFields_details_map_link_Create
+  delete: ContactDocAccessFields_details_map_link_Delete
+  read: ContactDocAccessFields_details_map_link_Read
+  update: ContactDocAccessFields_details_map_link_Update
+}
+
+type ContactDocAccessFields_details_map_link_Create {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_map_link_Delete {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_map_link_Read {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_details_map_link_Update {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_title {
+  create: ContactDocAccessFields_title_Create
+  delete: ContactDocAccessFields_title_Delete
+  read: ContactDocAccessFields_title_Read
+  update: ContactDocAccessFields_title_Update
+}
+
+type ContactDocAccessFields_title_Create {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_title_Delete {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_title_Read {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_title_Update {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_updatedAt {
+  create: ContactDocAccessFields_updatedAt_Create
+  delete: ContactDocAccessFields_updatedAt_Delete
+  read: ContactDocAccessFields_updatedAt_Read
+  update: ContactDocAccessFields_updatedAt_Update
+}
+
+type ContactDocAccessFields_updatedAt_Create {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_updatedAt_Delete {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_updatedAt_Read {
+  permission: Boolean!
+}
+
+type ContactDocAccessFields_updatedAt_Update {
+  permission: Boolean!
+}
+
+type ContactFields {
+  createdAt: ContactFields_createdAt
+  details: ContactFields_details
+  title: ContactFields_title
+  updatedAt: ContactFields_updatedAt
+}
+
+type ContactFields_createdAt {
+  create: ContactFields_createdAt_Create
+  delete: ContactFields_createdAt_Delete
+  read: ContactFields_createdAt_Read
+  update: ContactFields_createdAt_Update
+}
+
+type ContactFields_createdAt_Create {
+  permission: Boolean!
+}
+
+type ContactFields_createdAt_Delete {
+  permission: Boolean!
+}
+
+type ContactFields_createdAt_Read {
+  permission: Boolean!
+}
+
+type ContactFields_createdAt_Update {
+  permission: Boolean!
+}
+
+type ContactFields_details {
+  create: ContactFields_details_Create
+  delete: ContactFields_details_Delete
+  fields: ContactFields_details_Fields
+  read: ContactFields_details_Read
+  update: ContactFields_details_Update
+}
+
+type ContactFields_details_Create {
+  permission: Boolean!
+}
+
+type ContactFields_details_Delete {
+  permission: Boolean!
+}
+
+type ContactFields_details_Fields {
+  email: ContactFields_details_email
+  location: ContactFields_details_location
+  map: ContactFields_details_map
+}
+
+type ContactFields_details_Read {
+  permission: Boolean!
+}
+
+type ContactFields_details_Update {
+  permission: Boolean!
+}
+
+type ContactFields_details_email {
+  create: ContactFields_details_email_Create
+  delete: ContactFields_details_email_Delete
+  fields: ContactFields_details_email_Fields
+  read: ContactFields_details_email_Read
+  update: ContactFields_details_email_Update
+}
+
+type ContactFields_details_email_Create {
+  permission: Boolean!
+}
+
+type ContactFields_details_email_Delete {
+  permission: Boolean!
+}
+
+type ContactFields_details_email_Fields {
+  description: ContactFields_details_email_description
+  email: ContactFields_details_email_email
+  icon: ContactFields_details_email_icon
+}
+
+type ContactFields_details_email_Read {
+  permission: Boolean!
+}
+
+type ContactFields_details_email_Update {
+  permission: Boolean!
+}
+
+type ContactFields_details_email_description {
+  create: ContactFields_details_email_description_Create
+  delete: ContactFields_details_email_description_Delete
+  read: ContactFields_details_email_description_Read
+  update: ContactFields_details_email_description_Update
+}
+
+type ContactFields_details_email_description_Create {
+  permission: Boolean!
+}
+
+type ContactFields_details_email_description_Delete {
+  permission: Boolean!
+}
+
+type ContactFields_details_email_description_Read {
+  permission: Boolean!
+}
+
+type ContactFields_details_email_description_Update {
+  permission: Boolean!
+}
+
+type ContactFields_details_email_email {
+  create: ContactFields_details_email_email_Create
+  delete: ContactFields_details_email_email_Delete
+  read: ContactFields_details_email_email_Read
+  update: ContactFields_details_email_email_Update
+}
+
+type ContactFields_details_email_email_Create {
+  permission: Boolean!
+}
+
+type ContactFields_details_email_email_Delete {
+  permission: Boolean!
+}
+
+type ContactFields_details_email_email_Read {
+  permission: Boolean!
+}
+
+type ContactFields_details_email_email_Update {
+  permission: Boolean!
+}
+
+type ContactFields_details_email_icon {
+  create: ContactFields_details_email_icon_Create
+  delete: ContactFields_details_email_icon_Delete
+  read: ContactFields_details_email_icon_Read
+  update: ContactFields_details_email_icon_Update
+}
+
+type ContactFields_details_email_icon_Create {
+  permission: Boolean!
+}
+
+type ContactFields_details_email_icon_Delete {
+  permission: Boolean!
+}
+
+type ContactFields_details_email_icon_Read {
+  permission: Boolean!
+}
+
+type ContactFields_details_email_icon_Update {
+  permission: Boolean!
+}
+
+type ContactFields_details_location {
+  create: ContactFields_details_location_Create
+  delete: ContactFields_details_location_Delete
+  fields: ContactFields_details_location_Fields
+  read: ContactFields_details_location_Read
+  update: ContactFields_details_location_Update
+}
+
+type ContactFields_details_location_Create {
+  permission: Boolean!
+}
+
+type ContactFields_details_location_Delete {
+  permission: Boolean!
+}
+
+type ContactFields_details_location_Fields {
+  description: ContactFields_details_location_description
+  icon: ContactFields_details_location_icon
+  title: ContactFields_details_location_title
+}
+
+type ContactFields_details_location_Read {
+  permission: Boolean!
+}
+
+type ContactFields_details_location_Update {
+  permission: Boolean!
+}
+
+type ContactFields_details_location_description {
+  create: ContactFields_details_location_description_Create
+  delete: ContactFields_details_location_description_Delete
+  read: ContactFields_details_location_description_Read
+  update: ContactFields_details_location_description_Update
+}
+
+type ContactFields_details_location_description_Create {
+  permission: Boolean!
+}
+
+type ContactFields_details_location_description_Delete {
+  permission: Boolean!
+}
+
+type ContactFields_details_location_description_Read {
+  permission: Boolean!
+}
+
+type ContactFields_details_location_description_Update {
+  permission: Boolean!
+}
+
+type ContactFields_details_location_icon {
+  create: ContactFields_details_location_icon_Create
+  delete: ContactFields_details_location_icon_Delete
+  read: ContactFields_details_location_icon_Read
+  update: ContactFields_details_location_icon_Update
+}
+
+type ContactFields_details_location_icon_Create {
+  permission: Boolean!
+}
+
+type ContactFields_details_location_icon_Delete {
+  permission: Boolean!
+}
+
+type ContactFields_details_location_icon_Read {
+  permission: Boolean!
+}
+
+type ContactFields_details_location_icon_Update {
+  permission: Boolean!
+}
+
+type ContactFields_details_location_title {
+  create: ContactFields_details_location_title_Create
+  delete: ContactFields_details_location_title_Delete
+  read: ContactFields_details_location_title_Read
+  update: ContactFields_details_location_title_Update
+}
+
+type ContactFields_details_location_title_Create {
+  permission: Boolean!
+}
+
+type ContactFields_details_location_title_Delete {
+  permission: Boolean!
+}
+
+type ContactFields_details_location_title_Read {
+  permission: Boolean!
+}
+
+type ContactFields_details_location_title_Update {
+  permission: Boolean!
+}
+
+type ContactFields_details_map {
+  create: ContactFields_details_map_Create
+  delete: ContactFields_details_map_Delete
+  fields: ContactFields_details_map_Fields
+  read: ContactFields_details_map_Read
+  update: ContactFields_details_map_Update
+}
+
+type ContactFields_details_map_Create {
+  permission: Boolean!
+}
+
+type ContactFields_details_map_Delete {
+  permission: Boolean!
+}
+
+type ContactFields_details_map_Fields {
+  alt: ContactFields_details_map_alt
+  link: ContactFields_details_map_link
+}
+
+type ContactFields_details_map_Read {
+  permission: Boolean!
+}
+
+type ContactFields_details_map_Update {
+  permission: Boolean!
+}
+
+type ContactFields_details_map_alt {
+  create: ContactFields_details_map_alt_Create
+  delete: ContactFields_details_map_alt_Delete
+  read: ContactFields_details_map_alt_Read
+  update: ContactFields_details_map_alt_Update
+}
+
+type ContactFields_details_map_alt_Create {
+  permission: Boolean!
+}
+
+type ContactFields_details_map_alt_Delete {
+  permission: Boolean!
+}
+
+type ContactFields_details_map_alt_Read {
+  permission: Boolean!
+}
+
+type ContactFields_details_map_alt_Update {
+  permission: Boolean!
+}
+
+type ContactFields_details_map_link {
+  create: ContactFields_details_map_link_Create
+  delete: ContactFields_details_map_link_Delete
+  read: ContactFields_details_map_link_Read
+  update: ContactFields_details_map_link_Update
+}
+
+type ContactFields_details_map_link_Create {
+  permission: Boolean!
+}
+
+type ContactFields_details_map_link_Delete {
+  permission: Boolean!
+}
+
+type ContactFields_details_map_link_Read {
+  permission: Boolean!
+}
+
+type ContactFields_details_map_link_Update {
+  permission: Boolean!
+}
+
+type ContactFields_title {
+  create: ContactFields_title_Create
+  delete: ContactFields_title_Delete
+  read: ContactFields_title_Read
+  update: ContactFields_title_Update
+}
+
+type ContactFields_title_Create {
+  permission: Boolean!
+}
+
+type ContactFields_title_Delete {
+  permission: Boolean!
+}
+
+type ContactFields_title_Read {
+  permission: Boolean!
+}
+
+type ContactFields_title_Update {
+  permission: Boolean!
+}
+
+type ContactFields_updatedAt {
+  create: ContactFields_updatedAt_Create
+  delete: ContactFields_updatedAt_Delete
+  read: ContactFields_updatedAt_Read
+  update: ContactFields_updatedAt_Update
+}
+
+type ContactFields_updatedAt_Create {
+  permission: Boolean!
+}
+
+type ContactFields_updatedAt_Delete {
+  permission: Boolean!
+}
+
+type ContactFields_updatedAt_Read {
+  permission: Boolean!
+}
+
+type ContactFields_updatedAt_Update {
+  permission: Boolean!
+}
+
+type ContactReadAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type ContactReadDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type ContactUpdateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type ContactUpdateDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type Contact_Details {
+  email: Contact_Details_Email
+  location: Contact_Details_Location
+  map: Contact_Details_Map
+}
+
+type Contact_Details_Email {
+  description: String
+  email: EmailAddress
+  icon: Contact_Details_Email_icon
+}
+
+enum Contact_Details_Email_icon {
+  angular
+  api
+  astro
+  code
+  computer
+  docker
+  gcp
+  github
+  go
+  java
+  javascript
+  linkedIn
+  mail
+  map
+  nextjs
+  nodejs
+  php
+  react
+  ruby
+  twitter
+  typescript
+  vue
+}
+
+enum Contact_Details_Email_icon_MutationInput {
+  angular
+  api
+  astro
+  code
+  computer
+  docker
+  gcp
+  github
+  go
+  java
+  javascript
+  linkedIn
+  mail
+  map
+  nextjs
+  nodejs
+  php
+  react
+  ruby
+  twitter
+  typescript
+  vue
+}
+
+type Contact_Details_Location {
+  description: String
+  icon: Contact_Details_Location_icon
+  title: String
+}
+
+enum Contact_Details_Location_icon {
+  angular
+  api
+  astro
+  code
+  computer
+  docker
+  gcp
+  github
+  go
+  java
+  javascript
+  linkedIn
+  mail
+  map
+  nextjs
+  nodejs
+  php
+  react
+  ruby
+  twitter
+  typescript
+  vue
+}
+
+enum Contact_Details_Location_icon_MutationInput {
+  angular
+  api
+  astro
+  code
+  computer
+  docker
+  gcp
+  github
+  go
+  java
+  javascript
+  linkedIn
+  mail
+  map
+  nextjs
+  nodejs
+  php
+  react
+  ruby
+  twitter
+  typescript
+  vue
+}
+
+type Contact_Details_Map {
+  alt: String
+  link: String
 }
 
 """
@@ -9480,6 +10389,8 @@ enum Home_Skills_Skills_icon {
   java
   javascript
   linkedIn
+  mail
+  map
   nextjs
   nodejs
   php
@@ -9503,6 +10414,8 @@ enum Home_Skills_Skills_icon_MutationInput {
   java
   javascript
   linkedIn
+  mail
+  map
   nextjs
   nodejs
   php
@@ -9538,6 +10451,8 @@ enum Home_WhatIDo_Sections_icon {
   java
   javascript
   linkedIn
+  mail
+  map
   nextjs
   nodejs
   php
@@ -9561,6 +10476,8 @@ enum Home_WhatIDo_Sections_icon_MutationInput {
   java
   javascript
   linkedIn
+  mail
+  map
   nextjs
   nodejs
   php
@@ -10068,6 +10985,7 @@ type Mutation {
   refreshTokenUser(token: String): usersRefreshedUser
   resetPasswordUser(password: String, token: String): usersResetPassword
   unlockUser(email: String!): Boolean!
+  updateContact(data: mutationContactInput!, draft: Boolean): Contact
   updateHeadshot(autosave: Boolean, data: mutationHeadshotUpdateInput!, draft: Boolean, id: String!): Headshot
   updateHome(data: mutationHomeInput!, draft: Boolean): Home
   updateMachine(autosave: Boolean, data: mutationMachineUpdateInput!, draft: Boolean, id: String!): Machine
@@ -10421,6 +11339,7 @@ type Preference {
 
 type Query {
   Access: Access
+  Contact(draft: Boolean): Contact
   Headshot(draft: Boolean, id: String!): Headshot
   Headshots(draft: Boolean, limit: Int, page: Int, sort: String, where: Headshot_where): Headshots
   Home(draft: Boolean): Home
@@ -10431,6 +11350,7 @@ type Query {
   User(draft: Boolean, id: String!): User
   UserInfo(draft: Boolean): UserInfo
   Users(draft: Boolean, limit: Int, page: Int, sort: String, where: User_where): Users
+  docAccessContact: contactDocAccess
   docAccessHeadshot(id: String!): headshotsDocAccess
   docAccessHome: homeDocAccess
   docAccessMachine(id: String!): machinesDocAccess
@@ -11251,6 +12171,8 @@ enum UserInfo_Socials_icon {
   java
   javascript
   linkedIn
+  mail
+  map
   nextjs
   nodejs
   php
@@ -11274,6 +12196,8 @@ enum UserInfo_Socials_icon_MutationInput {
   java
   javascript
   linkedIn
+  mail
+  map
   nextjs
   nodejs
   php
@@ -11633,6 +12557,18 @@ type UsersUpdateDocAccess {
   where: JSONObject
 }
 
+type contactAccess {
+  fields: ContactFields
+  read: ContactReadAccess
+  update: ContactUpdateAccess
+}
+
+type contactDocAccess {
+  fields: ContactDocAccessFields
+  read: ContactReadDocAccess
+  update: ContactUpdateDocAccess
+}
+
 type headshotsAccess {
   create: HeadshotsCreateAccess
   delete: HeadshotsDeleteAccess
@@ -11694,6 +12630,36 @@ type machinesRefreshedMachine {
   exp: Int
   refreshedToken: String
   user: machinesJWT
+}
+
+input mutationContactInput {
+  createdAt: String
+  details: mutationContact_DetailsInput!
+  title: String!
+  updatedAt: String
+}
+
+input mutationContact_DetailsInput {
+  email: mutationContact_Details_EmailInput!
+  location: mutationContact_Details_LocationInput!
+  map: mutationContact_Details_MapInput!
+}
+
+input mutationContact_Details_EmailInput {
+  description: String!
+  email: String!
+  icon: Contact_Details_Email_icon_MutationInput!
+}
+
+input mutationContact_Details_LocationInput {
+  description: String!
+  icon: Contact_Details_Location_icon_MutationInput!
+  title: String!
+}
+
+input mutationContact_Details_MapInput {
+  alt: String!
+  link: String!
 }
 
 input mutationHeadshotInput {

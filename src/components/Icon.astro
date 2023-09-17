@@ -20,6 +20,8 @@ import JavaIcon from './icons/JavaIcon.astro'
 import RubyIcon from './icons/RubyIcon.astro'
 import PhpIcon from './icons/PhpIcon.astro'
 import TerraformIcon from './icons/TerraformIcon.astro'
+import MapIcon from './icons/MapIcon.astro'
+import MailIcon from './icons/MailIcon.astro'
 
 interface Props {
   name: string
@@ -48,7 +50,9 @@ const icons = {
   java: JavaIcon,
   ruby: RubyIcon,
   php: PhpIcon,
-  terraform: TerraformIcon
+  terraform: TerraformIcon,
+  map: MapIcon,
+  mail: MailIcon
 }
 const Icon = icons[name]
 ---

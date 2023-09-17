@@ -21,6 +21,6 @@ interface Densities {
   3?: string
   4?: string
 }
-export function densitySrcset (densities: Densities) {
-  return Object.keys(densities).map(k => `${densities[k]} ${k}x`).join(', ')
+export function densitySrcset (densities: Densities): string {
+  return Object.keys(densities).map(k => `${densities[k as keyof Densities]} ${k}x`).join(', ')
 }

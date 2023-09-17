@@ -12,6 +12,7 @@ module.exports = {
       secondary: '#1E3A8A',
       'secondary-dark': '#112D7D',
       background: '#262626',
+      link: '#97B5F7',
 
       // Need better names for these
       'gray-200': '#E5E7Eb',
