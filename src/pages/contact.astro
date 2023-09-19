@@ -1,12 +1,24 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import graphqlFetch from '../graphql-fetch'
+import { graphqlFetch, submitForm } from '../cmsFetch'
 import contactQuery from '../queries/contactQuery'
 import Icon from '../components/Icon.astro'
+import ContactForm from '../components/ContactForm.astro'
 
 const response = await graphqlFetch(contactQuery, 'Contact')
 const { UserInfo: userInfo, Nav: nav, Contact: contact } = (await response.json()).data
-console.log('contact', contact)
+
+let initialFormValues: FormData
+if (Astro.request.method === 'POST') {
+  const formData = await Astro.request.formData()
+  const formResponse = await submitForm('contact', formData)
+
+  console.log('response', formResponse)
+  const t = await formResponse.json()
+  console.log('t', t)
+
+  console.log('data', t)
+}
 ---
 
 <Layout
@@ -14,6 +26,7 @@ console.log('contact', contact)
   fullName={userInfo.fullName}
   socials={userInfo.socials}
   navLinks={nav.links}
+  includeRecaptchaScript={true}
 >
   <h1 class='py-6 text-white text-4xl border-y mt-4 border-gray-700 font-bold md:py-10'>
     {contact.title}
@@ -50,6 +63,8 @@ console.log('contact', contact)
       height='400'
     />
   </section>
+  <hr class='mt-8 border-gray-700'/>
+  <ContactForm email={contact.details.email.email} initialValues={initialFormValues} />
 </Layout>
 
 <style>

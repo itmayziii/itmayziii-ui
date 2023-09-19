@@ -9,7 +9,7 @@ interface Props {
   skill: {
     icon: string
     name: string
-    proficiency: number
+    proficiency: string // i.e. _83_333
   }
   class: string
 }
@@ -28,6 +28,26 @@ function proficiencyLevel (proficiency) {
 
   return 'Basic'
 }
+
+const proficiencyToWidth = {
+  _8_333333: 'w-1/12',
+  _16_666667: 'w-2/12',
+  _20: 'w-1/5',
+  _25: 'w-1/4',
+  _33_333332: 'w-1/3',
+  _40: 'w-2/5',
+  _41_666667: 'w-5/12',
+  _50: 'w-1/2',
+  _58_333333: 'w-7/12',
+  _60: 'w-3/5',
+  _66_666667: 'w-4/6',
+  _75: 'w-3/4',
+  _80: 'w-4/5',
+  _83_333333: 'w-10/12',
+  _91_666667: 'w-11/12',
+  _100: 'w-full'
+}
+const proficiency = skill.proficiency.slice(1).replaceAll('_', '.')
 ---
 
 <div class:list={['flex flex-col', className]}>
@@ -36,16 +56,16 @@ function proficiencyLevel (proficiency) {
       <Icon class='w-8 h-8' name={skill.icon} />
       <span id={`skill-progress-${skill.name}`} class='ml-4 flex items-center'>{skill.name}</span>
     </div>
-    <span class='text-sm'>({proficiencyLevel(skill.proficiency)})</span>
+    <span class='text-sm'>({proficiencyLevel(proficiency)})</span>
   </div>
   <span
     class='w-full h-1 inline-block bg-gray-300 mt-2'
     role='progressbar'
     aria-labelledby={`skill-progress-${skill.name}`}
-    aria-valuenow={skill.proficiency}
+    aria-valuenow={proficiency}
     aria-valuemax='100'
     aria-valuemin='1'
   >
-    <span class='block h-full bg-primary' style={`width: ${skill.proficiency}%;`}></span>
+    <span class={`blah block h-full bg-primary ${proficiencyToWidth[skill.proficiency]}`}></span>
   </span>
 </div>

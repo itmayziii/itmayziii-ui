@@ -1,6 +1,10 @@
 {
   "extends": "astro/tsconfigs/strictest",
   "compilerOptions": {
+    "lib": [
+      "DOM",
+      "ES2022"
+    ],
     "plugins": [
       {
         "name": "@astrojs/ts-plugin"

@@ -1,10 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import graphqlFetch from '../graphql-fetch'
+import { graphqlFetch } from '../cmsFetch'
 import Headshot from '../components/Headshot.astro'
 import TransitionWords from '../components/transition-words/TransitionWords.astro'
 import homeQuery from '../queries/homeQuery'
-import { absoluteUrl } from '../browser-utilities'
+import { absoluteUrl } from '../browserUtilities'
 import WhatIDoSection from '../components/WhatIDoSection.astro'
 import UnderlineHeading from '../components/UnderlineHeading.astro'
 import Skill from '../components/Skill.astro'
@@ -60,10 +60,7 @@ const titles = userInfo.titles.map(({ title }) => title)
         {userInfo.description}
       </p>
       <div class='flex flex-col items-center mt-6 md:flex-row'>
-        <button type='button' class:list={[
-          'rounded-full px-6 py-2 shadow-lg bg-secondary',
-          'hover:bg-secondary-dark'
-        ]}>
+        <button type='button' class='rounded-full px-6 py-2 shadow-lg bg-secondary hover:bg-secondary-dark'>
           Download Resume
         </button>
         <a href={absoluteUrl('/contact', Astro.site)}
@@ -102,7 +99,3 @@ const titles = userInfo.titles.map(({ title }) => title)
 
   </section>
 </Layout>
-
-<style>
-
-</style>

@@ -16,13 +16,14 @@ interface Props {
     label: string
     link: string
   }[]
+  includeRecaptchaScript: boolean
 }
-const { title, fullName, socials, navLinks } = Astro.props<Props>
+const { title, fullName, socials, navLinks, includeRecaptchaScript } = Astro.props<Props>
 ---
 
 <!DOCTYPE html>
 <html lang='en' class='bg-background lg:bg-primary min-h-full w-full'>
-  <Head title={title}/>
+  <Head title={title} includeRecaptchaScript={includeRecaptchaScript} />
   <body class='bg-background lg:bg-primary font-roboto md:bg-white h-full m-0 w-full overflow-x-hidden overscroll-none'>
     <div class='lg:p-12'>
       <Header fullName={fullName} navLinks={navLinks} />

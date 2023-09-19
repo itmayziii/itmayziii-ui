@@ -5,8 +5,9 @@ import Favicon from './Favicon.astro'
 interface Props {
   title: string
   fullName: string
+  includeRecaptchaScript: boolean
 }
-const { title, fullName } = Astro.props<Props>
+const { title, fullName, includeRecaptchaScript } = Astro.props<Props>
 const googleAnalyticsId = import.meta.env.GOOGLE_ANALYTICS_MEASUREMENT_ID
 ---
 
@@ -33,11 +34,16 @@ gtag('config', googleAnalyticsId)
   <link rel='preconnect' href='https://fonts.googleapis.com'>
   <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
   <link
+    id='font-styles'
     rel="preload"
     href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=optional"
     as="style"
-    onload="this.onload=null;this.rel='stylesheet'"
   />
+  <script is:inline type='module'>
+    const fontStyles = document.getElementById('font-styles')
+    fontStyles.onload = null
+    fontStyles.rel = 'stylesheet'
+  </script>
   <noscript>
     <link
       rel="stylesheet"
@@ -46,5 +52,7 @@ gtag('config', googleAnalyticsId)
     />
   </noscript>
 
+  {includeRecaptchaScript &&
+    <script is:inline src="https://www.google.com/recaptcha/enterprise.js" async defer></script>}
   <ViewTransitions />
 </head>

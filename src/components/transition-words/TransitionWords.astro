@@ -9,9 +9,8 @@ const { as: Element, words, class: className } = Astro.props<Props>
 
 <itmayziii-titles data-js-words={words}>
   <Element
-    class:list={['transition-opacity duration-3000 delay-100 ease-linear', className]}
+    class:list={['transition-opacity duration-3000 delay-100 ease-linear opacity-100', className]}
     data-js-transition-el
-    style='opacity: 1;'
   >
     {words[0] ?? ''}
   </Element>

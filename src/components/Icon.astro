@@ -22,6 +22,7 @@ import PhpIcon from './icons/PhpIcon.astro'
 import TerraformIcon from './icons/TerraformIcon.astro'
 import MapIcon from './icons/MapIcon.astro'
 import MailIcon from './icons/MailIcon.astro'
+import ConstructionIcon from './icons/ConstructionIcon.astro'
 
 interface Props {
   name: string
@@ -52,7 +53,8 @@ const icons = {
   php: PhpIcon,
   terraform: TerraformIcon,
   map: MapIcon,
-  mail: MailIcon
+  mail: MailIcon,
+  construction: ConstructionIcon
 }
 const Icon = icons[name]
 ---

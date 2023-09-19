@@ -9,7 +9,7 @@ interface Props {
     label: string
   }[]
 }
-const { class: className, socials } = Astro.props
+const { class: className, socials } = Astro.props<Props>
 ---
 
 <footer class:list={[

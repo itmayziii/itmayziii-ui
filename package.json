@@ -16,6 +16,7 @@
     "@astrojs/node": "~6.0.0",
     "@astrojs/tailwind": "~5.0.0",
     "astro": "~3.0.13",
+    "content-security-policy-builder": "~2.1.1",
     "graphql": "~15.8.0",
     "graphql-tag": "~2.12.6",
     "tailwindcss": "~3.3.3"
