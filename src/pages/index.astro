@@ -9,9 +9,6 @@ import WhatIDoSection from '../components/WhatIDoSection.astro'
 import UnderlineHeading from '../components/UnderlineHeading.astro'
 import Skill from '../components/Skill.astro'
 
-// https://docs.astro.build/en/guides/server-side-rendering/#opting-out-of-pre-rendering
-export const prerender = true
-
 const response = await graphqlFetch(homeQuery, 'Home')
 const { Headshots: headshots, UserInfo: userInfo, Home: home, Nav: nav } = (await response.json()).data
 const headshotAlt = headshots.docs[0].alt

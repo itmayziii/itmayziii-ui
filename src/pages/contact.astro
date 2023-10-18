@@ -5,9 +5,6 @@ import contactQuery from '../queries/contactQuery'
 import Icon from '../components/Icon.astro'
 import ContactForm from '../components/ContactForm.astro'
 
-// https://docs.astro.build/en/guides/server-side-rendering/#opting-out-of-pre-rendering
-export const prerender = true
-
 const response = await graphqlFetch(contactQuery, 'Contact')
 const { UserInfo: userInfo, Nav: nav, Contact: contact } = (await response.json()).data
 
