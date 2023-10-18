@@ -1,9 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import { graphqlFetch, submitForm } from '../cmsFetch'
+import { graphqlFetch, submitForm } from '../cms'
 import contactQuery from '../queries/contactQuery'
 import Icon from '../components/Icon.astro'
 import ContactForm from '../components/ContactForm.astro'
+
+// https://docs.astro.build/en/guides/server-side-rendering/#opting-out-of-pre-rendering
+export const prerender = true
 
 const response = await graphqlFetch(contactQuery, 'Contact')
 const { UserInfo: userInfo, Nav: nav, Contact: contact } = (await response.json()).data
@@ -12,12 +15,11 @@ let initialFormValues: FormData
 if (Astro.request.method === 'POST') {
   const formData = await Astro.request.formData()
   const formResponse = await submitForm('contact', formData)
-
-  console.log('response', formResponse)
-  const t = await formResponse.json()
-  console.log('t', t)
-
-  console.log('data', t)
+  console.log('formResponse', formResponse)
+  if (!formResponse.ok) {
+    // Set the form values back to the data so users can submit the request again
+    initialFormValues = formData
+  }
 }
 ---
 

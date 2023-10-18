@@ -1,8 +1,9 @@
 import type { DocumentNode } from 'graphql'
 import { print } from 'graphql/language/printer'
 
+const graphqlUrl = (new URL('/api/graphql', import.meta.env.PUBLIC_CMS_API_URL)).toString()
 export async function graphqlFetch (doc: DocumentNode, operationName: string): ReturnType<typeof fetch> {
-  return await fetch(`${import.meta.env.CMS_API_URL}/api/graphql`, {
+  return await fetch(graphqlUrl, {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
@@ -16,14 +17,15 @@ export async function graphqlFetch (doc: DocumentNode, operationName: string): R
   })
 }
 
-export async function submitForm (formName: string, data: Record<string, any>): ReturnType<typeof fetch> {
-  return await fetch(`${import.meta.env.CMS_API_URL}/api/forms/${formName}`, {
+export async function submitForm (formName: string, data: FormData): ReturnType<typeof fetch> {
+  const url = (new URL(`/api/forms/${formName}`, import.meta.env.PUBLIC_CMS_API_URL)).toString()
+  return await fetch(url, {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
       accept: 'application/json',
       authorization: `machines API-Key ${import.meta.env.CMS_API_TOKEN}`
     },
-    body: JSON.stringify(data)
+    body: JSON.stringify(Object.fromEntries(data))
   })
 }

@@ -8,7 +8,7 @@ interface Props {
   includeRecaptchaScript: boolean
 }
 const { title, fullName, includeRecaptchaScript } = Astro.props<Props>
-const googleAnalyticsId = import.meta.env.GOOGLE_ANALYTICS_MEASUREMENT_ID
+const googleAnalyticsId = import.meta.env.PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID
 ---
 
 <head>
@@ -18,7 +18,7 @@ const googleAnalyticsId = import.meta.env.GOOGLE_ANALYTICS_MEASUREMENT_ID
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BXJ0YDMHGG"></script>
   <script is:inline define:vars={{ googleAnalyticsId }}>
 window.dataLayer = window.dataLayer || []
-function gtag () { dataLayer.push(arguments) }
+function gtag () { window.dataLayer.push(arguments) }
 gtag('js', new Date())
 
 gtag('config', googleAnalyticsId)

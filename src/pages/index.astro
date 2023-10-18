@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import { graphqlFetch } from '../cmsFetch'
+import { graphqlFetch } from '../cms'
 import Headshot from '../components/Headshot.astro'
 import TransitionWords from '../components/transition-words/TransitionWords.astro'
 import homeQuery from '../queries/homeQuery'
@@ -8,6 +8,9 @@ import { absoluteUrl } from '../browserUtilities'
 import WhatIDoSection from '../components/WhatIDoSection.astro'
 import UnderlineHeading from '../components/UnderlineHeading.astro'
 import Skill from '../components/Skill.astro'
+
+// https://docs.astro.build/en/guides/server-side-rendering/#opting-out-of-pre-rendering
+export const prerender = true
 
 const response = await graphqlFetch(homeQuery, 'Home')
 const { Headshots: headshots, UserInfo: userInfo, Home: home, Nav: nav } = (await response.json()).data
@@ -63,7 +66,7 @@ const titles = userInfo.titles.map(({ title }) => title)
         <button type='button' class='rounded-full px-6 py-2 shadow-lg bg-secondary hover:bg-secondary-dark'>
           Download Resume
         </button>
-        <a href={absoluteUrl('/contact', Astro.site)}
+        <a href={absoluteUrl('/contact/', Astro.site)}
           class='mt-2 text-gray-300 rounded-full border border-gray-300 px-6 py-2 md:ml-2 md:mt-0 hover:bg-gray-900'>
           Contact
         </a>

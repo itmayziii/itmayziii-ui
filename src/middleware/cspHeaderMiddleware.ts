@@ -1,8 +1,7 @@
-import type { MiddlewareHandler } from 'astro'
-import { sequence } from 'astro:middleware'
 import cspBuilder from 'content-security-policy-builder'
+import { defineMiddleware } from 'astro:middleware'
 
-const setCspHeader: MiddlewareHandler<any> = async function setCspHeader (_, next) {
+export default defineMiddleware(async (_, next) => {
   const response = await next()
   if (response.headers.get('content-type') !== 'text/html') return response
 
@@ -35,7 +34,7 @@ const setCspHeader: MiddlewareHandler<any> = async function setCspHeader (_, nex
       imgSrc: [
         '\'self\'',
         'https://maps.googleapis.com',
-        import.meta.env.CMS_API_URL
+        import.meta.env.PUBLIC_CMS_API_URL
       ],
       frameSrc: [
         'https://www.google.com'
@@ -48,6 +47,4 @@ const setCspHeader: MiddlewareHandler<any> = async function setCspHeader (_, nex
   }))
 
   return response
-}
-
-export const onRequest = sequence(setCspHeader)
+})

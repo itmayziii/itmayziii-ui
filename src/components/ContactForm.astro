@@ -1,9 +1,11 @@
 ---
+import { absoluteUrl } from '../browserUtilities'
 interface Props {
   email: string
   initialValues?: FormData
+  submitError?: boolean
 }
-const { email, initialValues } = Astro.props<Props>
+const { email, initialValues, submitError = false } = Astro.props<Props>
 const labelClass = 'w-full mt-2 block text-gray-300'
 const inputClass = 'w-full border-2 border-gray-400 text-gray-300 rounded bg-transparent p-2'
 
@@ -12,20 +14,17 @@ const initialName = formData.get('name')
 const initialEmail = formData.get('email')
 const initialSubject = formData.get('subject')
 const initialMessage = formData.get('message')
-const initialReCaptcha = formData.get('g-recaptcha-response')
 const contactFormId = 'contact-form'
 ---
 
 <form id={contactFormId} class='mt-8 text-white' method='POST'
-  action=`${import.meta.env.SITE}/contact` data-js-contact-form>
+  action={absoluteUrl('/contact/', Astro.site)} data-js-contact-form>
   <noscript>
-    <strong class='text-white break-words italic'>While I try my best to deliver a progressive website that supports
-      users who have JavaScript
-      disabled, it is
-      not always possible. This contact form relies on
+    <strong class='text-white break-words italic'>I try my best to deliver a progressive website that supports
+      users who have JavaScript disabled, it is not always possible. This contact form relies on
       <a class='text-link' href='https://www.google.com/recaptcha/about/'>google reCAPTCHA</a>
-      to keep it secure. If you are unable to enable JavaScript then I suggest you email me directly at
-      <a class='text-link' href={`mailto:${email}`}>{email}</a>
+      to keep it secure and reCAPTCHA relies on JavaScript to run. If you are unable to enable JavaScript then I
+      suggest you email me directly at <a class='text-link' href={`mailto:${email}`}>{email}</a>
     </strong>
   </noscript>
   <div class='mt-8 flex flex-wrap md:flex-row justify-between'>
@@ -50,13 +49,9 @@ const contactFormId = 'contact-form'
   </div>
   <div class='flex flex-col justify-center items-center mt-6 sm:flex-row sm:justify-between'>
     <div>
-      <!-- TODO required reCAPTCHA prior to submit -->
-      {Astro.request.method === 'POST' &&
-        (initialReCaptcha == null || initialReCaptcha === '') &&
-        <span class='text-red-600'>ReCAPTCHA is required</span>}
       <div
         class='g-recaptcha'
-        data-sitekey={import.meta.env.GOOGLE_RECAPTCHA_SITE_KEY}
+        data-sitekey={import.meta.env.PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY}
         data-action='contact'
         data-theme='dark'
         data-callback='itmayziiiRecaptchaCallback'
@@ -70,7 +65,11 @@ const contactFormId = 'contact-form'
   </div>
 </form>
 
-<script define:vars={{ contactFormId }}>
+<script define:vars={{ contactFormId, submitError }}>
+  if (submitError) {
+    window.alert('There was an issue submitting your contact information.')
+  }
+
   let recaptchaFilled = false
   window.itmayziiiRecaptchaCallback = () => {
     recaptchaFilled = true
