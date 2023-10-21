@@ -1,5 +1,5 @@
 ---
-import { densitySrcset, mediaUrl } from '../browserUtilities'
+import { densitySrcset, absoluteUrl } from '../browserUtilities'
 interface Props {
   id: string
   sizes: {
@@ -22,31 +22,30 @@ interface Props {
     }
   }
   alt: string
-  className: string
   loading?: 'eager' | 'lazy'
   fetchpriority?: 'high' | 'low' | 'auto'
 }
-const { id, sizes, alt, class: className, loading, fetchpriority } = Astro.props
+const { id, sizes, alt, loading, fetchpriority } = Astro.props
 const avifSrcset = densitySrcset({
-  1: mediaUrl(sizes.mobile.avifUrl),
-  1.5: mediaUrl(sizes.mobile.avif1_5xUrl),
-  2: mediaUrl(sizes.mobile.avif2xUrl),
-  3: mediaUrl(sizes.mobile.avif3xUrl),
-  4: mediaUrl(sizes.mobile.avif4xUrl)
+  1: absoluteUrl(sizes.mobile.avifUrl, import.meta.env.PUBLIC_MEDIA_URL),
+  1.5: absoluteUrl(sizes.mobile.avif1_5xUrl, import.meta.env.PUBLIC_MEDIA_URL),
+  2: absoluteUrl(sizes.mobile.avif2xUrl, import.meta.env.PUBLIC_MEDIA_URL),
+  3: absoluteUrl(sizes.mobile.avif3xUrl, import.meta.env.PUBLIC_MEDIA_URL),
+  4: absoluteUrl(sizes.mobile.avif4xUrl, import.meta.env.PUBLIC_MEDIA_URL)
 })
 const webpSrcset = densitySrcset({
-  1: mediaUrl(sizes.mobile.webpUrl),
-  1.5: mediaUrl(sizes.mobile.webp1_5xUrl),
-  2: mediaUrl(sizes.mobile.webp2xUrl),
-  3: mediaUrl(sizes.mobile.webp3xUrl),
-  4: mediaUrl(sizes.mobile.webp4xUrl)
+  1: absoluteUrl(sizes.mobile.webpUrl, import.meta.env.PUBLIC_MEDIA_URL),
+  1.5: absoluteUrl(sizes.mobile.webp1_5xUrl, import.meta.env.PUBLIC_MEDIA_URL),
+  2: absoluteUrl(sizes.mobile.webp2xUrl, import.meta.env.PUBLIC_MEDIA_URL),
+  3: absoluteUrl(sizes.mobile.webp3xUrl, import.meta.env.PUBLIC_MEDIA_URL),
+  4: absoluteUrl(sizes.mobile.webp4xUrl, import.meta.env.PUBLIC_MEDIA_URL)
 })
 const jpgSrcset = densitySrcset({
-  1: mediaUrl(sizes.mobile.jpgUrl),
-  1.5: mediaUrl(sizes.mobile.jpg1_5xUrl),
-  2: mediaUrl(sizes.mobile.jpg2xUrl),
-  3: mediaUrl(sizes.mobile.jpg3xUrl),
-  4: mediaUrl(sizes.mobile.jpg4xUrl)
+  1: absoluteUrl(sizes.mobile.jpgUrl, import.meta.env.PUBLIC_MEDIA_URL),
+  1.5: absoluteUrl(sizes.mobile.jpg1_5xUrl, import.meta.env.PUBLIC_MEDIA_URL),
+  2: absoluteUrl(sizes.mobile.jpg2xUrl, import.meta.env.PUBLIC_MEDIA_URL),
+  3: absoluteUrl(sizes.mobile.jpg3xUrl, import.meta.env.PUBLIC_MEDIA_URL),
+  4: absoluteUrl(sizes.mobile.jpg4xUrl, import.meta.env.PUBLIC_MEDIA_URL)
 })
 ---
 
@@ -58,7 +57,7 @@ const jpgSrcset = densitySrcset({
     <img
       class='headshot rounded-full h-auto max-w-full border-primary border-8 grayscale
        shadow-xl shadow-gray-900 cursor-pointer aspect-auto-square'
-      src={mediaUrl(sizes.mobile.jpgUrl)}
+      src={absoluteUrl(sizes.mobile.jpgUrl, import.meta.env.PUBLIC_MEDIA_URL)}
       srcset={jpgSrcset}
       alt={alt}
       height='380'

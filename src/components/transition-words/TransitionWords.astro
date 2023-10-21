@@ -7,13 +7,10 @@ interface Props {
 const { as: Element, words, class: className } = Astro.props<Props>
 ---
 
-<itmayziii-titles data-js-words={words}>
-  <Element
-    class:list={['transition-opacity duration-3000 delay-100 ease-linear opacity-100', className]}
-    data-js-transition-el
-  >
+<itmayziii-transition-words words={JSON.stringify(words)}>
+  <Element class:list={['transition-opacity duration-3000 delay-100 ease-linear opacity-100', className]}>
     {words[0] ?? ''}
   </Element>
-</itmayziii-titles>
+</itmayziii-transition-words>
 
-<script src='./transition-words.ts'></script>
+<script src='./TransitionWords.ts'></script>

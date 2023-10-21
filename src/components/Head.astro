@@ -15,7 +15,7 @@ const googleAnalyticsId = import.meta.env.PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID
   <title>{title}</title>
 
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BXJ0YDMHGG"></script>
+  <script async is:inline src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}></script>
   <script is:inline define:vars={{ googleAnalyticsId }}>
 window.dataLayer = window.dataLayer || []
 function gtag () { window.dataLayer.push(arguments) }

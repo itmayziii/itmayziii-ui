@@ -2,18 +2,6 @@ export function absoluteUrl (relativePath: string, baseUrl: string | URL): strin
   return (new URL(relativePath, baseUrl)).toString()
 }
 
-export function mediaUrl (url: string): string {
-  if (url.startsWith('/')) {
-    return `${import.meta.env.PUBLIC_MEDIA_URL}${url}`
-  }
-  if (url.startsWith('http')) {
-    return url
-  }
-
-  // Being somewhat forgiving in case the starting "/" is missing
-  return `${import.meta.env.PUBLIC_MEDIA_URL}/${url}`
-}
-
 interface Densities {
   1?: string
   '1.5'?: string

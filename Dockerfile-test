@@ -1,0 +1,10 @@
+FROM zenika/alpine-chrome:with-node
+
+COPY package*.json ./
+
+RUN npm ci
+
+COPY . .
+
+USER root
+CMD ["npm", "test"]

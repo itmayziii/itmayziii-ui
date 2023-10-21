@@ -26,6 +26,6 @@ export async function submitForm (formName: string, data: FormData): ReturnType<
       accept: 'application/json',
       authorization: `machines API-Key ${import.meta.env.CMS_API_TOKEN}`
     },
-    body: JSON.stringify(Object.fromEntries(data))
+    body: data
   })
 }

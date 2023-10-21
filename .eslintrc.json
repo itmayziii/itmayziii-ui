@@ -14,7 +14,7 @@
       "files": ["*.ts"],
       "extends": "standard-with-typescript",
       "parserOptions": {
-        "project": "./tsconfig.json"
+        "project": "./tsconfig.test.json"
       },
       "plugins": ["tsdoc"],
       "rules": {

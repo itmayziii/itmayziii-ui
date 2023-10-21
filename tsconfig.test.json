@@ -1,9 +1,8 @@
 {
-  "extends": "astro/tsconfigs/strictest",
+  "extends": "./tsconfig.json",
   "compilerOptions": {
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "useDefineForClassFields": false,
     "lib": [
       "DOM",
       "ES2022"
@@ -15,5 +14,5 @@
     ]
   },
   "include": ["src/**/*"],
-  "exclude": ["src/**/*.test.ts"]
+  "exclude": []
 }

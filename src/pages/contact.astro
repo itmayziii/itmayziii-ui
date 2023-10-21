@@ -1,23 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import { graphqlFetch, submitForm } from '../cms'
+import { graphqlFetch } from '../cms'
 import contactQuery from '../queries/contactQuery'
 import Icon from '../components/Icon.astro'
 import ContactForm from '../components/ContactForm.astro'
 
 const response = await graphqlFetch(contactQuery, 'Contact')
 const { UserInfo: userInfo, Nav: nav, Contact: contact } = (await response.json()).data
-
-let initialFormValues: FormData
-if (Astro.request.method === 'POST') {
-  const formData = await Astro.request.formData()
-  const formResponse = await submitForm('contact', formData)
-  console.log('formResponse', formResponse)
-  if (!formResponse.ok) {
-    // Set the form values back to the data so users can submit the request again
-    initialFormValues = formData
-  }
-}
 ---
 
 <Layout
@@ -63,7 +52,7 @@ if (Astro.request.method === 'POST') {
     />
   </section>
   <hr class='mt-8 border-gray-700'/>
-  <ContactForm email={contact.details.email.email} initialValues={initialFormValues} />
+  <ContactForm email={contact.details.email.email} />
 </Layout>
 
 <style>
