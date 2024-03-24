@@ -1,12 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import { graphqlFetch } from '../cms'
-import contactQuery from '../queries/contactQuery'
-import Icon from '../components/Icon.astro'
-import ContactForm from '../components/ContactForm.astro'
+import Icon from '../components/icon.astro'
+import ContactForm from '../components/contact-form/contact-form.astro'
+import { graphqlSdk } from '../private-cms'
 
-const response = await graphqlFetch(contactQuery, 'Contact')
-const { UserInfo: userInfo, Nav: nav, Contact: contact } = (await response.json()).data
+const response = await graphqlSdk.ContactPage()
+const { UserInfo: userInfo, Nav: nav, Contact: contact } = response
 ---
 
 <Layout
@@ -52,8 +51,5 @@ const { UserInfo: userInfo, Nav: nav, Contact: contact } = (await response.json(
     />
   </section>
   <hr class='mt-8 border-gray-700'/>
-  <ContactForm email={contact.details.email.email} />
+  <ContactForm site-url={Astro.site.toString()} />
 </Layout>
-
-<style>
-</style>

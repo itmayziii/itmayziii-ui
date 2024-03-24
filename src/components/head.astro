@@ -1,6 +1,6 @@
 ---
 import { ViewTransitions } from 'astro:transitions'
-import Favicon from './Favicon.astro'
+import Favicon from './favicon.astro'
 
 interface Props {
   title: string
@@ -12,7 +12,10 @@ const googleAnalyticsId = import.meta.env.PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID
 ---
 
 <head>
+  <meta charset='UTF-8' />
+  <meta name='viewport' content='width=device-width' />
   <title>{title}</title>
+  <meta name='description' content={`Personal site for ${fullName}`}>
 
   <!-- Google tag (gtag.js) -->
   <script async is:inline src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}></script>
@@ -25,9 +28,6 @@ gtag('config', googleAnalyticsId)
 </script>
   <!-- End Google tag (gtag.js) -->
 
-  <meta charset='UTF-8' />
-  <meta name='description' content={`Personal site for ${fullName}`}>
-  <meta name='viewport' content='width=device-width' />
   <Favicon />
   <meta name='generator' content={Astro.generator} />
 

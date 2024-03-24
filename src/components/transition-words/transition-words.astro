@@ -1,0 +1,17 @@
+---
+interface Props {
+  as: 'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+  words: string[]
+  class: string[]
+}
+const { as: Element, words, class: className } = Astro.props<Props>
+---
+
+<Element
+  data-js-transition-words={JSON.stringify(words)}
+  class:list={['transition-opacity duration-3000 delay-100 ease-linear opacity-100', className]}
+>
+  {words[0] ?? ''}
+</Element>
+
+<script src='./transition-words.ts'></script>

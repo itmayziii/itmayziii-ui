@@ -1,18 +1,5 @@
 {
   "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "lib": [
-      "DOM",
-      "ES2022"
-    ],
-    "plugins": [
-      {
-        "name": "@astrojs/ts-plugin"
-      }
-    ]
-  },
   "include": ["src/**/*"],
-  "exclude": []
+  "exclude": ["src/graphql/generated/**/*"]
 }

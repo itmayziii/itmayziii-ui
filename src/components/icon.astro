@@ -1,0 +1,62 @@
+---
+import ApiIcon from './icons/api-icon.astro'
+import CodeIcon from './icons/code-icon.astro'
+import ComputerIcon from './icons/computer-icon.astro'
+import GithubIcon from './icons/github-icon.astro'
+import TwitterIcon from './icons/twitter-icon.astro'
+import LinkedInIcon from './icons/linkedi-icon.astro'
+import JavaScriptIcon from './icons/javascript-icon.astro'
+import TypeScriptIcon from './icons/typescript-icon.astro'
+import NodeJsIcon from './icons/nodejs-icon.astro'
+import VueIcon from './icons/vue-icon.astro'
+import ReactIcon from './icons/react-icon.astro'
+import AngularIcon from './icons/angular-icon.astro'
+import GcpIcon from './icons/gcp-icon.astro'
+import AstroIcon from './icons/astro-icon.astro'
+import NextJsIcon from './icons/nextjs-icon.astro'
+import GoIcon from './icons/go-icon.astro'
+import DockerIcon from './icons/docker-icon.astro'
+import JavaIcon from './icons/java-icon.astro'
+import RubyIcon from './icons/ruby-icon.astro'
+import PhpIcon from './icons/php-icon.astro'
+import TerraformIcon from './icons/terraform-icon.astro'
+import MapIcon from './icons/map-icon.astro'
+import MailIcon from './icons/mail-icon.astro'
+import ConstructionIcon from './icons/construction-icon.astro'
+
+interface Props {
+  name: string
+  class: string
+}
+const { name, class: className } = Astro.props<Props>
+
+const icons = {
+  api: ApiIcon,
+  code: CodeIcon,
+  computer: ComputerIcon,
+  github: GithubIcon,
+  twitter: TwitterIcon,
+  linkedIn: LinkedInIcon,
+  javascript: JavaScriptIcon,
+  typescript: TypeScriptIcon,
+  nodejs: NodeJsIcon,
+  vue: VueIcon,
+  react: ReactIcon,
+  angular: AngularIcon,
+  gcp: GcpIcon,
+  astro: AstroIcon,
+  nextjs: NextJsIcon,
+  go: GoIcon,
+  docker: DockerIcon,
+  java: JavaIcon,
+  ruby: RubyIcon,
+  php: PhpIcon,
+  terraform: TerraformIcon,
+  map: MapIcon,
+  mail: MailIcon,
+  construction: ConstructionIcon
+}
+const Icon = icons[name]
+---
+
+{Icon !== undefined && <Icon class={className} />}

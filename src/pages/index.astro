@@ -1,34 +1,37 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import { graphqlFetch } from '../cms'
-import Headshot from '../components/Headshot.astro'
-import TransitionWords from '../components/transition-words/TransitionWords.astro'
-import homeQuery from '../queries/homeQuery'
-import { absoluteUrl } from '../browserUtilities'
-import WhatIDoSection from '../components/WhatIDoSection.astro'
-import UnderlineHeading from '../components/UnderlineHeading.astro'
-import Skill from '../components/Skill.astro'
+import { graphqlSdk } from '../private-cms'
+import Headshot from '../components/headshot.astro'
+import TransitionWords from '../components/transition-words/transition-words.astro'
+import { absoluteUrl } from '../utilities'
+import WhatIDoSection from '../components/what-i-do-section.astro'
+import UnderlineHeading from '../components/underline-heading.astro'
+import Skill from '../components/skill.astro'
 
-const response = await graphqlFetch(homeQuery, 'Home')
-const { Headshots: headshots, UserInfo: userInfo, Home: home, Nav: nav } = (await response.json()).data
-const headshotAlt = headshots.docs[0].alt
+const response = await graphqlSdk.HomePage()
+const { Headshots: headshots, UserInfo: userInfo, Home: home, Nav: nav } = response
+if (headshots == null || userInfo == null || home == null || nav == null) {
+  throw new Error('home page: missing data')
+}
+
+const headshotAlt = headshots.docs[0]?.alt
 const headshotSizes = {
   mobile: {
-    jpgUrl: headshots.docs[0].sizes.mobile.url,
-    webpUrl: headshots.docs[0].sizes.mobileWebp.url,
-    avifUrl: headshots.docs[0].sizes.mobileAvif.url,
-    jpg1_5xUrl: headshots.docs[0].sizes.mobile1_5x.url,
-    webp1_5xUrl: headshots.docs[0].sizes.mobileWebp1_5x.url,
-    avif1_5xUrl: headshots.docs[0].sizes.mobileAvif1_5x.url,
-    jpg2xUrl: headshots.docs[0].sizes.mobile2x.url,
-    webp2xUrl: headshots.docs[0].sizes.mobileWebp2x.url,
-    avif2xUrl: headshots.docs[0].sizes.mobileAvif2x.url,
-    jpg3xUrl: headshots.docs[0].sizes.mobile3x.url,
-    webp3xUrl: headshots.docs[0].sizes.mobileWebp3x.url,
-    avif3xUrl: headshots.docs[0].sizes.mobileAvif3x.url,
-    jpg4xUrl: headshots.docs[0].sizes.mobile4x.url,
-    webp4xUrl: headshots.docs[0].sizes.mobileWebp4x.url,
-    avif4xUrl: headshots.docs[0].sizes.mobileAvif4x.url
+    jpgUrl: headshots.docs[0]?.sizes.mobile.url,
+    webpUrl: headshots.docs[0]?.sizes.mobileWebp.url,
+    avifUrl: headshots.docs[0]?.sizes.mobileAvif.url,
+    jpg1_5xUrl: headshots.docs[0]?.sizes.mobile1_5x.url,
+    webp1_5xUrl: headshots.docs[0]?.sizes.mobileWebp1_5x.url,
+    avif1_5xUrl: headshots.docs[0]?.sizes.mobileAvif1_5x.url,
+    jpg2xUrl: headshots.docs[0]?.sizes.mobile2x.url,
+    webp2xUrl: headshots.docs[0]?.sizes.mobileWebp2x.url,
+    avif2xUrl: headshots.docs[0]?.sizes.mobileAvif2x.url,
+    jpg3xUrl: headshots.docs[0]?.sizes.mobile3x.url,
+    webp3xUrl: headshots.docs[0]?.sizes.mobileWebp3x.url,
+    avif3xUrl: headshots.docs[0]?.sizes.mobileAvif3x.url,
+    jpg4xUrl: headshots.docs[0]?.sizes.mobile4x.url,
+    webp4xUrl: headshots.docs[0]?.sizes.mobileWebp4x.url,
+    avif4xUrl: headshots.docs[0]?.sizes.mobileAvif4x.url
   }
 }
 const titles = userInfo.titles.map(({ title }) => title)
@@ -60,11 +63,11 @@ const titles = userInfo.titles.map(({ title }) => title)
         {userInfo.description}
       </p>
       <div class='flex flex-col items-center mt-6 md:flex-row'>
-        <button type='button' class='rounded-full px-6 py-2 shadow-lg bg-secondary hover:bg-secondary-dark'>
-          Download Resume
-        </button>
+        <!--<button type='button' class='rounded-full px-6 py-2 shadow-lg bg-secondary hover:bg-secondary-dark'>-->
+        <!--  Download Resume-->
+        <!--</button>-->
         <a href={absoluteUrl('/contact/', Astro.site)}
-          class='mt-2 text-gray-300 rounded-full border border-gray-300 px-6 py-2 md:ml-2 md:mt-0 hover:bg-gray-900'>
+          class='rounded-full px-6 py-2 shadow-lg bg-secondary hover:bg-secondary-dark'>
           Contact
         </a>
       </div>
