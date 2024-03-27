@@ -9,11 +9,10 @@ import { getSdk } from './graphql/generated/generated.ts'
 const graphqlUrl = absoluteUrl('/api/graphql', import.meta.env.PUBLIC_CMS_API_URL)
 const client = new GraphQLClient(graphqlUrl, {
   headers: {
-    'content-type': 'application/json',
-    accept: 'application/json',
     authorization: `machines API-Key ${import.meta.env.CMS_API_TOKEN}`
   }
 })
+
 const graphqlSdk = getSdk(client)
 
 export { graphqlSdk }

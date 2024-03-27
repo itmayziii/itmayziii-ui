@@ -4,13 +4,9 @@
   "version": "0.0.1",
   "scripts": {
     "prestart": "npm run introspectSchema && npm run generate-graphql-types",
-    "start": "APP_ENV=development astro dev",
+    "start": "astro dev",
     "build": "astro build",
-    "build:dev": "APP_ENV=development npm run build",
-    "build:prod": "APP_ENV=production npm run build",
     "preview": "astro preview",
-    "preview:dev": "APP_ENV=development astro preview",
-    "preview:prod": "APP_ENV=production astro preview",
     "check": "astro check",
     "astro": "astro",
     "introspectSchema": "graphql-inspector introspect http://localhost:3000/api/graphql --write schema.graphql",
@@ -22,7 +18,7 @@
   },
   "dependencies": {
     "@astrojs/tailwind": "~5.1.0",
-    "astro": "~3.6.5",
+    "astro": "~4.5.9",
     "graphql": "~16.8.1",
     "graphql-request": "~6.1.0",
     "graphql-tag": "~2.12.6",

@@ -1,6 +1,4 @@
 ---
-import HamburgerMenu from './hamburger-menu.astro'
-
 interface Props {
   links: {
     label
@@ -9,12 +7,21 @@ interface Props {
 }
 
 const { links } = Astro.props<Props>
+const barClass = 'bg-white p-0 w-6 h-1 block absolute rounded'
 ---
 
 <nav class='text-white'>
-  <HamburgerMenu />
+  <input type='checkbox' id='hamburger-menu' class='hamburger-input hidden'>
+  <label for='hamburger-menu' class='hamburger-icon cursor-pointer lg:hidden'>
+  <span class='hamburger block h-6 w-6 relative'>
+    <span class:list={['hamburger-bar hamburger-bar1 top-0', barClass]}></span>
+    <span class:list={['hamburger-bar hamburger-bar2 top-2.5', barClass]}></span>
+    <span class:list={['hamburger-bar hamburger-bar3 right-0 top-2.5', barClass]}></span>
+    <span class:list={['hamburger-bar hamburger-bar4 bottom-0', barClass]}></span>
+  </span>
+  </label>
   <ul class:list={[
-    'iii-nav-list w-full max-w-xs fixed right-0 h-full bg-background overflow-hidden px-6 py-4',
+    'nav-list w-full max-w-xs fixed right-0 h-full bg-background overflow-hidden px-6 py-4',
     'z-40 transition-transform translate-x-full capitalize',
     'lg:static lg:h-auto lg:max-w-none lg:translate-x-0 lg:transition-none lg:p-0'
   ]}>
@@ -32,12 +39,48 @@ const { links } = Astro.props<Props>
   </ul>
 </nav>
 
-<style is:global>
-  .iii-nav-list {
+<style>
+  .nav-list {
     top: 48px;
   }
 
-  .iii-hamburger-input:checked ~ .iii-nav-list {
+  .hamburger-input:checked ~ .nav-list {
     transform: translate(0);
+  }
+
+  .hamburger-bar {
+    transition: all 0.2s ease-in-out;
+  }
+
+  .hamburger-bar1 {
+    transform-origin: 5%;
+  }
+
+  .hamburger-bar4 {
+    transform-origin: 5%;
+  }
+
+  .hamburger-input:checked + .hamburger-icon .hamburger-bar1 {
+    transform: rotate(45deg);
+    height: 3px;
+    width: 34px;
+  }
+
+  .hamburger-input:checked + .hamburger-icon .hamburger-bar2 {
+    transform: rotate(-45deg);
+    height: 3px;
+    background-color: transparent;
+  }
+
+  .hamburger-input:checked + .hamburger-icon .hamburger-bar3 {
+    transform: rotate(45deg);
+    height: 3px;
+    background-color: transparent;
+  }
+
+  .hamburger-input:checked + .hamburger-icon .hamburger-bar4 {
+    transform: rotate(-45deg);
+    height: 3px;
+    width: 34px;
   }
 </style>

@@ -1,0 +1,167 @@
+steps:
+  - id: 'install-dependencies'
+    name: 'node:20-alpine'
+    entrypoint: 'npm'
+    args: [
+      'ci'
+    ]
+    env:
+      - 'NO_COLOR=true'
+    waitFor: ['-'] # Run immediately
+
+  - id: 'build'
+    name: 'node:20-alpine'
+    entrypoint: 'npm'
+    args: [
+      'run',
+      'build'
+    ]
+    env:
+      - 'NO_COLOR=true'
+      - 'PUBLIC_CMS_API_URL=https://cms.tommymay.dev'
+      - 'PUBLIC_SITE_URL=https://tommymay.dev'
+      - 'PUBLIC_MEDIA_URL=https://tommymay.dev'
+      - 'PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID=G-BXJ0YDMHGG'
+      - 'PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY=6LdCoY4oAAAAAKDcokcIgxgAZakByK1m9XVDo2O3'
+    secretEnv:
+      - 'CMS_API_TOKEN'
+    waitFor: ['install-dependencies']
+
+    # First we put contents in the "staging" folder and then set the metadata. When we copy the files from the "staging"
+    # folder to the "live" folder the metadata will be copied with it and there will be no moment where we are
+    # missing metadata.
+  - id: 'copy-to-staging-folder'
+    name: 'gcr.io/cloud-builders/gsutil'
+    entrypoint: 'gsutil'
+    args: [
+      '-m',
+      'rsync',
+      '-r', # Recursively
+      '-d', # Delete old folder contents
+      # Computes checksums instead of comparing mtime. Project is always rebuild, mtime will be different every time.
+      '-c',
+      '-j', # Enables in-memory gzip before upload
+      'html,css,js',
+      './dist',
+      'gs://tommy-may-dev/staging'
+    ]
+    waitFor: ['build']
+
+    # Set metadata prior to rsync to "live" folder
+  - id: 'set-html-metadata-staging'
+    name: 'gcr.io/cloud-builders/gsutil'
+    entrypoint: 'gsutil'
+    args: [
+      '-m',
+      'setmeta',
+      '-h',
+      'Content-Type: text/html',
+      '-h',
+      'Cache-Control: public, max-age=3600', # 1 Hour
+      'gs://tommy-may-dev/staging/**.html'
+    ]
+    waitFor: ['copy-to-staging-folder']
+
+  # Set metadata prior to rsync to "live" folder
+  - id: 'set-js-metadata-staging'
+    name: 'gcr.io/cloud-builders/gsutil'
+    entrypoint: 'gsutil'
+    args: [
+      '-m',
+      'setmeta',
+      '-h', # Header
+      'Content-Type: text/javascript',
+      '-h', # Header
+      'Cache-Control: public, max-age=31536000, immutable', # 1 Year
+      'gs://tommy-may-dev/staging/**.js'
+    ]
+    waitFor: ['copy-to-staging-folder']
+
+  # Set metadata prior to rsync to "live" folder
+  - id: 'set-css-metadata-staging'
+    name: 'gcr.io/cloud-builders/gsutil'
+    entrypoint: 'gsutil'
+    args: [
+      '-m',
+      'setmeta',
+      '-h', # Header
+      'Content-Type: text/css',
+      '-h', # Header
+      'Cache-Control: public, max-age=31536000, immutable', # 1 Year
+      'gs://tommy-may-dev/staging/**.css'
+    ]
+    waitFor: ['copy-to-staging-folder']
+
+  - id: 'copy-staging-to-live-folder'
+    name: 'gcr.io/cloud-builders/gsutil'
+    entrypoint: 'gsutil'
+    args: [
+      '-m',
+      'rsync',
+      '-r', # Recursively
+      '-d', # Delete old folder contents
+      # Computes checksums instead of comparing mtime. Project is always rebuild, mtime will be different every time.
+      '-c',
+      '-j', # Enables in-memory gzip before upload
+      'html,css,js',
+      '-x', # Images directory is managed by our CMS
+      'images',
+      'gs://tommy-may-dev/staging',
+      'gs://tommy-may-dev/live'
+    ]
+    waitFor: ['set-html-metadata-staging', 'set-js-metadata-staging', 'set-css-metadata-staging']
+
+    # Set metadata after rsync to "live" folder just in case
+  - id: 'set-html-metadata-live'
+    name: 'gcr.io/cloud-builders/gsutil'
+    entrypoint: 'gsutil'
+    args: [
+      '-m',
+      'setmeta',
+      '-h',
+      'Content-Type: text/html',
+      '-h',
+      'Cache-Control: public, max-age=3600', # 1 Hour
+      'gs://tommy-may-dev/live/**.html'
+    ]
+    waitFor: ['copy-staging-to-live-folder']
+
+  # Set metadata after rsync to "live" folder just in case
+  - id: 'set-js-metadata-live'
+    name: 'gcr.io/cloud-builders/gsutil'
+    entrypoint: 'gsutil'
+    args: [
+      '-m',
+      'setmeta',
+      '-h', # Header
+      'Content-Type: text/javascript',
+      '-h', # Header
+      'Cache-Control: public, max-age=31536000, immutable', # 1 Year
+      'gs://tommy-may-dev/live/**.js'
+    ]
+    waitFor: ['copy-staging-to-live-folder']
+
+  # Set metadata after rsync to "live" folder
+  - id: 'set-css-metadata-live'
+    name: 'gcr.io/cloud-builders/gsutil'
+    entrypoint: 'gsutil'
+    args: [
+      '-m',
+      'setmeta',
+      '-h', # Header
+      'Content-Type: text/css',
+      '-h', # Header
+      'Cache-Control: public, max-age=31536000, immutable', # 1 Year
+      'gs://tommy-may-dev/live/**.css'
+    ]
+    waitFor: ['copy-staging-to-live-folder']
+
+availableSecrets:
+  secretManager:
+    - versionName: 'projects/$PROJECT_ID/secrets/itmayziii-ui-cms-api-token/versions/latest'
+      env: 'CMS_API_TOKEN'
+
+options:
+  logging: 'CLOUD_LOGGING_ONLY'
+tags: ['deploy', 'itmayziii-ui']
+timeout: '600s' # 10 minutes
